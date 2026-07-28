@@ -86,3 +86,20 @@ h1{
 .visual-return p{color:#a9bad0;margin:0}
 .original-links{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
 @media(max-width:760px){.visual-return{grid-template-columns:1fr}}
+
+
+/* 2026 SEO, accessibility and layout-stability additions */
+.review-status{margin:.65rem 0 0;color:#94a3b8;font-size:.86rem;line-height:1.65}
+.cert-evidence-note{max-width:920px;margin:24px auto 0;color:#94a3b8;font-size:.86rem;line-height:1.65;text-align:center}
+.brand img{aspect-ratio:45/13;object-fit:contain}
+.visual-return img{aspect-ratio:40/21;object-fit:cover}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+
+/* Vipyctmall primary brand + AKG Global companion logo lockup */
+.brand img{
+  width:min(330px,44vw);height:52px;max-width:none;aspect-ratio:auto;
+  object-fit:contain;background:rgba(255,255,255,.97);padding:6px 10px;
+  border-radius:12px;filter:none;box-shadow:0 8px 24px rgba(0,0,0,.28)
+}
+@media(max-width:720px){.brand img{width:min(245px,64vw);height:46px;padding:5px 8px}}
