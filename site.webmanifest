@@ -1,16 +1,25 @@
 {
-  "name": "AKG Global",
-  "short_name": "AKG Global",
+  "name": "Vipyctmall · AKG Global",
+  "short_name": "Vipyctmall",
+  "description": "Vipyctmall 與 AKG Global 的 AKG、NAD+、健康老化、產品資訊與會員決策多語系網站。",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#070B14",
   "theme_color": "#070B14",
+  "lang": "zh-Hant-TW",
   "icons": [
     {
-      "src": "https://point.vipyct.com/assets/logo-rRfhN4-b.png",
+      "src": "/assets/brand/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/brand/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
-  ],
-  "scope": "/"
+  ]
 }
