@@ -98,8 +98,8 @@ h1{
 
 /* Vipyctmall primary brand + AKG Global companion logo lockup */
 .brand img{
-  width:min(330px,44vw);height:52px;max-width:none;aspect-ratio:auto;
-  object-fit:contain;background:rgba(255,255,255,.97);padding:6px 10px;
-  border-radius:12px;filter:none;box-shadow:0 8px 24px rgba(0,0,0,.28)
+  width:min(360px,48vw);height:56px;max-width:none;aspect-ratio:auto;
+  object-fit:contain;background:transparent;padding:0;border-radius:0;
+  filter:drop-shadow(0 0 7px rgba(56,189,248,.58)) drop-shadow(0 0 16px rgba(14,165,233,.28));box-shadow:none
 }
-@media(max-width:720px){.brand img{width:min(245px,64vw);height:46px;padding:5px 8px}}
+@media(max-width:720px){.brand img{width:min(260px,68vw);height:48px;padding:0}}
