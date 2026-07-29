@@ -1,0 +1,29 @@
+{
+  "release": "Vipyctmall Traditional Chinese Member Conversion Edition",
+  "date": "2026-07-29",
+  "primary_goal": "Increase qualified official member registrations",
+  "modified_file": "zh-tw/index.html",
+  "member_registration_cta_count": 11,
+  "conversion_changes": [
+    "Benefit-first hero section with primary and secondary CTAs",
+    "Four-member-value cards directly below the hero",
+    "Rewritten 15-topic text guide with opportunity-led messaging",
+    "Reframed product section around relatable use and sharing stories",
+    "Reframed bonus-plan section around individual and team growth",
+    "Rewritten three-step onboarding flow",
+    "Conversion-focused 10-question FAQ and synchronized FAQ schema",
+    "Dismissible sticky registration CTA on desktop and mobile",
+    "Conversion-focused title, meta description, Open Graph and Twitter text",
+    "Required health and earnings disclosures retained at the bottom"
+  ],
+  "qa": {
+    "conversion_title": true,
+    "conversion_h1": true,
+    "member_value_section": true,
+    "sticky_member_cta": true,
+    "conversion_faq_count": true,
+    "member_cta_count_at_least_8": true,
+    "favicon_max_preserved": true,
+    "verification_files_preserved": true
+  }
+}
