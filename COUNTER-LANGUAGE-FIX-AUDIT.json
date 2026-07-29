@@ -1,0 +1,189 @@
+{
+  "release": "Vipyctmall CEO 15-language counter-path correction",
+  "date": "2026-07-29",
+  "root_cause": "All 15 language homepages previously declared data-akg-path=\"/zh-tw/\".",
+  "fixes": [
+    "Each language homepage now declares its own /language/ path.",
+    "counter-track.js now uses window.location.pathname as source of truth.",
+    "A stale copied data-akg-path value can no longer misclassify visits.",
+    "Counter script cache version was changed to force fresh loading.",
+    "Existing Cloudflare Worker endpoint and siteKey were preserved."
+  ],
+  "tracking_pages": [
+    {
+      "language": "zh-tw",
+      "declared_path": "/zh-tw/",
+      "expected_path": "/zh-tw/",
+      "correct": true
+    },
+    {
+      "language": "zh-cn",
+      "declared_path": "/zh-cn/",
+      "expected_path": "/zh-cn/",
+      "correct": true
+    },
+    {
+      "language": "en",
+      "declared_path": "/en/",
+      "expected_path": "/en/",
+      "correct": true
+    },
+    {
+      "language": "ja",
+      "declared_path": "/ja/",
+      "expected_path": "/ja/",
+      "correct": true
+    },
+    {
+      "language": "ko",
+      "declared_path": "/ko/",
+      "expected_path": "/ko/",
+      "correct": true
+    },
+    {
+      "language": "ms",
+      "declared_path": "/ms/",
+      "expected_path": "/ms/",
+      "correct": true
+    },
+    {
+      "language": "th",
+      "declared_path": "/th/",
+      "expected_path": "/th/",
+      "correct": true
+    },
+    {
+      "language": "vi",
+      "declared_path": "/vi/",
+      "expected_path": "/vi/",
+      "correct": true
+    },
+    {
+      "language": "id",
+      "declared_path": "/id/",
+      "expected_path": "/id/",
+      "correct": true
+    },
+    {
+      "language": "ru",
+      "declared_path": "/ru/",
+      "expected_path": "/ru/",
+      "correct": true
+    },
+    {
+      "language": "my",
+      "declared_path": "/my/",
+      "expected_path": "/my/",
+      "correct": true
+    },
+    {
+      "language": "hi",
+      "declared_path": "/hi/",
+      "expected_path": "/hi/",
+      "correct": true
+    },
+    {
+      "language": "mn",
+      "declared_path": "/mn/",
+      "expected_path": "/mn/",
+      "correct": true
+    },
+    {
+      "language": "km",
+      "declared_path": "/km/",
+      "expected_path": "/km/",
+      "correct": true
+    },
+    {
+      "language": "lo",
+      "declared_path": "/lo/",
+      "expected_path": "/lo/",
+      "correct": true
+    }
+  ],
+  "page_fixes": {
+    "zh-tw": {
+      "before": "/zh-tw/",
+      "after": "/zh-tw/",
+      "correct": true
+    },
+    "zh-cn": {
+      "before": "/zh-tw/",
+      "after": "/zh-cn/",
+      "correct": true
+    },
+    "en": {
+      "before": "/zh-tw/",
+      "after": "/en/",
+      "correct": true
+    },
+    "ja": {
+      "before": "/zh-tw/",
+      "after": "/ja/",
+      "correct": true
+    },
+    "ko": {
+      "before": "/zh-tw/",
+      "after": "/ko/",
+      "correct": true
+    },
+    "ms": {
+      "before": "/zh-tw/",
+      "after": "/ms/",
+      "correct": true
+    },
+    "th": {
+      "before": "/zh-tw/",
+      "after": "/th/",
+      "correct": true
+    },
+    "vi": {
+      "before": "/zh-tw/",
+      "after": "/vi/",
+      "correct": true
+    },
+    "id": {
+      "before": "/zh-tw/",
+      "after": "/id/",
+      "correct": true
+    },
+    "ru": {
+      "before": "/zh-tw/",
+      "after": "/ru/",
+      "correct": true
+    },
+    "my": {
+      "before": "/zh-tw/",
+      "after": "/my/",
+      "correct": true
+    },
+    "hi": {
+      "before": "/zh-tw/",
+      "after": "/hi/",
+      "correct": true
+    },
+    "mn": {
+      "before": "/zh-tw/",
+      "after": "/mn/",
+      "correct": true
+    },
+    "km": {
+      "before": "/zh-tw/",
+      "after": "/km/",
+      "correct": true
+    },
+    "lo": {
+      "before": "/zh-tw/",
+      "after": "/lo/",
+      "correct": true
+    }
+  },
+  "checks": {
+    "all_15_language_paths_correct": true,
+    "all_15_tracking_pages_present": true,
+    "url_based_fallback_installed": true,
+    "worker_endpoint_preserved": true,
+    "site_key_preserved": true,
+    "essential_files_preserved": true
+  }
+}
