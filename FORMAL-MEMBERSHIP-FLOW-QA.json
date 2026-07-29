@@ -1,0 +1,38 @@
+{
+  "release": "Vipyctmall formal membership flow correction",
+  "date": "2026-07-29",
+  "business_flow": [
+    "Free account registration and referral-position reservation",
+    "Purchase 1 / 3 / 5 bottle GnAKG formal membership package",
+    "Formal membership activation",
+    "Sharing, performance accumulation and bonus participation under official rules"
+  ],
+  "membership_levels": [
+    {
+      "quantity": "1瓶",
+      "level": "普通代理",
+      "price": "US$135"
+    },
+    {
+      "quantity": "3瓶",
+      "level": "高級代理",
+      "price": "US$405"
+    },
+    {
+      "quantity": "5瓶",
+      "level": "省級代理",
+      "price": "US$675"
+    }
+  ],
+  "qa": {
+    "step1_free_registration": true,
+    "step1_not_formal_member_notice": true,
+    "step2_formal_membership": true,
+    "three_levels_visible": true,
+    "three_prices_visible": true,
+    "step3_bonus_after_formal_membership": true,
+    "faq_schema_synced": true,
+    "favicon_preserved": true,
+    "verification_preserved": true
+  }
+}
