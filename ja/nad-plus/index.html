@@ -42,7 +42,265 @@ a{color:inherit}.site-header{position:sticky;top:0;z-index:50;display:flex;align
 @media(max-width:980px){.hero{grid-template-columns:1fr}.global-flow-grid{grid-template-columns:1fr}.flow-arrow{display:none}.global-flow-card>p{min-height:0}.value-grid,.related-grid{grid-template-columns:1fr 1fr}.topic-panel{grid-template-columns:1fr}.nav{display:none}}
 @media(max-width:620px){.site-header{flex-wrap:wrap}.home-link{order:3;width:100%;margin-left:0}.value-grid,.related-grid,.tool-grid{grid-template-columns:1fr}.join-tier-options{grid-template-columns:1fr}.join-tier-note{grid-column:1}.hero{padding-top:45px}}
 </style><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"NAD+とは？商品トレンド","description":"このページでは「NAD+とは？商品トレンド」の要点を整理し、注目商品、正式入会プラン、グローバルなシェア機会へつなげ、理解から行動までをサポートします。 アカウント作成は無料です。1本・3本・5本の商品プラン購入完了後に正式会員と報酬資格が開始されます。","url":"https://vipyctmall.com/ja/nad-plus/","inLanguage":"ja-JP","isPartOf":{"@type":"WebSite","name":"Vipyctmall","url":"https://vipyctmall.com/"}}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"日本語ホームへ戻る","item":"https://vipyctmall.com/ja/"},{"@type":"ListItem","position":2,"name":"NAD+とは？商品トレンド","item":"https://vipyctmall.com/ja/nad-plus/"}]}</script></head>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"日本語ホームへ戻る","item":"https://vipyctmall.com/ja/"},{"@type":"ListItem","position":2,"name":"NAD+とは？商品トレンド","item":"https://vipyctmall.com/ja/nad-plus/"}]}</script>
+<style id="global-multilingual-layout-fix">
+
+/* ===== Global multilingual layout hardening ===== */
+:root{
+  --flow-max-width: 1680px;
+  --flow-column-min: 360px;
+}
+
+.process-grid,
+.steps-grid,
+.member-flow-grid,
+.three-step-grid,
+.conversion-steps-grid,
+.flow-grid{
+  width:min(var(--flow-max-width),100%);
+  margin-inline:auto;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:clamp(28px,4vw,72px) !important;
+  align-items:start !important;
+}
+
+.process-step,
+.step-card,
+.member-flow-step,
+.three-step-item,
+.conversion-step,
+.flow-step{
+  min-width:0 !important;
+  width:100% !important;
+  max-width:none !important;
+  overflow:visible !important;
+}
+
+.process-step h2,
+.process-step h3,
+.step-card h2,
+.step-card h3,
+.member-flow-step h2,
+.member-flow-step h3,
+.three-step-item h2,
+.three-step-item h3,
+.conversion-step h2,
+.conversion-step h3,
+.flow-step h2,
+.flow-step h3,
+[id^="t1-t"],
+[id^="t2-t"],
+[id^="t3-t"]{
+  max-width:100% !important;
+  min-width:0 !important;
+  white-space:normal !important;
+  overflow-wrap:break-word !important;
+  word-break:normal !important;
+  writing-mode:horizontal-tb !important;
+  text-orientation:mixed !important;
+  line-height:1.35 !important;
+  text-wrap:balance;
+  hyphens:auto;
+}
+
+.process-step p,
+.step-card p,
+.member-flow-step p,
+.three-step-item p,
+.conversion-step p,
+.flow-step p,
+[id^="t1-d"],
+[id^="t2-d"],
+[id^="t3-d"]{
+  max-width:48rem !important;
+  min-width:0 !important;
+  margin-inline:auto !important;
+  white-space:normal !important;
+  overflow-wrap:anywhere !important;
+  word-break:normal !important;
+  writing-mode:horizontal-tb !important;
+  text-orientation:mixed !important;
+  line-height:1.8 !important;
+}
+
+.join-tier-options{
+  width:100% !important;
+  min-width:0 !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:10px !important;
+}
+
+.join-tier-options > span{
+  min-width:0 !important;
+  width:100% !important;
+  overflow:hidden !important;
+  writing-mode:horizontal-tb !important;
+  word-break:normal !important;
+}
+
+.join-tier-options b,
+.join-tier-options em,
+.join-tier-options small{
+  white-space:normal !important;
+  word-break:normal !important;
+  overflow-wrap:break-word !important;
+  writing-mode:horizontal-tb !important;
+}
+
+.btn-cta,
+.btn-tutorial,
+.step-tutorial-link,
+[class*="btn-go"],
+[id^="btn-go"]{
+  width:min(100%,430px) !important;
+  min-width:0 !important;
+  max-width:100% !important;
+  height:auto !important;
+  min-height:56px !important;
+  padding:14px 22px !important;
+  white-space:normal !important;
+  overflow-wrap:break-word !important;
+  word-break:normal !important;
+  writing-mode:horizontal-tb !important;
+  line-height:1.35 !important;
+  text-align:center !important;
+}
+
+.process-step img,
+.step-card img,
+.member-flow-step img,
+.three-step-item img,
+.conversion-step img,
+.flow-step img{
+  max-width:100% !important;
+  height:auto !important;
+}
+
+/* Long-language desktop protection:
+   switch to a single readable column before any column becomes narrow. */
+@media (max-width: 1280px){
+  .process-grid,
+  .steps-grid,
+  .member-flow-grid,
+  .three-step-grid,
+  .conversion-steps-grid,
+  .flow-grid{
+    grid-template-columns:1fr !important;
+    width:min(820px,100%) !important;
+    gap:44px !important;
+  }
+
+  .process-step,
+  .step-card,
+  .member-flow-step,
+  .three-step-item,
+  .conversion-step,
+  .flow-step{
+    max-width:820px !important;
+    margin-inline:auto !important;
+  }
+
+  .join-tier-options{
+    max-width:620px !important;
+    margin-inline:auto !important;
+  }
+}
+
+/* Tablet */
+@media (max-width: 760px){
+  .process-grid,
+  .steps-grid,
+  .member-flow-grid,
+  .three-step-grid,
+  .conversion-steps-grid,
+  .flow-grid{
+    gap:34px !important;
+  }
+
+  .join-tier-options{
+    grid-template-columns:1fr !important;
+    max-width:430px !important;
+  }
+
+  .join-tier-options > span{
+    display:grid !important;
+    grid-template-columns:auto 1fr auto !important;
+    align-items:center !important;
+    gap:10px !important;
+  }
+
+  .btn-cta,
+  .btn-tutorial,
+  .step-tutorial-link,
+  [class*="btn-go"],
+  [id^="btn-go"]{
+    width:100% !important;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 420px){
+  .process-step h2,
+  .process-step h3,
+  .step-card h2,
+  .step-card h3,
+  .member-flow-step h2,
+  .member-flow-step h3,
+  .three-step-item h2,
+  .three-step-item h3,
+  .conversion-step h2,
+  .conversion-step h3,
+  .flow-step h2,
+  .flow-step h3,
+  [id^="t1-t"],
+  [id^="t2-t"],
+  [id^="t3-t"]{
+    font-size:clamp(1.35rem,7vw,1.85rem) !important;
+  }
+
+  .process-step p,
+  .step-card p,
+  .member-flow-step p,
+  .three-step-item p,
+  .conversion-step p,
+  .flow-step p,
+  [id^="t1-d"],
+  [id^="t2-d"],
+  [id^="t3-d"]{
+    font-size:1rem !important;
+  }
+}
+
+/* Language-specific line-breaking corrections */
+html[lang^="ja"] *,
+html[lang^="zh"] *,
+html[lang^="ko"] *{
+  word-break:normal;
+  line-break:strict;
+}
+
+html[lang^="ru"] *,
+html[lang^="en"] *,
+html[lang^="ms"] *,
+html[lang^="id"] *,
+html[lang^="vi"] *{
+  hyphens:auto;
+  word-break:normal;
+}
+
+html[lang^="my"] *,
+html[lang^="km"] *,
+html[lang^="lo"] *,
+html[lang^="th"] *,
+html[lang^="hi"] *,
+html[lang^="mn"] *{
+  word-break:normal;
+  overflow-wrap:anywhere;
+  writing-mode:horizontal-tb !important;
+}
+
+</style>
+</head>
     <body><header class="site-header"><a class="brand" href="/ja/"><img src="/assets/brand/vipyctmall-akg-global-lockup.png" alt="Vipyctmall AKG Global"/></a>
     <nav class="nav"><a href="/ja/products/">注目商品</a><a href="/ja/bonus-plan/">報酬制度</a><a href="/ja/join/">会員になる</a></nav>
     <a class="home-link" href="/ja/">← 日本語ホームへ戻る</a><details class="language-box"><summary>言語</summary><div class="language-menu"><a href="https://vipyctmall.com/zh-tw/nad-plus/">繁體中文</a><a href="https://vipyctmall.com/zh-cn/nad-plus/">简体中文</a><a href="https://vipyctmall.com/en/nad-plus/">English</a><a href="https://vipyctmall.com/ja/nad-plus/" aria-current="page">日本語</a><a href="https://vipyctmall.com/ko/nad-plus/">한국어</a><a href="https://vipyctmall.com/ms/nad-plus/">Bahasa Melayu</a><a href="https://vipyctmall.com/th/nad-plus/">ภาษาไทย</a><a href="https://vipyctmall.com/vi/nad-plus/">Tiếng Việt</a><a href="https://vipyctmall.com/id/nad-plus/">Bahasa Indonesia</a><a href="https://vipyctmall.com/ru/nad-plus/">Русский</a><a href="https://vipyctmall.com/my/nad-plus/">မြန်မာဘာသာ</a><a href="https://vipyctmall.com/hi/nad-plus/">हिन्दी</a><a href="https://vipyctmall.com/mn/nad-plus/">Монгол</a><a href="https://vipyctmall.com/km/nad-plus/">ភាសាខ្មែរ</a><a href="https://vipyctmall.com/lo/nad-plus/">ພາສາລາວ</a></div></details></header>
