@@ -58,8 +58,8 @@
     }
     .header{
       display:grid;
-      grid-template-columns:minmax(0,1fr) auto auto;
-      gap:clamp(14px,1.6vw,28px);
+      grid-template-columns:minmax(300px,1fr) minmax(650px,auto) auto;
+      gap:clamp(12px,1.2vw,24px);
       align-items:center;
     }
     .brand{min-width:0}
@@ -68,48 +68,137 @@
       font-weight:900;
       letter-spacing:.2em;
       text-transform:uppercase;
-      font-size:clamp(10px,.7vw,14px);
+      font-size:clamp(9px,.62vw,13px);
     }
     h1{
       margin:.25em 0 0;
-      font-size:clamp(28px,2.8vw,58px);
+      font-size:clamp(26px,2.45vw,50px);
       line-height:1;
       letter-spacing:-.035em;
       white-space:nowrap;
     }
-    .total-box{
-      min-width:clamp(210px,18vw,360px);
-      border:1px solid rgba(96,165,250,.28);
-      background:linear-gradient(145deg,rgba(30,64,175,.38),rgba(15,23,42,.76));
-      box-shadow:0 20px 60px rgba(2,6,23,.34),inset 0 1px 0 rgba(255,255,255,.05);
-      border-radius:clamp(16px,1.2vw,26px);
-      padding:clamp(12px,1.2vw,22px) clamp(16px,1.4vw,28px);
+    .kpi-group{
+      min-width:0;
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:clamp(8px,.65vw,13px);
+      align-items:stretch;
+    }
+    .kpi-strip{
+      min-width:0;
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:clamp(7px,.55vw,11px);
+    }
+    .kpi-box{
+      min-width:0;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      border:1px solid rgba(96,165,250,.25);
+      border-radius:clamp(13px,.9vw,19px);
+      padding:clamp(9px,.75vw,14px) clamp(10px,.85vw,17px);
+      background:linear-gradient(
+        145deg,
+        rgba(30,64,175,.30),
+        rgba(15,23,42,.78)
+      );
+      box-shadow:
+        0 14px 34px rgba(2,6,23,.27),
+        inset 0 1px 0 rgba(255,255,255,.04);
       text-align:right;
     }
-    .total-box span{
-      display:block;
-      color:#cbd5e1;
-      font-size:clamp(11px,.8vw,16px);
-      font-weight:700;
-      letter-spacing:.08em;
+    .kpi-box.register{
+      border-color:rgba(96,165,250,.32);
+      background:linear-gradient(
+        145deg,
+        rgba(29,78,216,.25),
+        rgba(15,23,42,.80)
+      );
     }
-    .total-box strong{
+    .kpi-box.purchase{
+      border-color:rgba(251,191,36,.28);
+      background:linear-gradient(
+        145deg,
+        rgba(120,53,15,.28),
+        rgba(15,23,42,.80)
+      );
+    }
+    .kpi-box span{
       display:block;
-      margin-top:.05em;
+      overflow:hidden;
+      color:#cbd5e1;
+      font-size:clamp(9px,.62vw,13px);
+      font-weight:800;
+      letter-spacing:.04em;
+      white-space:nowrap;
+      text-overflow:ellipsis;
+    }
+    .kpi-box strong{
+      display:block;
+      margin-top:1px;
       color:var(--gold);
-      font-size:clamp(34px,3.7vw,76px);
+      font-size:clamp(27px,2.4vw,49px);
+      font-weight:900;
       line-height:1;
       font-variant-numeric:tabular-nums;
-      text-shadow:0 0 24px rgba(251,191,36,.16);
+      text-shadow:0 0 20px rgba(251,191,36,.14);
     }
-    .total-legend{
+    .kpi-box.register strong{
+      color:#60a5fa;
+      text-shadow:0 0 20px rgba(96,165,250,.15);
+    }
+    .kpi-box.purchase strong{
+      color:#fbbf24;
+    }
+    .kpi-box small{
       display:block;
-      margin-top:5px;
-      color:#93c5fd;
-      font-size:clamp(8px,.58vw,12px);
-      font-weight:700;
-      letter-spacing:.02em;
+      overflow:hidden;
+      margin-top:3px;
+      color:#64748b;
+      font-size:clamp(7px,.48vw,10px);
+      line-height:1.15;
       white-space:nowrap;
+      text-overflow:ellipsis;
+    }
+    .reset-all-btn{
+      width:clamp(94px,7.5vw,145px);
+      border:1px solid rgba(251,113,133,.42);
+      border-radius:clamp(13px,.9vw,19px);
+      padding:9px 10px;
+      background:linear-gradient(
+        145deg,
+        rgba(159,18,57,.30),
+        rgba(30,13,26,.86)
+      );
+      color:#fecdd3;
+      font:inherit;
+      font-size:clamp(10px,.68vw,14px);
+      font-weight:900;
+      line-height:1.35;
+      cursor:pointer;
+      box-shadow:
+        0 14px 34px rgba(2,6,23,.25),
+        inset 0 1px 0 rgba(255,255,255,.035);
+    }
+    .reset-all-btn span{
+      display:block;
+      margin-bottom:2px;
+      font-size:clamp(17px,1.2vw,24px);
+      line-height:1;
+    }
+    .reset-all-btn:hover{
+      border-color:#fb7185;
+      color:#fff;
+      background:linear-gradient(
+        145deg,
+        rgba(190,24,93,.48),
+        rgba(76,5,25,.90)
+      );
+    }
+    .reset-all-btn:disabled{
+      cursor:not-allowed;
+      opacity:.55;
     }
     .right-info{
       min-width:clamp(190px,16vw,310px);
@@ -341,6 +430,101 @@
     .footer .center{text-align:center;color:#94a3b8}
     .footer .right{text-align:right}
     .loading .count{color:#64748b;font-size:clamp(18px,1.5vw,30px);letter-spacing:0}
+
+    .tv-modal-backdrop{
+      position:fixed;
+      inset:0;
+      z-index:9999;
+      display:grid;
+      place-items:center;
+      padding:20px;
+      background:rgba(2,6,23,.82);
+      backdrop-filter:blur(10px);
+    }
+    .tv-modal-backdrop[hidden]{display:none}
+    .tv-modal{
+      width:min(560px,100%);
+      border:1px solid rgba(251,113,133,.38);
+      border-radius:26px;
+      padding:clamp(22px,2vw,34px);
+      background:linear-gradient(160deg,#172036,#0f172a);
+      box-shadow:0 32px 100px rgba(0,0,0,.62);
+    }
+    .tv-modal h2{
+      margin:0 0 12px;
+      color:#f8fafc;
+      font-size:clamp(1.35rem,1.8vw,1.85rem);
+    }
+    .tv-modal p{
+      margin:0 0 18px;
+      color:#94a3b8;
+      font-size:clamp(.9rem,1vw,1.04rem);
+      line-height:1.75;
+    }
+    .tv-modal label{
+      display:block;
+      margin-bottom:8px;
+      color:#f8fafc;
+      font-weight:800;
+    }
+    .tv-modal input{
+      width:100%;
+      border:1px solid rgba(251,113,133,.52);
+      border-radius:14px;
+      padding:14px 16px;
+      background:#070b14;
+      color:#f8fafc;
+      font:inherit;
+      outline:none;
+      box-shadow:0 0 0 3px rgba(251,113,133,.07);
+    }
+    .tv-modal input:focus{
+      border-color:#fb7185;
+      box-shadow:0 0 0 4px rgba(251,113,133,.14);
+    }
+    .tv-modal-message{
+      min-height:25px;
+      margin-top:10px;
+      color:#fecdd3;
+      font-size:.9rem;
+    }
+    .tv-modal-actions{
+      display:flex;
+      justify-content:flex-end;
+      gap:11px;
+      margin-top:18px;
+    }
+    .tv-modal-btn{
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:11px 19px;
+      background:rgba(15,23,42,.86);
+      color:#e2e8f0;
+      font:inherit;
+      font-weight:800;
+      cursor:pointer;
+    }
+    .tv-modal-btn-danger{
+      border-color:rgba(251,113,133,.58);
+      background:rgba(159,18,57,.28);
+      color:#fecdd3;
+    }
+    .tv-modal-btn:disabled{
+      cursor:not-allowed;
+      opacity:.55;
+    }
+    .tv-modal-note{
+      margin-top:18px!important;
+      color:#64748b!important;
+      font-size:.8rem!important;
+    }
+    @media(max-width:1600px){
+      .header{
+        grid-template-columns:minmax(260px,1fr) minmax(560px,auto) auto;
+      }
+      .kpi-box{padding-inline:10px}
+      .reset-all-btn{width:105px}
+    }
     .error-banner{
       position:fixed;
       left:50%;
@@ -388,16 +572,35 @@
 <link color="#00bfe8" href="/assets/brand/safari-pinned-tab.svg" rel="mask-icon"/>
 <link href="/site.webmanifest?v=20260729-max" rel="manifest"/>
 </head>
-<body data-analytics-tv-version="20260730-tv-visible-fix-1">
+<body data-analytics-tv-version="20260730-tv-header-totals-reset-1">
 <main class="wall">
 <header class="header">
 <div class="brand">
 <div class="eyebrow">AKG Global Analytics</div>
 <h1>全球 15 語系即時訪客</h1>
 </div>
-<section aria-label="累積總訪問數" class="total-box">
-<span>累積總訪問</span>
-<strong id="tv-total">—</strong><small class="total-legend">頁面開啟｜註冊點擊｜正式會員購物</small>
+<section aria-label="全部即時統計總覽" class="kpi-group">
+<div class="kpi-strip">
+<article class="kpi-box visits">
+<span>總訪問</span>
+<strong id="tv-total">—</strong>
+<small>所有語系頁面開啟</small>
+</article>
+<article class="kpi-box register">
+<span>總點擊註冊</span>
+<strong id="tv-total-registers">—</strong>
+<small>全部註冊帳號入口</small>
+</article>
+<article class="kpi-box purchase">
+<span>總點擊購物成為會員</span>
+<strong id="tv-total-purchases">—</strong>
+<small>正式會員商城入口</small>
+</article>
+</div>
+<button class="reset-all-btn" id="tv-reset" type="button">
+<span aria-hidden="true">↺</span>
+全部計數歸零
+</button>
 </section>
 <section class="right-info">
 <div class="clock" id="tv-clock">--:--:--</div>
@@ -418,7 +621,21 @@
 </footer>
 </main>
 <div class="error-banner" hidden="" id="tv-error"></div>
+<div class="tv-modal-backdrop" hidden id="tv-reset-modal">
+<section aria-describedby="tv-reset-description" aria-labelledby="tv-reset-title" aria-modal="true" class="tv-modal" role="dialog">
+<h2 id="tv-reset-title">全部計數歸零</h2>
+<p id="tv-reset-description">這會永久刪除 15 個語系的所有頁面開啟、註冊帳號點擊與購物成為正式會員點擊數據，且無法復原。請輸入 Cloudflare Worker 的歸零密碼。</p>
+<label for="tv-reset-token">RESET_TOKEN</label>
+<input autocapitalize="none" autocomplete="off" id="tv-reset-token" placeholder="輸入歸零密碼" spellcheck="false" type="password">
+<div aria-live="polite" class="tv-modal-message" id="tv-reset-message" role="status"></div>
+<div class="tv-modal-actions">
+<button class="tv-modal-btn" id="tv-cancel-reset" type="button">取消</button>
+<button class="tv-modal-btn tv-modal-btn-danger" id="tv-confirm-reset" type="button">確認全部歸零</button>
+</div>
+<p class="tv-modal-note">安全設計：密碼只會在這次請求中送往 Cloudflare Worker，不會寫入 GitHub、網址、LocalStorage 或 SessionStorage。</p>
+</section>
+</div>
 <script src="./assets/js/counter-config.js?v=20260729-analytics-v2"></script>
-<script src="./assets/js/viewed-tv.js?v=20260730-tv-visible-fix-1"></script>
+<script src="./assets/js/viewed-tv.js?v=20260730-tv-header-totals-reset-1"></script>
 </body>
 </html>
