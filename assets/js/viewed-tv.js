@@ -22,6 +22,21 @@
 
   var grid = document.getElementById("tv-grid");
   var totalEl = document.getElementById("tv-total");
+  var totalRegisterEl =
+    document.getElementById("tv-total-registers");
+  var totalPurchaseEl =
+    document.getElementById("tv-total-purchases");
+  var resetBtn = document.getElementById("tv-reset");
+  var resetModal = document.getElementById("tv-reset-modal");
+  var resetTokenInput =
+    document.getElementById("tv-reset-token");
+  var resetMessage =
+    document.getElementById("tv-reset-message");
+  var cancelResetBtn =
+    document.getElementById("tv-cancel-reset");
+  var confirmResetBtn =
+    document.getElementById("tv-confirm-reset");
+  var lastFocusedElement = null;
   var statusEl = document.getElementById("tv-status");
   var statusDot = document.getElementById("tv-status-dot");
   var updatedEl = document.getElementById("tv-updated");
@@ -181,12 +196,16 @@
     secondsUntilRefresh =
       Math.ceil(REFRESH_INTERVAL_MS / 1000);
     refreshBtn.disabled = true;
+    resetBtn.disabled = true;
     errorEl.hidden = true;
 
     var settings = config();
     if (!configured(settings)) {
       status("尚未設定 Worker", "error");
       totalEl.textContent = "—";
+      totalRegisterEl.textContent = "—";
+      totalPurchaseEl.textContent = "—";
+      resetBtn.disabled = true;
       loadingCards();
       errorEl.textContent =
         "尚未設定 Cloudflare Worker 網址。";
@@ -232,6 +251,33 @@
 
       render(visits, registers, purchases, total);
 
+      var totalRegisters =
+        Number(data.totalRegistrationClicks);
+      if (!Number.isFinite(totalRegisters)) {
+        totalRegisters = LANGUAGES.reduce(
+          function (sum, lang) {
+            return sum +
+              (Number(registers[lang.code]) || 0);
+          },
+          0
+        );
+      }
+
+      var totalPurchases =
+        Number(data.totalMemberPurchaseClicks);
+      if (!Number.isFinite(totalPurchases)) {
+        totalPurchases = LANGUAGES.reduce(
+          function (sum, lang) {
+            return sum +
+              (Number(purchases[lang.code]) || 0);
+          },
+          0
+        );
+      }
+
+      totalRegisterEl.textContent = number(totalRegisters);
+      totalPurchaseEl.textContent = number(totalPurchases);
+
       updatedEl.textContent =
         "最後更新：" +
         new Intl.DateTimeFormat("zh-TW", {
@@ -245,12 +291,130 @@
     } catch (error) {
       console.error(error);
       status("連線失敗", "error");
+      totalRegisterEl.textContent = "—";
+      totalPurchaseEl.textContent = "—";
       errorEl.textContent =
         "無法讀取 Analytics V2，將在 5 秒後重試。";
       errorEl.hidden = false;
     } finally {
       loading = false;
       refreshBtn.disabled = false;
+      resetBtn.disabled = false;
+    }
+  }
+
+  function openResetModal() {
+    var settings = config();
+    if (!configured(settings)) {
+      status("尚未設定 Worker", "error");
+      return;
+    }
+
+    lastFocusedElement = document.activeElement;
+    resetTokenInput.value = "";
+    resetMessage.textContent = "";
+    confirmResetBtn.disabled = false;
+    cancelResetBtn.disabled = false;
+    resetModal.hidden = false;
+
+    window.setTimeout(function () {
+      resetTokenInput.focus();
+    }, 0);
+  }
+
+  function closeResetModal() {
+    if (confirmResetBtn.disabled) {
+      return;
+    }
+
+    resetTokenInput.value = "";
+    resetMessage.textContent = "";
+    resetModal.hidden = true;
+
+    if (
+      lastFocusedElement &&
+      typeof lastFocusedElement.focus === "function"
+    ) {
+      lastFocusedElement.focus();
+    }
+  }
+
+  async function resetAllCounts() {
+    var settings = config();
+    var token = resetTokenInput.value.trim();
+
+    if (!token) {
+      resetMessage.textContent = "請輸入 RESET_TOKEN。";
+      resetTokenInput.focus();
+      return;
+    }
+
+    confirmResetBtn.disabled = true;
+    cancelResetBtn.disabled = true;
+    resetMessage.textContent =
+      "正在清除所有頁面開啟與點擊數據…";
+
+    try {
+      var response = await fetch(
+        settings.apiBase + "/admin/reset",
+        {
+          method:"POST",
+          mode:"cors",
+          cache:"no-store",
+          credentials:"omit",
+          headers:{
+            "Authorization":"Bearer " + token,
+            "Content-Type":"application/json"
+          },
+          body:JSON.stringify({
+            siteKey:settings.siteKey
+          })
+        }
+      );
+
+      var data = await response.json().catch(function () {
+        return {};
+      });
+
+      if (!response.ok || !data.ok) {
+        if (response.status === 401) {
+          throw new Error(
+            "歸零密碼錯誤，請確認 RESET_TOKEN。"
+          );
+        }
+        if (response.status === 403) {
+          throw new Error(
+            "目前網站來源未被 Worker 允許。"
+          );
+        }
+        throw new Error(
+          "歸零失敗（HTTP " +
+          response.status +
+          "）。"
+        );
+      }
+
+      totalEl.textContent = "0";
+      totalRegisterEl.textContent = "0";
+      totalPurchaseEl.textContent = "0";
+      resetMessage.textContent =
+        "全部計數已歸零，正在重新讀取…";
+      status("全部計數已歸零", "live");
+
+      window.setTimeout(async function () {
+        resetModal.hidden = true;
+        confirmResetBtn.disabled = false;
+        cancelResetBtn.disabled = false;
+        await load();
+      }, 500);
+    } catch (error) {
+      resetMessage.textContent =
+        error && error.message
+          ? error.message
+          : "歸零失敗，請稍後再試。";
+      confirmResetBtn.disabled = false;
+      cancelResetBtn.disabled = false;
+      resetTokenInput.select();
     }
   }
 
@@ -266,6 +430,45 @@
 
   refreshBtn.addEventListener("click", load);
   fullscreenBtn.addEventListener("click", fullscreen);
+  resetBtn.addEventListener("click", openResetModal);
+  cancelResetBtn.addEventListener(
+    "click",
+    closeResetModal
+  );
+  confirmResetBtn.addEventListener(
+    "click",
+    resetAllCounts
+  );
+
+  resetTokenInput.addEventListener(
+    "keydown",
+    function (event) {
+      if (event.key === "Enter") {
+        resetAllCounts();
+      }
+    }
+  );
+
+  resetModal.addEventListener(
+    "click",
+    function (event) {
+      if (event.target === resetModal) {
+        closeResetModal();
+      }
+    }
+  );
+
+  document.addEventListener(
+    "keydown",
+    function (event) {
+      if (
+        event.key === "Escape" &&
+        !resetModal.hidden
+      ) {
+        closeResetModal();
+      }
+    }
+  );
 
   document.addEventListener(
     "fullscreenchange",
