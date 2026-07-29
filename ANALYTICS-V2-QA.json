@@ -1,0 +1,50 @@
+{
+  "release": "Vipyctmall Analytics V2",
+  "date": "2026-07-29",
+  "scope": "counting only",
+  "languages": [
+    "zh-tw",
+    "zh-cn",
+    "en",
+    "ja",
+    "ko",
+    "ms",
+    "th",
+    "vi",
+    "id",
+    "ru",
+    "my",
+    "hi",
+    "mn",
+    "km",
+    "lo"
+  ],
+  "localized_pages": 360,
+  "registration_links": 1530,
+  "formal_member_purchase_links": 1035,
+  "checks": {
+    "15_languages": true,
+    "24_pages_each": true,
+    "360_localized_pages": true,
+    "visible_page_dom_unchanged": true,
+    "counter_loaded_once_every_page": true,
+    "registration_links_detected": true,
+    "purchase_links_detected": true,
+    "tv_click_metrics_present": true,
+    "dashboard_click_metrics_present": true,
+    "worker_v2_features_present": true,
+    "javascript_syntax_valid": true,
+    "existing_worker_url_preserved": true
+  },
+  "errors": {
+    "visual_mismatches": [],
+    "script_errors": [],
+    "node_errors": []
+  },
+  "rules": {
+    "page_view": "Every page load under /{language}/",
+    "register_click": "point.vipyct.com/login",
+    "member_purchase_click": "Official mall categoryId=1025",
+    "historical_visits": "Preserved and included"
+  }
+}
