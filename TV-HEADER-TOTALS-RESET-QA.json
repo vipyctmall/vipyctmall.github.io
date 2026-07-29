@@ -1,0 +1,19 @@
+{
+  "release": "Vipyctmall TV header totals and reset control",
+  "date": "2026-07-30",
+  "changes": [
+    "Added total page visits to header.",
+    "Added total registration clicks to header.",
+    "Added total formal-member purchase clicks to header.",
+    "Added password-protected reset-all button.",
+    "Reset uses existing Worker /admin/reset endpoint.",
+    "All 360 localized content pages remain unchanged."
+  ],
+  "checks": {
+    "all_header_elements_present": true,
+    "all_reset_and_total_logic_present": true,
+    "worker_reset_endpoint_compatible": true,
+    "language_pages_unchanged_count": true,
+    "javascript_syntax_valid": true
+  }
+}
