@@ -803,265 +803,151 @@
 .global-final-cta .main{background:linear-gradient(90deg,#f59e0b,#ea8800);color:#101827}.global-final-cta .alt{border:1px solid #60a5fa;color:#dbeafe;background:rgba(37,99,235,.15)}
 @media(max-width:980px){.member-value-grid{grid-template-columns:1fr}.global-flow-grid{grid-template-columns:1fr}.flow-arrow{display:none}.global-flow-card>p{min-height:0}.flow-icon{width:145px;height:145px}}
 </style>
-
-<style id="global-multilingual-layout-fix">
-
-/* ===== Global multilingual layout hardening ===== */
-:root{
-  --flow-max-width: 1680px;
-  --flow-column-min: 360px;
+<style id="exact-zh-tw-flow-style">
+.localized-exact-flow{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(34px,3.4vw,68px);
+  width:min(1500px,100%);
+  margin:40px auto 0;
+  padding-inline:0;
+  align-items:start;
 }
-
-.process-grid,
-.steps-grid,
-.member-flow-grid,
-.three-step-grid,
-.conversion-steps-grid,
-.flow-grid{
-  width:min(var(--flow-max-width),100%);
-  margin-inline:auto;
-  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
-  gap:clamp(28px,4vw,72px) !important;
-  align-items:start !important;
+.localized-exact-flow .flow-item{
+  min-width:0;width:100%;position:relative;
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;padding:10px;
 }
-
-.process-step,
-.step-card,
-.member-flow-step,
-.three-step-item,
-.conversion-step,
-.flow-step{
-  min-width:0 !important;
-  width:100% !important;
-  max-width:none !important;
-  overflow:visible !important;
+.localized-exact-flow .flow-circle-bg{
+  width:180px;height:180px;flex:0 0 180px;
+  margin:0 auto 35px;position:relative;
+  display:flex;align-items:center;justify-content:center;
+  border:2px solid rgba(59,130,246,.30);border-radius:50%;
+  background:radial-gradient(circle,rgba(59,130,246,.20) 0%,rgba(15,23,42,.60) 100%);
+  box-shadow:0 10px 25px rgba(0,0,0,.30);
 }
-
-.process-step h2,
-.process-step h3,
-.step-card h2,
-.step-card h3,
-.member-flow-step h2,
-.member-flow-step h3,
-.three-step-item h2,
-.three-step-item h3,
-.conversion-step h2,
-.conversion-step h3,
-.flow-step h2,
-.flow-step h3,
-[id^="t1-t"],
-[id^="t2-t"],
-[id^="t3-t"]{
-  max-width:100% !important;
-  min-width:0 !important;
-  white-space:normal !important;
-  overflow-wrap:break-word !important;
-  word-break:normal !important;
-  writing-mode:horizontal-tb !important;
-  text-orientation:mixed !important;
-  line-height:1.35 !important;
-  text-wrap:balance;
-  hyphens:auto;
+.localized-exact-flow .flow-circle-bg::before{
+  content:"";position:absolute;width:80%;height:80%;
+  border:1px dashed rgba(255,255,255,.15);border-radius:50%;
 }
-
-.process-step p,
-.step-card p,
-.member-flow-step p,
-.three-step-item p,
-.conversion-step p,
-.flow-step p,
-[id^="t1-d"],
-[id^="t2-d"],
-[id^="t3-d"]{
-  max-width:48rem !important;
-  min-width:0 !important;
-  margin-inline:auto !important;
-  white-space:normal !important;
-  overflow-wrap:anywhere !important;
-  word-break:normal !important;
-  writing-mode:horizontal-tb !important;
-  text-orientation:mixed !important;
-  line-height:1.8 !important;
+.localized-exact-flow .flow-circle-bg>svg{position:relative;z-index:1}
+.localized-exact-flow .flow-badge{
+  position:absolute;bottom:-20px;left:50%;z-index:2;
+  width:54px;height:54px;transform:translateX(-50%);
+  display:flex;align-items:center;justify-content:center;
+  border:3px solid #070b14;border-radius:50%;
+  background:#e11d48;color:#fff;font-size:1.1rem;font-weight:800;
+  box-shadow:0 4px 15px rgba(225,29,72,.50);
 }
-
-.join-tier-options{
-  width:100% !important;
-  min-width:0 !important;
-  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
-  gap:10px !important;
+.localized-exact-flow .flow-item:nth-child(2) .flow-badge{
+  background:#d97706;box-shadow:0 4px 15px rgba(217,119,6,.50)
 }
-
-.join-tier-options > span{
-  min-width:0 !important;
-  width:100% !important;
-  overflow:hidden !important;
-  writing-mode:horizontal-tb !important;
-  word-break:normal !important;
+.localized-exact-flow .flow-item:nth-child(3) .flow-badge{
+  background:#059669;box-shadow:0 4px 15px rgba(5,150,105,.50)
 }
-
-.join-tier-options b,
-.join-tier-options em,
-.join-tier-options small{
-  white-space:normal !important;
-  word-break:normal !important;
-  overflow-wrap:break-word !important;
-  writing-mode:horizontal-tb !important;
+.localized-exact-flow h3{
+  width:100%;max-width:34rem;min-width:0;margin:15px auto 10px;
+  color:#fff;font-size:clamp(1.28rem,1.65vw,1.58rem);
+  font-weight:800;line-height:1.38;white-space:normal;
+  word-break:normal;overflow-wrap:break-word;
+  writing-mode:horizontal-tb;text-orientation:mixed;text-wrap:balance;
 }
-
-.btn-cta,
-.btn-tutorial,
-.step-tutorial-link,
-[class*="btn-go"],
-[id^="btn-go"]{
-  width:min(100%,430px) !important;
-  min-width:0 !important;
-  max-width:100% !important;
-  height:auto !important;
-  min-height:56px !important;
-  padding:14px 22px !important;
-  white-space:normal !important;
-  overflow-wrap:break-word !important;
-  word-break:normal !important;
-  writing-mode:horizontal-tb !important;
-  line-height:1.35 !important;
-  text-align:center !important;
+.localized-exact-flow .flow-item>p{
+  width:100%;max-width:35rem;min-width:0;min-height:92px;
+  margin:0 auto 12px;color:#94a3b8;
+  font-size:clamp(.96rem,1.02vw,1.06rem);line-height:1.72;
+  white-space:normal;word-break:normal;overflow-wrap:anywhere;
+  writing-mode:horizontal-tb;text-orientation:mixed;
 }
-
-.process-step img,
-.step-card img,
-.member-flow-step img,
-.three-step-item img,
-.conversion-step img,
-.flow-step img{
-  max-width:100% !important;
-  height:auto !important;
+.localized-exact-flow .flow-arrow{
+  position:absolute;top:75px;
+  right:calc(-1 * clamp(48px,4.5vw,82px));
+  z-index:1;width:clamp(58px,5.2vw,88px);height:auto;
+  opacity:.65;pointer-events:none;
 }
-
-/* Long-language desktop protection:
-   switch to a single readable column before any column becomes narrow. */
-@media (max-width: 1280px){
-  .process-grid,
-  .steps-grid,
-  .member-flow-grid,
-  .three-step-grid,
-  .conversion-steps-grid,
-  .flow-grid{
-    grid-template-columns:1fr !important;
-    width:min(820px,100%) !important;
-    gap:44px !important;
+.localized-exact-flow .btn-go,
+.localized-exact-flow .btn-tutorial{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:min(88%,430px);max-width:100%;min-width:0;height:auto;
+  padding:12px 24px;border-radius:30px;text-align:center;
+  text-decoration:none;font-weight:800;line-height:1.35;
+  white-space:normal;word-break:normal;overflow-wrap:break-word;
+  writing-mode:horizontal-tb;text-orientation:mixed;
+}
+.localized-exact-flow .btn-go{
+  min-height:54px;margin:8px auto 10px;color:#000;
+  background:linear-gradient(90deg,#f59e0b 0%,#d97706 100%);
+  box-shadow:0 4px 15px rgba(245,158,11,.40);
+}
+.localized-exact-flow .btn-tutorial{
+  min-height:46px;margin:0 auto;color:#bfdbfe;
+  border:1px solid rgba(96,165,250,.55);
+  background:rgba(15,23,42,.82);
+  box-shadow:0 4px 10px rgba(0,0,0,.20);
+}
+.localized-exact-flow .join-tier-options{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:9px;width:min(100%,540px);min-width:0;margin:10px auto 8px;
+}
+.localized-exact-flow .join-tier-options>span{
+  min-width:0;min-height:104px;padding:12px 7px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  border:1px solid rgba(245,158,11,.38);border-radius:14px;
+  background:linear-gradient(145deg,rgba(245,158,11,.15),rgba(15,23,42,.82));
+  writing-mode:horizontal-tb;
+}
+.localized-exact-flow .join-tier-options b,
+.localized-exact-flow .join-tier-options strong,
+.localized-exact-flow .join-tier-options em,
+.localized-exact-flow .join-tier-options small{
+  display:block;width:100%;white-space:normal;
+  word-break:normal;overflow-wrap:break-word;
+  writing-mode:horizontal-tb;text-orientation:mixed;
+}
+.localized-exact-flow .join-tier-options b{color:#fbbf24;font-size:1.06rem}
+.localized-exact-flow .join-tier-options strong,
+.localized-exact-flow .join-tier-options em{
+  color:#e2e8f0;font-size:.86rem;font-style:normal
+}
+.localized-exact-flow .join-tier-options small{
+  color:#93c5fd;font-size:.75rem;font-weight:800
+}
+.localized-exact-flow .join-tier-note{
+  grid-column:1/-1;color:#94a3b8;font-size:.76rem;
+  line-height:1.55;text-align:center;white-space:normal;
+  word-break:normal;overflow-wrap:anywhere;writing-mode:horizontal-tb;
+}
+@media(max-width:1180px){
+  .localized-exact-flow{
+    grid-template-columns:1fr;width:min(760px,100%);gap:54px;
   }
-
-  .process-step,
-  .step-card,
-  .member-flow-step,
-  .three-step-item,
-  .conversion-step,
-  .flow-step{
-    max-width:820px !important;
-    margin-inline:auto !important;
+  .localized-exact-flow .flow-item{
+    max-width:760px;margin-inline:auto;
   }
-
-  .join-tier-options{
-    max-width:620px !important;
-    margin-inline:auto !important;
-  }
+  .localized-exact-flow .flow-arrow{display:none}
+  .localized-exact-flow h3{font-size:clamp(1.38rem,3vw,1.76rem)}
+  .localized-exact-flow .flow-item>p{min-height:0}
 }
-
-/* Tablet */
-@media (max-width: 760px){
-  .process-grid,
-  .steps-grid,
-  .member-flow-grid,
-  .three-step-grid,
-  .conversion-steps-grid,
-  .flow-grid{
-    gap:34px !important;
+@media(max-width:640px){
+  .localized-exact-flow{gap:42px}
+  .localized-exact-flow .flow-circle-bg{
+    width:160px;height:160px;flex-basis:160px
   }
-
-  .join-tier-options{
-    grid-template-columns:1fr !important;
-    max-width:430px !important;
+  .localized-exact-flow .join-tier-options{
+    grid-template-columns:1fr;width:min(100%,430px)
   }
-
-  .join-tier-options > span{
-    display:grid !important;
-    grid-template-columns:auto 1fr auto !important;
-    align-items:center !important;
-    gap:10px !important;
+  .localized-exact-flow .join-tier-options>span{
+    min-height:0;display:grid;
+    grid-template-columns:auto minmax(0,1fr) auto;
+    align-items:center;gap:9px;
   }
-
-  .btn-cta,
-  .btn-tutorial,
-  .step-tutorial-link,
-  [class*="btn-go"],
-  [id^="btn-go"]{
-    width:100% !important;
-  }
+  .localized-exact-flow .btn-go,
+  .localized-exact-flow .btn-tutorial{width:100%}
 }
-
-/* Very small phones */
-@media (max-width: 420px){
-  .process-step h2,
-  .process-step h3,
-  .step-card h2,
-  .step-card h3,
-  .member-flow-step h2,
-  .member-flow-step h3,
-  .three-step-item h2,
-  .three-step-item h3,
-  .conversion-step h2,
-  .conversion-step h3,
-  .flow-step h2,
-  .flow-step h3,
-  [id^="t1-t"],
-  [id^="t2-t"],
-  [id^="t3-t"]{
-    font-size:clamp(1.35rem,7vw,1.85rem) !important;
-  }
-
-  .process-step p,
-  .step-card p,
-  .member-flow-step p,
-  .three-step-item p,
-  .conversion-step p,
-  .flow-step p,
-  [id^="t1-d"],
-  [id^="t2-d"],
-  [id^="t3-d"]{
-    font-size:1rem !important;
-  }
-}
-
-/* Language-specific line-breaking corrections */
-html[lang^="ja"] *,
-html[lang^="zh"] *,
-html[lang^="ko"] *{
-  word-break:normal;
-  line-break:strict;
-}
-
-html[lang^="ru"] *,
-html[lang^="en"] *,
-html[lang^="ms"] *,
-html[lang^="id"] *,
-html[lang^="vi"] *{
-  hyphens:auto;
-  word-break:normal;
-}
-
-html[lang^="my"] *,
-html[lang^="km"] *,
-html[lang^="lo"] *,
-html[lang^="th"] *,
-html[lang^="hi"] *,
-html[lang^="mn"] *{
-  word-break:normal;
-  overflow-wrap:anywhere;
-  writing-mode:horizontal-tb !important;
-}
-
-</style>
-</head>
+html[lang^="ja"] .localized-exact-flow *,
+html[lang^="zh"] .localized-exact-flow *,
+html[lang^="ko"] .localized-exact-flow *{line-break:strict}
+</style></head>
 <body class="lang-ja"><a class="skip-link" href="#main-content">Skip to content</a>
 <!-- 頂部導覽列 -->
 <nav aria-label="Primary navigation">
@@ -1104,36 +990,7 @@ html[lang^="mn"] *{
 <article><h3>正式入会につなげる</h3><p>情報を1本・3本・5本の正式入会プランと会員メリットにつなげます。</p></article>
 <article><h3>次の行動へ進む</h3><p>無料登録、商品購入、正式会員、シェア開始まで明確な入口があります。</p></article>
 </div>
-<div aria-label="3ステップで正式会員になり、シェアビジネスを開始" class="global-flow-grid">
-<article class="global-flow-card flow-one">
-<div class="flow-icon">👤<span>1</span></div>
-<h3 id="t1-t-top">Step1. 無料アカウントを作成して先にポジションを確保</h3>
-<p id="t1-d-top">無料で個人アカウントを作成し、紹介関係を保持して公式モールと制度情報へアクセスします。この段階では正式会員・報酬資格は未開始です。</p>
-<a class="flow-primary" href="https://point.vipyct.com/login?w=hs0QHK1efX-vk" id="btn-go-1-top" rel="noopener sponsored" target="_blank">⚡ 無料登録してポジション確保</a>
-<a class="flow-tutorial" href="/ja/teach_ste1.html">📘 アカウント登録ガイド</a>
-</article>
-<div aria-hidden="true" class="flow-arrow">»</div>
-<article class="global-flow-card flow-two">
-<div class="flow-icon">🛍️<span>2</span></div>
-<h3 id="t2-t-top">Step2. 入会レベルを選び、正式会員になる</h3>
-<p id="t2-d-top">公式モールで対応するGnAKG入会プランを選択し、商品購入完了後に正式会員資格が有効になります。</p>
-<div class="join-tier-options">
-<span><b>1</b><strong>普通代理</strong><small>1 GnAKG · US$135</small></span>
-<span><b>3</b><strong>上級代理</strong><small>3 GnAKG · US$405</small></span>
-<span><b>5</b><strong>省級代理</strong><small>5 GnAKG · US$675</small></span>
-<div class="join-tier-note">入会レベルにより紹介コミッションと市場コミッション率が異なります。最新の公式制度をご確認ください。</div>
-</div>
-<a class="flow-primary" href="https://www.vipyct.com/#/category?categoryType=self&amp;categoryId=1025" id="btn-go-2-top" rel="noopener sponsored" target="_blank">⚡ 正式入会プランを選ぶ</a>
-<a class="flow-tutorial" href="/ja/teach_ste2.html">📘 商品購入ガイド</a>
-</article>
-<div aria-hidden="true" class="flow-arrow flow-arrow-gold">»</div>
-<article class="global-flow-card flow-three">
-<div class="flow-icon">🔥<span>3</span></div>
-<h3 id="t3-t-top">Step3. 正式会員としてシェアと報酬資格を開始</h3>
-<p id="t3-d-top">正式会員後、公式制度に基づきシェア、顧客サポート、実績構築を開始できます。報酬は会員レベル、資格、実績、精算規則によります。</p>
-<a class="flow-primary" href="https://point.vipyct.com/login?w=hs0QHK1efX-vk" id="btn-go-3-top" rel="noopener sponsored" target="_blank">⚡ シェアビジネスを開始</a>
-</article>
-</div></section>
+<div aria-label="3ステップで正式会員になり、シェアビジネスを開始" class="infographic-flow localized-exact-flow"><div class="flow-item"><div class="flow-circle-bg"><svg fill="none" height="64" stroke="#3B82F6" stroke-width="1.5" viewBox="0 0 24 24" width="64"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM20 8v6M23 11h-6"></path></svg><div class="flow-badge">1</div></div><h3 id="t1-t-top">Step1. 無料アカウントを作成して先にポジションを確保</h3><p id="t1-d-top">無料で個人アカウントを作成し、紹介関係を保持して公式モールと制度情報へアクセスします。この段階では正式会員・報酬資格は未開始です。</p><a class="btn-go" href="https://point.vipyct.com/login?w=hs0QHK1efX-vk" id="btn-go-1-top" rel="noopener sponsored" target="_blank">⚡ 無料登録してポジション確保</a><a class="btn-tutorial step-tutorial-link" href="/ja/teach_ste1.html">📘 アカウント登録ガイド</a><svg class="flow-arrow" fill="none" stroke="#3B82F6" stroke-width="2" viewBox="0 0 24 24"><path d="M13 5l7 7-7 7M5 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="flow-item"><div class="flow-circle-bg"><svg fill="none" height="64" stroke="#F59E0B" stroke-width="1.5" viewBox="0 0 24 24" width="64"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"></path></svg><div class="flow-badge">2</div></div><h3 id="t2-t-top">Step2. 入会レベルを選び、正式会員になる</h3><p id="t2-d-top">公式モールで対応するGnAKG入会プランを選択し、商品購入完了後に正式会員資格が有効になります。</p><div class="join-tier-options"><span><b>1</b><em>普通代理</em><small>1 GnAKG · US$135</small></span><span><b>3</b><em>上級代理</em><small>3 GnAKG · US$405</small></span><span><b>5</b><em>省級代理</em><small>5 GnAKG · US$675</small></span><div class="join-tier-note">入会レベルにより紹介コミッションと市場コミッション率が異なります。最新の公式制度をご確認ください。</div></div><a class="btn-go" href="https://www.vipyct.com/#/category?categoryType=self&amp;categoryId=1025" id="btn-go-2-top" rel="noopener sponsored" target="_blank">⚡ 正式入会プランを選ぶ</a><a class="btn-tutorial step-tutorial-link" href="/ja/teach_ste2.html">📘 商品購入ガイド</a><svg class="flow-arrow" fill="none" stroke="#F59E0B" stroke-width="2" viewBox="0 0 24 24"><path d="M13 5l7 7-7 7M5 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="flow-item"><div class="flow-circle-bg"><svg fill="none" height="64" stroke="#10B981" stroke-width="1.5" viewBox="0 0 24 24" width="64"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3.5z"></path></svg><div class="flow-badge">3</div></div><h3 id="t3-t-top">Step3. 正式会員としてシェアと報酬資格を開始</h3><p id="t3-d-top">正式会員後、公式制度に基づきシェア、顧客サポート、実績構築を開始できます。報酬は会員レベル、資格、実績、精算規則によります。</p><a class="btn-go" href="https://point.vipyct.com/login?w=hs0QHK1efX-vk" id="btn-go-3-top" rel="noopener sponsored" target="_blank">⚡ シェアビジネスを開始</a></div></div></section>
 <!-- 【修改區】動態跑馬圖片區 (無縫水平滾動，且依語系動態切換) -->
 <div class="marquee-container">
 <!-- 繁體中文圖片組 -->
@@ -1463,36 +1320,7 @@ html[lang^="mn"] *{
 <!-- 4. 🎨 資訊圖表化三步爆發教學區塊 (下半部主教學區：維持原ID) -->
 <section class="container" id="tutorials" style="border-top: 1px solid rgba(255,255,255,0.05);"><h2 class="section-title global-section-title">3ステップで正式会員になり、シェアビジネスを開始</h2>
 <p class="global-section-lead">最初に無料の個人アカウントを作成して紹介ポジションを確保します。その後、公式モールでGnAKGの1本・3本・5本入会プランから選択。購入完了後に正式会員となり、公式制度に沿ってシェアと報酬資格を開始できます。</p>
-<div aria-label="3ステップで正式会員になり、シェアビジネスを開始" class="global-flow-grid">
-<article class="global-flow-card flow-one">
-<div class="flow-icon">👤<span>1</span></div>
-<h3 id="t1-t">Step1. 無料アカウントを作成して先にポジションを確保</h3>
-<p id="t1-d">無料で個人アカウントを作成し、紹介関係を保持して公式モールと制度情報へアクセスします。この段階では正式会員・報酬資格は未開始です。</p>
-<a class="flow-primary" href="https://point.vipyct.com/login?w=hs0QHK1efX-vk" id="btn-go-1" rel="noopener sponsored" target="_blank">⚡ 無料登録してポジション確保</a>
-<a class="flow-tutorial" href="/ja/teach_ste1.html">📘 アカウント登録ガイド</a>
-</article>
-<div aria-hidden="true" class="flow-arrow">»</div>
-<article class="global-flow-card flow-two">
-<div class="flow-icon">🛍️<span>2</span></div>
-<h3 id="t2-t">Step2. 入会レベルを選び、正式会員になる</h3>
-<p id="t2-d">公式モールで対応するGnAKG入会プランを選択し、商品購入完了後に正式会員資格が有効になります。</p>
-<div class="join-tier-options">
-<span><b>1</b><strong>普通代理</strong><small>1 GnAKG · US$135</small></span>
-<span><b>3</b><strong>上級代理</strong><small>3 GnAKG · US$405</small></span>
-<span><b>5</b><strong>省級代理</strong><small>5 GnAKG · US$675</small></span>
-<div class="join-tier-note">入会レベルにより紹介コミッションと市場コミッション率が異なります。最新の公式制度をご確認ください。</div>
-</div>
-<a class="flow-primary" href="https://www.vipyct.com/#/category?categoryType=self&amp;categoryId=1025" id="btn-go-2" rel="noopener sponsored" target="_blank">⚡ 正式入会プランを選ぶ</a>
-<a class="flow-tutorial" href="/ja/teach_ste2.html">📘 商品購入ガイド</a>
-</article>
-<div aria-hidden="true" class="flow-arrow flow-arrow-gold">»</div>
-<article class="global-flow-card flow-three">
-<div class="flow-icon">🔥<span>3</span></div>
-<h3 id="t3-t">Step3. 正式会員としてシェアと報酬資格を開始</h3>
-<p id="t3-d">正式会員後、公式制度に基づきシェア、顧客サポート、実績構築を開始できます。報酬は会員レベル、資格、実績、精算規則によります。</p>
-<a class="flow-primary" href="https://point.vipyct.com/login?w=hs0QHK1efX-vk" id="btn-go-3" rel="noopener sponsored" target="_blank">⚡ シェアビジネスを開始</a>
-</article>
-</div></section>
+<div aria-label="3ステップで正式会員になり、シェアビジネスを開始" class="infographic-flow localized-exact-flow"><div class="flow-item"><div class="flow-circle-bg"><svg fill="none" height="64" stroke="#3B82F6" stroke-width="1.5" viewBox="0 0 24 24" width="64"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM20 8v6M23 11h-6"></path></svg><div class="flow-badge">1</div></div><h3 id="t1-t">Step1. 無料アカウントを作成して先にポジションを確保</h3><p id="t1-d">無料で個人アカウントを作成し、紹介関係を保持して公式モールと制度情報へアクセスします。この段階では正式会員・報酬資格は未開始です。</p><a class="btn-go" href="https://point.vipyct.com/login?w=hs0QHK1efX-vk" id="btn-go-1" rel="noopener sponsored" target="_blank">⚡ 無料登録してポジション確保</a><a class="btn-tutorial step-tutorial-link" href="/ja/teach_ste1.html">📘 アカウント登録ガイド</a><svg class="flow-arrow" fill="none" stroke="#3B82F6" stroke-width="2" viewBox="0 0 24 24"><path d="M13 5l7 7-7 7M5 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="flow-item"><div class="flow-circle-bg"><svg fill="none" height="64" stroke="#F59E0B" stroke-width="1.5" viewBox="0 0 24 24" width="64"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"></path></svg><div class="flow-badge">2</div></div><h3 id="t2-t">Step2. 入会レベルを選び、正式会員になる</h3><p id="t2-d">公式モールで対応するGnAKG入会プランを選択し、商品購入完了後に正式会員資格が有効になります。</p><div class="join-tier-options"><span><b>1</b><em>普通代理</em><small>1 GnAKG · US$135</small></span><span><b>3</b><em>上級代理</em><small>3 GnAKG · US$405</small></span><span><b>5</b><em>省級代理</em><small>5 GnAKG · US$675</small></span><div class="join-tier-note">入会レベルにより紹介コミッションと市場コミッション率が異なります。最新の公式制度をご確認ください。</div></div><a class="btn-go" href="https://www.vipyct.com/#/category?categoryType=self&amp;categoryId=1025" id="btn-go-2" rel="noopener sponsored" target="_blank">⚡ 正式入会プランを選ぶ</a><a class="btn-tutorial step-tutorial-link" href="/ja/teach_ste2.html">📘 商品購入ガイド</a><svg class="flow-arrow" fill="none" stroke="#F59E0B" stroke-width="2" viewBox="0 0 24 24"><path d="M13 5l7 7-7 7M5 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="flow-item"><div class="flow-circle-bg"><svg fill="none" height="64" stroke="#10B981" stroke-width="1.5" viewBox="0 0 24 24" width="64"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3.5z"></path></svg><div class="flow-badge">3</div></div><h3 id="t3-t">Step3. 正式会員としてシェアと報酬資格を開始</h3><p id="t3-d">正式会員後、公式制度に基づきシェア、顧客サポート、実績構築を開始できます。報酬は会員レベル、資格、実績、精算規則によります。</p><a class="btn-go" href="https://point.vipyct.com/login?w=hs0QHK1efX-vk" id="btn-go-3" rel="noopener sponsored" target="_blank">⚡ シェアビジネスを開始</a></div></div></section>
 <!--  5. 見證分享 與 公司活動動態區 -->
 <section class="container" style="border-top: 1px solid rgba(255,255,255,0.05);">
 <div class="split-grid">
