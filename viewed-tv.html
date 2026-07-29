@@ -52,7 +52,7 @@
       height:100vh;
       min-height:560px;
       display:grid;
-      grid-template-rows:auto minmax(0,1fr) auto auto;
+      grid-template-rows:auto minmax(0,1fr) auto;
       gap:clamp(10px,1.2vh,18px);
       padding:clamp(14px,1.8vw,34px);
     }
@@ -101,6 +101,15 @@
       line-height:1;
       font-variant-numeric:tabular-nums;
       text-shadow:0 0 24px rgba(251,191,36,.16);
+    }
+    .total-legend{
+      display:block;
+      margin-top:5px;
+      color:#93c5fd;
+      font-size:clamp(8px,.58vw,12px);
+      font-weight:700;
+      letter-spacing:.02em;
+      white-space:nowrap;
     }
     .right-info{
       min-width:clamp(190px,16vw,310px);
@@ -162,7 +171,7 @@
       min-height:0;
       overflow:hidden;
       display:grid;
-      grid-template-rows:auto minmax(0,1fr) auto;
+      grid-template-rows:auto minmax(0,1fr) auto auto;
       border:1px solid var(--line);
       border-radius:clamp(14px,1vw,22px);
       padding:clamp(11px,1vw,20px);
@@ -240,38 +249,60 @@
 
     .action-metrics{
       position:relative;
-      z-index:1;
+      z-index:2;
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:clamp(5px,.45vw,9px);
-      margin:clamp(3px,.35vw,7px) 0 clamp(5px,.45vw,9px);
+      gap:clamp(6px,.5vw,10px);
+      width:100%;
+      margin:clamp(4px,.4vw,8px) 0 clamp(6px,.5vw,10px);
     }
     .action-stat{
       min-width:0;
-      border:1px solid rgba(96,165,250,.15);
-      border-radius:clamp(8px,.6vw,12px);
-      padding:clamp(5px,.45vw,9px);
-      background:rgba(2,6,23,.34);
+      overflow:hidden;
+      border:1px solid rgba(96,165,250,.30);
+      border-radius:clamp(9px,.7vw,14px);
+      padding:clamp(7px,.55vw,11px) clamp(5px,.45vw,9px);
+      background:linear-gradient(
+        145deg,
+        rgba(30,64,175,.22),
+        rgba(2,6,23,.56)
+      );
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.035);
       text-align:center;
+    }
+    .action-stat.purchase{
+      border-color:rgba(251,191,36,.28);
+      background:linear-gradient(
+        145deg,
+        rgba(120,53,15,.22),
+        rgba(2,6,23,.56)
+      );
     }
     .action-stat span{
       display:block;
       overflow:hidden;
-      color:#94a3b8;
-      font-size:clamp(8px,.55vw,11px);
-      line-height:1.2;
+      color:#bfdbfe;
+      font-size:clamp(9px,.62vw,13px);
+      font-weight:800;
+      line-height:1.25;
       white-space:nowrap;
       text-overflow:ellipsis;
     }
+    .action-stat.purchase span{color:#fde68a}
     .action-stat strong{
       display:block;
-      margin-top:2px;
-      color:#93c5fd;
-      font-size:clamp(12px,.9vw,18px);
-      line-height:1.1;
+      margin-top:clamp(3px,.25vw,5px);
+      color:#60a5fa;
+      font-size:clamp(16px,1.25vw,25px);
+      font-weight:900;
+      line-height:1;
       font-variant-numeric:tabular-nums;
+      text-shadow:0 0 14px rgba(96,165,250,.20);
     }
-    .action-stat.purchase strong{color:#fbbf24}
+    .action-stat.purchase strong{
+      color:#fbbf24;
+      text-shadow:0 0 14px rgba(251,191,36,.20);
+    }
     .bottom{
       position:relative;
       z-index:1;
@@ -357,7 +388,7 @@
 <link color="#00bfe8" href="/assets/brand/safari-pinned-tab.svg" rel="mask-icon"/>
 <link href="/site.webmanifest?v=20260729-max" rel="manifest"/>
 </head>
-<body>
+<body data-analytics-tv-version="20260730-tv-visible-fix-1">
 <main class="wall">
 <header class="header">
 <div class="brand">
@@ -366,7 +397,7 @@
 </div>
 <section aria-label="累積總訪問數" class="total-box">
 <span>累積總訪問</span>
-<strong id="tv-total">—</strong>
+<strong id="tv-total">—</strong><small class="total-legend">頁面開啟｜註冊點擊｜正式會員購物</small>
 </section>
 <section class="right-info">
 <div class="clock" id="tv-clock">--:--:--</div>
@@ -388,6 +419,6 @@
 </main>
 <div class="error-banner" hidden="" id="tv-error"></div>
 <script src="./assets/js/counter-config.js?v=20260729-analytics-v2"></script>
-<script src="./assets/js/viewed-tv.js?v=20260729-analytics-v2"></script>
+<script src="./assets/js/viewed-tv.js?v=20260730-tv-visible-fix-1"></script>
 </body>
 </html>
