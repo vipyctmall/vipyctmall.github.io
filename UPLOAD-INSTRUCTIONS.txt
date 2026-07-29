@@ -1,9 +1,0 @@
-Vipyctmall final full-audit overwrite package
-
-1. Extract this ZIP into the local root of vipyctmall.github.io and allow overwrite.
-2. Run 00-CLEANUP-OLD-FILES.bat once.
-3. Commit all added, modified and deleted files to GitHub main.
-4. Wait for GitHub Pages deployment.
-5. Test /favicon.ico, /assets/brand/favicon-48.png and the homepage in an InPrivate window.
-
-Important: zh-tw topical subpages are intentionally preserved because they are SEO pages and are linked by the Traditional Chinese homepage.
