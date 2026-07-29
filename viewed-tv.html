@@ -52,7 +52,7 @@
       height:100vh;
       min-height:560px;
       display:grid;
-      grid-template-rows:auto minmax(0,1fr) auto;
+      grid-template-rows:auto minmax(0,1fr) auto auto;
       gap:clamp(10px,1.2vh,18px);
       padding:clamp(14px,1.8vw,34px);
     }
@@ -237,6 +237,41 @@
       text-shadow:0 10px 30px rgba(0,0,0,.22);
     }
     .card.top-1 .count{color:var(--gold)}
+
+    .action-metrics{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:clamp(5px,.45vw,9px);
+      margin:clamp(3px,.35vw,7px) 0 clamp(5px,.45vw,9px);
+    }
+    .action-stat{
+      min-width:0;
+      border:1px solid rgba(96,165,250,.15);
+      border-radius:clamp(8px,.6vw,12px);
+      padding:clamp(5px,.45vw,9px);
+      background:rgba(2,6,23,.34);
+      text-align:center;
+    }
+    .action-stat span{
+      display:block;
+      overflow:hidden;
+      color:#94a3b8;
+      font-size:clamp(8px,.55vw,11px);
+      line-height:1.2;
+      white-space:nowrap;
+      text-overflow:ellipsis;
+    }
+    .action-stat strong{
+      display:block;
+      margin-top:2px;
+      color:#93c5fd;
+      font-size:clamp(12px,.9vw,18px);
+      line-height:1.1;
+      font-variant-numeric:tabular-nums;
+    }
+    .action-stat.purchase strong{color:#fbbf24}
     .bottom{
       position:relative;
       z-index:1;
@@ -352,7 +387,7 @@
 </footer>
 </main>
 <div class="error-banner" hidden="" id="tv-error"></div>
-<script src="./assets/js/counter-config.js?v=20260728-vipyctmall-1"></script>
-<script src="./assets/js/viewed-tv.js?v=20260728-vipyctmall-1"></script>
+<script src="./assets/js/counter-config.js?v=20260729-analytics-v2"></script>
+<script src="./assets/js/viewed-tv.js?v=20260729-analytics-v2"></script>
 </body>
 </html>
