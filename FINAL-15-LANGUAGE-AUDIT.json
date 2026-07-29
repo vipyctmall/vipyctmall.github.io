@@ -1,0 +1,53 @@
+{
+  "release": "Vipyctmall CEO Final 15-Language Exact Mirror",
+  "date": "2026-07-29",
+  "domain": "https://vipyctmall.com/",
+  "languages": [
+    "zh-tw",
+    "zh-cn",
+    "en",
+    "ja",
+    "ko",
+    "ms",
+    "th",
+    "vi",
+    "id",
+    "ru",
+    "my",
+    "hi",
+    "mn",
+    "km",
+    "lo"
+  ],
+  "language_count": 15,
+  "localized_page_count": 360,
+  "sitemap_url_count": 361,
+  "checks": {
+    "15_homepages_exactly_match_zh_tw_structure": true,
+    "all_corresponding_subpages_match": true,
+    "all_tutorial_pages_match": true,
+    "360_localized_pages_present": true,
+    "361_sitemap_urls_present": true,
+    "no_missing_local_assets": true,
+    "all_canonical_urls_correct": true,
+    "all_pages_have_15_hreflang_plus_x_default": true,
+    "every_subpage_links_to_its_language_home": true,
+    "no_old_vipcytmall_references": true,
+    "no_unintended_chinese_on_non_cjk_homepages": true,
+    "operational_and_verification_files_present": true,
+    "counter_configuration_correct": true,
+    "cname_correct": true
+  },
+  "errors": {
+    "homepage_mismatches": [],
+    "subpage_mismatches": [],
+    "tutorial_mismatches": [],
+    "missing_assets": [],
+    "canonical_errors": [],
+    "hreflang_errors": [],
+    "same_language_home_errors": [],
+    "old_domain_hits": [],
+    "unexpected_chinese": {},
+    "missing_essential": []
+  }
+}
