@@ -1,0 +1,44 @@
+[
+  {
+    "file": "index.html",
+    "has_favicon_ico": true,
+    "has_favicon_48": true,
+    "has_manifest": true,
+    "noindex": false
+  },
+  {
+    "file": "zh-tw/index.html",
+    "has_favicon_ico": true,
+    "has_favicon_48": true,
+    "has_manifest": true,
+    "noindex": false
+  },
+  {
+    "file": "en/index.html",
+    "has_favicon_ico": true,
+    "has_favicon_48": true,
+    "has_manifest": true,
+    "noindex": false
+  },
+  {
+    "file": "viewed.html",
+    "has_favicon_ico": true,
+    "has_favicon_48": true,
+    "has_manifest": true,
+    "noindex": true
+  },
+  {
+    "file": "viewed-tv.html",
+    "has_favicon_ico": true,
+    "has_favicon_48": true,
+    "has_manifest": true,
+    "noindex": true
+  },
+  {
+    "file": "404.html",
+    "has_favicon_ico": true,
+    "has_favicon_48": true,
+    "has_manifest": true,
+    "noindex": true
+  }
+]
