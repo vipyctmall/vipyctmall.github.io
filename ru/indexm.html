@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<html lang="ru-RU">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<title>Оформите официальное членство за 2 шага | Vipyctmall</title>
+<meta content="先免費建立個人帳號，再選擇1瓶、3瓶或5瓶GnAKG正式入會方案。" name="description"/>
+<meta content="noindex,follow" name="robots"/>
+<meta content="#07101f" name="theme-color"/>
+<meta content="telephone=no" name="format-detection"/>
+<link href="https://vipyctmall.com/zh-tw/" rel="canonical"/>
+<link href="/favicon.ico?v=20260729-max" rel="icon" sizes="any"/>
+<link href="/assets/brand/apple-touch-icon.png?v=20260729-max" rel="apple-touch-icon"/>
+<style>
+    :root {
+      --bg: #050a13;
+      --panel: #0b1629;
+      --panel-2: #0d1a31;
+      --line: rgba(96, 165, 250, .28);
+      --text: #f8fafc;
+      --muted: #a9bad1;
+      --blue: #4f8ff7;
+      --cyan: #67d8ff;
+      --gold: #ffad08;
+      --gold-2: #ffca31;
+      --green: #20e6ad;
+      --shadow: 0 18px 48px rgba(0, 0, 0, .28);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      background: var(--bg);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 280px;
+      background:
+        radial-gradient(circle at 50% -8%, rgba(30, 64, 175, .32), transparent 32rem),
+        linear-gradient(180deg, #07101f 0%, #050a13 100%);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      width: min(100%, 760px);
+      margin: 0 auto;
+      padding:
+        max(20px, env(safe-area-inset-top))
+        10px
+        max(34px, env(safe-area-inset-bottom));
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      min-height: 96px;
+      padding: 10px 28px 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      min-width: 0;
+      text-decoration: none;
+    }
+
+    .brand img {
+      display: block;
+      width: min(300px, 62vw);
+      max-height: 58px;
+      object-fit: contain;
+      object-position: left center;
+      filter: drop-shadow(0 0 10px rgba(56, 189, 248, .18));
+    }
+
+    .desktop-link {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 22px;
+      border: 1px solid rgba(148, 163, 184, .28);
+      border-radius: 999px;
+      background: rgba(15, 23, 42, .62);
+      color: #e8eef8;
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 900;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .04);
+      backdrop-filter: blur(12px);
+    }
+
+    .desktop-link:active { transform: scale(.98); }
+
+    .hero,
+    .step-card {
+      border: 1px solid var(--line);
+      border-radius: 38px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(37, 99, 235, .18), transparent 50%),
+        linear-gradient(145deg, rgba(13, 28, 55, .98), rgba(5, 13, 27, .98));
+      box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, .025);
+    }
+
+    .hero {
+      padding: 42px 28px 34px;
+      text-align: center;
+    }
+
+    .kicker {
+      margin: 0 0 16px;
+      color: #82c9ff;
+      font-size: clamp(.92rem, 3vw, 1.12rem);
+      font-weight: 950;
+      letter-spacing: .18em;
+    }
+
+    .hero h1 {
+      margin: 0;
+      background: linear-gradient(90deg, #ffffff 0%, #bfdcff 58%, #ffe06b 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: clamp(3rem, 11vw, 5.2rem);
+      font-weight: 950;
+      line-height: 1.08;
+      letter-spacing: -.045em;
+      padding-bottom: 6px;
+    }
+
+    .steps {
+      display: grid;
+      gap: 24px;
+      margin-top: 28px;
+    }
+
+    .step-card {
+      padding: 34px 28px 30px;
+    }
+
+    .step-card.step-two {
+      border-color: rgba(245, 158, 11, .42);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(146, 64, 14, .14), transparent 48%),
+        linear-gradient(145deg, rgba(13, 25, 47, .99), rgba(6, 13, 25, .99));
+    }
+
+    .step-heading {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .icon-wrap {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: 96px;
+      height: 96px;
+      border: 1px solid rgba(59, 130, 246, .62);
+      border-radius: 27px;
+      background: linear-gradient(145deg, rgba(30, 58, 138, .45), rgba(15, 23, 42, .82));
+      box-shadow: inset 0 0 25px rgba(59, 130, 246, .12);
+    }
+
+    .step-two .icon-wrap {
+      border-color: rgba(245, 158, 11, .64);
+      background: linear-gradient(145deg, rgba(120, 53, 15, .34), rgba(15, 23, 42, .84));
+    }
+
+    .icon-wrap svg {
+      width: 54px;
+      height: 54px;
+      fill: none;
+      stroke: #69a7ff;
+      stroke-width: 1.65;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .step-two .icon-wrap svg { stroke: var(--gold); }
+
+    .badge {
+      position: absolute;
+      right: -12px;
+      bottom: -10px;
+      display: grid;
+      place-items: center;
+      width: 43px;
+      height: 43px;
+      border: 4px solid #091326;
+      border-radius: 50%;
+      background: #e91949;
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 950;
+      box-shadow: 0 5px 16px rgba(233, 25, 73, .44);
+    }
+
+    .step-two .badge {
+      background: #e88700;
+      box-shadow: 0 5px 16px rgba(232, 135, 0, .44);
+    }
+
+    .step-title h2 {
+      margin: 0 0 8px;
+      font-size: clamp(1.7rem, 6vw, 2.35rem);
+      line-height: 1.22;
+      letter-spacing: -.02em;
+    }
+
+    .step-title p {
+      margin: 0;
+      color: #a9c6f2;
+      font-size: clamp(1.02rem, 3.8vw, 1.3rem);
+      line-height: 1.62;
+    }
+
+    .cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 84px;
+      margin-top: 28px;
+      padding: 15px 22px;
+      border: 0;
+      border-radius: 26px;
+      background: linear-gradient(105deg, var(--gold-2), #f49a00);
+      color: #07101f;
+      text-align: center;
+      text-decoration: none;
+      font-size: clamp(1.2rem, 4.8vw, 1.55rem);
+      font-weight: 950;
+      letter-spacing: .01em;
+      box-shadow: 0 13px 30px rgba(245, 158, 11, .25);
+    }
+
+    .cta.blue {
+      background: linear-gradient(105deg, #2d6eea, #5394ff);
+      color: #fff;
+      box-shadow: 0 13px 30px rgba(59, 130, 246, .24);
+    }
+
+    .cta:active { transform: scale(.985); }
+
+    .tutorial {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 70px;
+      margin-top: 16px;
+      padding: 14px 20px;
+      border: 1px solid rgba(96, 165, 250, .52);
+      border-radius: 25px;
+      background: linear-gradient(145deg, rgba(15, 32, 62, .85), rgba(8, 17, 34, .94));
+      color: #a9d5ff;
+      text-align: center;
+      text-decoration: none;
+      font-size: clamp(1.05rem, 4.1vw, 1.32rem);
+      font-weight: 900;
+    }
+
+    .tutorial:active { transform: scale(.985); }
+
+    .tiers {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .tier {
+      display: flex;
+      min-width: 0;
+      min-height: 130px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 8px;
+      border: 1px solid rgba(245, 158, 11, .54);
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(42, 31, 37, .75), rgba(13, 18, 32, .95));
+      text-align: center;
+    }
+
+    .tier strong {
+      color: #ffbe13;
+      font-size: clamp(1.35rem, 5vw, 1.75rem);
+      line-height: 1.1;
+    }
+
+    .tier span {
+      margin-top: 8px;
+      color: #f6f7fb;
+      font-size: clamp(.98rem, 3.6vw, 1.2rem);
+      font-weight: 900;
+    }
+
+    .tier small {
+      margin-top: 7px;
+      color: #8dc3ff;
+      font-size: clamp(.9rem, 3.3vw, 1.08rem);
+      font-weight: 950;
+    }
+
+    @media (max-width: 520px) {
+      .page { padding-left: 8px; padding-right: 8px; }
+
+      .topbar {
+        min-height: 80px;
+        padding: 8px 16px 14px;
+      }
+
+      .brand img { width: min(235px, 58vw); }
+
+      .desktop-link {
+        min-height: 46px;
+        padding: 0 17px;
+        font-size: .93rem;
+      }
+
+      .hero,
+      .step-card { border-radius: 30px; }
+
+      .hero { padding: 34px 18px 28px; }
+
+      .step-card { padding: 28px 18px 24px; }
+
+      .step-heading {
+        grid-template-columns: 78px 1fr;
+        gap: 15px;
+      }
+
+      .icon-wrap {
+        width: 78px;
+        height: 78px;
+        border-radius: 23px;
+      }
+
+      .icon-wrap svg {
+        width: 45px;
+        height: 45px;
+      }
+
+      .badge {
+        width: 38px;
+        height: 38px;
+        font-size: .95rem;
+      }
+
+      .cta { min-height: 72px; border-radius: 23px; }
+
+      .tutorial { min-height: 62px; border-radius: 22px; }
+
+      .tiers { gap: 8px; }
+
+      .tier {
+        min-height: 112px;
+        border-radius: 20px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .topbar { padding-inline: 10px; }
+      .desktop-link { padding-inline: 13px; }
+      .step-heading { grid-template-columns: 68px 1fr; }
+      .icon-wrap { width: 68px; height: 68px; }
+      .tiers { grid-template-columns: 1fr; }
+      .tier { min-height: 88px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  
+
+    .step-card:not(.step-two) .step-title h2 { margin-bottom: 0; }
+</style>
+</head>
+<body>
+<main class="page">
+<header class="topbar">
+<a aria-label="Vipyctmall AKG Global 手機首頁" class="brand" href="indexm.html">
+<img alt="Vipyctmall AKG Global" src="/assets/brand/vipyctmall-akg-global-lockup.png"/>
+</a>
+<a class="desktop-link" href="index.html?desktop=1" id="desktop-site-link">Полная версия</a>
+</header>
+<section aria-labelledby="mobile-join-title" class="hero">
+<div class="kicker">MOBILE QUICK JOIN</div>
+<h1 id="mobile-join-title">Оформите официальное членство за 2 шага</h1>
+</section>
+<section aria-label="正式入會步驟" class="steps">
+<article class="step-card">
+<div class="step-heading">
+<div aria-hidden="true" class="icon-wrap">
+<svg viewbox="0 0 24 24">
+<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+<circle cx="9" cy="7" r="4"></circle>
+<path d="M19 8v6M22 11h-6"></path>
+</svg>
+<span class="badge">1</span>
+</div>
+<div class="step-title">
+<h2>Зарегистрируйте бесплатный аккаунт</h2>
+</div>
+</div>
+<a class="cta" href="https://point.vipyct.com/login?w=hs0QHK1efX-vk" rel="noopener sponsored" target="_blank">⚡ Зарегистрировать бесплатный аккаунт</a>
+<a class="tutorial" href="teach_ste1.html">▣ Открыть инструкцию по регистрации</a>
+</article>
+<article class="step-card step-two">
+<div class="step-heading">
+<div aria-hidden="true" class="icon-wrap">
+<svg viewbox="0 0 24 24">
+<path d="M6 2h12l3 4v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6l3-4Z"></path>
+<path d="M3 6h18"></path>
+<path d="M16 10a4 4 0 0 1-8 0"></path>
+</svg>
+<span class="badge">2</span>
+</div>
+<div class="step-title">
+<h2>Купите товар и станьте официальным участником</h2>
+<p>Выберите подходящий план и завершите покупку, чтобы активировать членство.</p>
+</div>
+</div>
+<div aria-label="正式入會方案" class="tiers">
+<div class="tier">
+<strong>1 флакон</strong>
+<span>Обычный агент</span>
+<small>US$135</small>
+</div>
+<div class="tier">
+<strong>3 флакон</strong>
+<span>Продвинутый агент</span>
+<small>US$405</small>
+</div>
+<div class="tier">
+<strong>5 флакон</strong>
+<span>Региональный агент</span>
+<small>US$675</small>
+</div>
+</div>
+<a class="cta blue" href="https://www.vipyct.com/#/category?categoryType=self&amp;categoryId=1025" rel="noopener sponsored" target="_blank">⚡ Выбрать план членства</a>
+<a class="tutorial" href="teach_ste2.html">▣ Открыть инструкцию по покупке</a>
+</article>
+</section>
+</main>
+
+</body>
+</html>
