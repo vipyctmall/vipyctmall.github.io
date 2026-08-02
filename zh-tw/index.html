@@ -4,30 +4,33 @@
 <head>
 <script id="mobile-page-redirect">
 (() => {
-  try {
-    const params = new URLSearchParams(window.location.search);
+  "use strict";
 
-    // Clicking「完整網站」on indexm.html sets desktop=1.
-    // Keep that choice for the current browser tab to prevent redirect loops.
-    if (params.get("desktop") === "1") {
-      sessionStorage.setItem("akgForceDesktop", "1");
-      return;
-    }
+  function isPortraitLayout() {
+    const width = Math.max(
+      document.documentElement.clientWidth || 0,
+      window.innerWidth || 0
+    );
+    const height = Math.max(
+      document.documentElement.clientHeight || 0,
+      window.innerHeight || 0
+    );
 
-    if (sessionStorage.getItem("akgForceDesktop") === "1") return;
-
-    const mobileUserAgent =
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile/i.test(
-        navigator.userAgent
-      );
-    const narrowScreen = window.matchMedia("(max-width: 768px)").matches;
-
-    if (mobileUserAgent || narrowScreen) {
-      window.location.replace("indexm.html");
-    }
-  } catch (error) {
-    console.warn("Mobile redirect skipped:", error);
+    return width > 0 && height > 0 && width < height;
   }
+
+  function redirectToMobilePage() {
+    if (!isPortraitLayout()) return;
+
+    const currentFile = window.location.pathname.split("/").pop().toLowerCase();
+    if (currentFile === "indexm.html") return;
+
+    window.location.replace("indexm.html");
+  }
+
+  // 每次載入或由瀏覽器快取返回時重新偵測。
+  redirectToMobilePage();
+  window.addEventListener("pageshow", redirectToMobilePage);
 })();
 </script>
 <title>AKG會員怎麼加入？明星商品、全球獎金制度與註冊教學 | Vipyctmall</title>
