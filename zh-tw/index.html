@@ -2,46 +2,38 @@
 
 <html lang="zh-Hant-TW">
 <head>
-<script id="portrait-mobile-redirect">
+<script id="mobile-orientation-redirect">
 (() => {
-  "use strict";
-
-  let redirecting = false;
-
-  function viewportSize() {
-    const visual = window.visualViewport;
-    const width = visual && visual.width
-      ? visual.width
-      : (window.innerWidth || document.documentElement.clientWidth || 0);
-    const height = visual && visual.height
-      ? visual.height
-      : (window.innerHeight || document.documentElement.clientHeight || 0);
-
-    return { width, height };
+  const TARGET = 'indexm.html';
+  const isPortraitLike = () => {
+    const w = Math.max(window.innerWidth || 0, document.documentElement.clientWidth || 0);
+    const h = Math.max(window.innerHeight || 0, document.documentElement.clientHeight || 0);
+    return w > 0 && h > 0 && w < h;
+  };
+  const goMobile = () => {
+    const current = window.location.pathname.split('/').pop() || 'index.html';
+    if (current.toLowerCase() === 'indexm.html') return;
+    if (isPortraitLike()) {
+      const url = new URL(TARGET, window.location.href);
+      window.location.replace(url.href);
+    }
+  };
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', goMobile, { once: true });
+  } else {
+    goMobile();
   }
-
-  function redirectWhenPortrait() {
-    if (redirecting) return;
-
-    const { width, height } = viewportSize();
-    if (!(width > 0 && height > 0 && width < height)) return;
-
-    redirecting = true;
-    const target = new URL("indexm.html", window.location.href);
-    target.search = window.location.search;
-    target.hash = window.location.hash;
-    window.location.replace(target.href);
-  }
-
-  // Every direct load, cache restore, orientation change and viewport change is checked.
-  redirectWhenPortrait();
-  window.addEventListener("pageshow", redirectWhenPortrait);
-  window.addEventListener("orientationchange", redirectWhenPortrait);
-  window.addEventListener("resize", redirectWhenPortrait, { passive: true });
-
-  if (window.visualViewport) {
-    window.visualViewport.addEventListener("resize", redirectWhenPortrait, { passive: true });
-  }
+  window.addEventListener('pageshow', goMobile);
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) goMobile();
+  });
+  let timer = null;
+  const delayedCheck = () => {
+    clearTimeout(timer);
+    timer = setTimeout(goMobile, 120);
+  };
+  window.addEventListener('resize', delayedCheck, { passive: true });
+  window.addEventListener('orientationchange', delayedCheck, { passive: true });
 })();
 </script>
 
