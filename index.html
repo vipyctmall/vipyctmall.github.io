@@ -1,7 +1,104 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head><title>AKG Global | AKG, NAD+, Healthy Aging &amp; Global Shopping</title>
+<head>
+<script id="preferred-language-cookie-redirect">
+(() => {
+  "use strict";
+
+  const supportedLanguages = new Set([
+    "zh-tw", "zh-cn", "en", "ja", "ko", "ms", "th", "vi",
+    "id", "ru", "my", "hi", "mn", "km", "lo"
+  ]);
+
+  const languageAliases = {
+    "tw": "zh-tw",
+    "zh-tw": "zh-tw",
+    "zh_tw": "zh-tw",
+    "zh-hant": "zh-tw",
+    "zh-hant-tw": "zh-tw",
+    "traditional-chinese": "zh-tw",
+
+    "cn": "zh-cn",
+    "zh-cn": "zh-cn",
+    "zh_cn": "zh-cn",
+    "zh-hans": "zh-cn",
+    "zh-hans-cn": "zh-cn",
+    "simplified-chinese": "zh-cn",
+
+    "en-us": "en",
+    "en-gb": "en",
+    "jp": "ja",
+    "ja-jp": "ja",
+    "kr": "ko",
+    "ko-kr": "ko",
+    "ms-my": "ms",
+    "th-th": "th",
+    "vi-vn": "vi",
+    "id-id": "id",
+    "ru-ru": "ru",
+    "mm": "my",
+    "my-mm": "my",
+    "hi-in": "hi",
+    "mn-mn": "mn",
+    "kh": "km",
+    "km-kh": "km",
+    "la": "lo",
+    "lo-la": "lo"
+  };
+
+  const cookieNames = [
+    "vipyctmall_lang",
+    "akg_language",
+    "preferredLanguage",
+    "preferred_language",
+    "site_language",
+    "language",
+    "locale",
+    "lang"
+  ];
+
+  function normalizeLanguage(value) {
+    if (!value) return "";
+    const normalized = decodeURIComponent(value)
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, "-");
+
+    if (supportedLanguages.has(normalized)) return normalized;
+    return languageAliases[normalized] || "";
+  }
+
+  function getCookie(name) {
+    const prefix = `${encodeURIComponent(name)}=`;
+    const item = document.cookie
+      .split(";")
+      .map(part => part.trim())
+      .find(part => part.startsWith(prefix));
+
+    return item ? item.slice(prefix.length) : "";
+  }
+
+  // Add ?language-select=1 to temporarily display the language selection page.
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("language-select") === "1") return;
+
+  let preferredLanguage = "";
+
+  for (const cookieName of cookieNames) {
+    preferredLanguage = normalizeLanguage(getCookie(cookieName));
+    if (preferredLanguage) break;
+  }
+
+  if (!preferredLanguage) return;
+
+  const target = `/${preferredLanguage}/index.html`;
+
+  // replace() keeps the root selector page out of browser history.
+  window.location.replace(target);
+})();
+</script>
+<title>AKG Global | AKG, NAD+, Healthy Aging &amp; Global Shopping</title>
 <meta charset="utf-8"/><meta content="Choose from 15 languages to explore evidence-aware information on AKG, NAD+, healthy aging, wellness products, cross-border shopping and membership decisions." name="description"/><meta content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" name="robots"/><meta content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" name="googlebot"/><meta content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" name="bingbot"/><meta content="AKG Global" name="author"/><link href="https://vipyctmall.com/" rel="canonical"/><link href="https://vipyctmall.com/" hreflang="x-default" rel="alternate"/><link href="https://vipyctmall.com/zh-tw/" hreflang="zh-Hant" rel="alternate"/><link href="https://vipyctmall.com/zh-cn/" hreflang="zh-Hans" rel="alternate"/><link href="https://vipyctmall.com/en/" hreflang="en" rel="alternate"/><link href="https://vipyctmall.com/ja/" hreflang="ja" rel="alternate"/><link href="https://vipyctmall.com/ko/" hreflang="ko" rel="alternate"/><link href="https://vipyctmall.com/ms/" hreflang="ms" rel="alternate"/><link href="https://vipyctmall.com/th/" hreflang="th" rel="alternate"/><link href="https://vipyctmall.com/vi/" hreflang="vi" rel="alternate"/><link href="https://vipyctmall.com/id/" hreflang="id" rel="alternate"/><link href="https://vipyctmall.com/ru/" hreflang="ru" rel="alternate"/><link href="https://vipyctmall.com/my/" hreflang="my" rel="alternate"/><link href="https://vipyctmall.com/hi/" hreflang="hi" rel="alternate"/><link href="https://vipyctmall.com/mn/" hreflang="mn" rel="alternate"/><link href="https://vipyctmall.com/km/" hreflang="km" rel="alternate"/><link href="https://vipyctmall.com/lo/" hreflang="lo" rel="alternate"/><link href="https://vipyctmall.com/sitemap.xml" rel="sitemap" type="application/xml"/><link href="https://vipyctmall.com/assets/social/en-1200x630.png" rel="image_src"/><meta content="website" property="og:type"/><meta content="Vipyctmall" property="og:site_name"/><meta content="en_US" property="og:locale"/><meta content="AKG Global | AKG, NAD+, Healthy Aging &amp; Global Shopping" property="og:title"/><meta content="Choose from 15 languages to explore evidence-aware information on AKG, NAD+, healthy aging, wellness products, cross-border shopping and membership decisions." property="og:description"/><meta content="https://vipyctmall.com/" property="og:url"/><meta content="https://vipyctmall.com/assets/social/en-1200x630.png" property="og:image"/><meta content="https://vipyctmall.com/assets/social/en-1200x630.png" property="og:image:url"/><meta content="https://vipyctmall.com/assets/social/en-1200x630.png" property="og:image:secure_url"/><meta content="image/png" property="og:image:type"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="AKG Global multilingual research and business portal" property="og:image:alt"/><meta content="zh_TW" property="og:locale:alternate"/><meta content="zh_CN" property="og:locale:alternate"/><meta content="ja_JP" property="og:locale:alternate"/><meta content="ko_KR" property="og:locale:alternate"/><meta content="ms_MY" property="og:locale:alternate"/><meta content="th_TH" property="og:locale:alternate"/><meta content="vi_VN" property="og:locale:alternate"/><meta content="id_ID" property="og:locale:alternate"/><meta content="ru_RU" property="og:locale:alternate"/><meta content="my_MM" property="og:locale:alternate"/><meta content="hi_IN" property="og:locale:alternate"/><meta content="mn_MN" property="og:locale:alternate"/><meta content="km_KH" property="og:locale:alternate"/><meta content="lo_LA" property="og:locale:alternate"/><meta content="summary_large_image" name="twitter:card"/><meta content="AKG Global | AKG, NAD+, Healthy Aging &amp; Global Shopping" name="twitter:title"/><meta content="Choose from 15 languages to explore evidence-aware information on AKG, NAD+, healthy aging, wellness products, cross-border shopping and membership decisions." name="twitter:description"/><meta content="https://vipyctmall.com/assets/social/en-1200x630.png" name="twitter:image"/><meta content="AKG Global multilingual research and business portal" name="twitter:image:alt"/><meta content="AKG Global | AKG, NAD+, Healthy Aging &amp; Global Shopping" itemprop="name"/><meta content="Choose from 15 languages to explore evidence-aware information on AKG, NAD+, healthy aging, wellness products, cross-border shopping and membership decisions." itemprop="description"/><meta content="https://vipyctmall.com/assets/social/en-1200x630.png" itemprop="image"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="dark" name="color-scheme"/>
@@ -80,67 +177,98 @@
   </p>
 <h2>Choose your language</h2>
 <p class="language-note">Available in 15 languages for audiences around the world.</p>
-<nav aria-label="Language selection" class="languages"><a class="language-card" href="/zh-tw/" hreflang="zh-Hant" lang="zh-Hant-TW">
+<nav aria-label="Language selection" class="languages"><a class="language-card" href="/zh-tw/index.html" hreflang="zh-Hant" lang="zh-Hant-TW">
 <img alt="" decoding="async" height="28" loading="lazy" src="https://flagcdn.com/w40/tw.png" width="40"/>
 <strong>繁體中文</strong><span>AKG Global</span>
 </a>
-<a class="language-card" href="/zh-cn/" hreflang="zh-Hans" lang="zh-Hans-CN">
+<a class="language-card" href="/zh-cn/index.html" hreflang="zh-Hans" lang="zh-Hans-CN">
 <img alt="" decoding="async" height="28" loading="lazy" src="https://flagcdn.com/w40/cn.png" width="40"/>
 <strong>简体中文</strong><span>AKG Global</span>
 </a>
-<a class="language-card" href="/en/" hreflang="en" lang="en">
+<a class="language-card" href="/en/index.html" hreflang="en" lang="en">
 <img alt="" decoding="async" height="28" loading="lazy" src="https://flagcdn.com/w40/us.png" width="40"/>
 <strong>English</strong><span>AKG Global</span>
 </a>
-<a class="language-card" href="/ja/" hreflang="ja" lang="ja">
+<a class="language-card" href="/ja/index.html" hreflang="ja" lang="ja">
 <img alt="" decoding="async" height="28" loading="lazy" src="https://flagcdn.com/w40/jp.png" width="40"/>
 <strong>日本語</strong><span>AKG Global</span>
 </a>
-<a class="language-card" href="/ko/" hreflang="ko" lang="ko">
+<a class="language-card" href="/ko/index.html" hreflang="ko" lang="ko">
 <img alt="" decoding="async" height="28" loading="lazy" src="https://flagcdn.com/w40/kr.png" width="40"/>
 <strong>한국어</strong><span>AKG Global</span>
 </a>
-<a class="language-card" href="/ms/" hreflang="ms" lang="ms">
+<a class="language-card" href="/ms/index.html" hreflang="ms" lang="ms">
 <img alt="" decoding="async" height="28" loading="lazy" src="https://flagcdn.com/w40/my.png" width="40"/>
 <strong>Bahasa Melayu</strong><span>AKG Global</span>
 </a>
-<a class="language-card" href="/th/" hreflang="th" lang="th">
+<a class="language-card" href="/th/index.html" hreflang="th" lang="th">
 <img alt="" decoding="async" height="28" loading="lazy" src="https://flagcdn.com/w40/th.png" width="40"/>
 <strong>ภาษาไทย</strong><span>AKG Global</span>
 </a>
-<a class="language-card" href="/vi/" hreflang="vi" lang="vi">
+<a class="language-card" href="/vi/index.html" hreflang="vi" lang="vi">
 <img alt="" decoding="async" height="28" loading="lazy" src="https://flagcdn.com/w40/vn.png" width="40"/>
 <strong>Tiếng Việt</strong><span>AKG Global</span>
 </a>
-<a class="language-card" href="/id/" hreflang="id" lang="id">
+<a class="language-card" href="/id/index.html" hreflang="id" lang="id">
 <img alt="" decoding="async" height="28" loading="lazy" src="https://flagcdn.com/w40/id.png" width="40"/>
 <strong>Bahasa Indonesia</strong><span>AKG Global</span>
 </a>
-<a class="language-card" href="/ru/" hreflang="ru" lang="ru">
+<a class="language-card" href="/ru/index.html" hreflang="ru" lang="ru">
 <img alt="" decoding="async" height="28" loading="lazy" src="https://flagcdn.com/w40/ru.png" width="40"/>
 <strong>Русский</strong><span>AKG Global</span>
 </a>
-<a class="language-card" href="/my/" hreflang="my" lang="my">
+<a class="language-card" href="/my/index.html" hreflang="my" lang="my">
 <img alt="" decoding="async" height="28" loading="lazy" src="https://flagcdn.com/w40/mm.png" width="40"/>
 <strong>မြန်မာဘာသာ</strong><span>AKG Global</span>
 </a>
-<a class="language-card" href="/hi/" hreflang="hi" lang="hi">
+<a class="language-card" href="/hi/index.html" hreflang="hi" lang="hi">
 <img alt="" decoding="async" height="28" loading="lazy" src="https://flagcdn.com/w40/in.png" width="40"/>
 <strong>हिन्दी</strong><span>AKG Global</span>
 </a>
-<a class="language-card" href="/mn/" hreflang="mn" lang="mn">
+<a class="language-card" href="/mn/index.html" hreflang="mn" lang="mn">
 <img alt="" decoding="async" height="28" loading="lazy" src="https://flagcdn.com/w40/mn.png" width="40"/>
 <strong>Монгол</strong><span>AKG Global</span>
 </a>
-<a class="language-card" href="/km/" hreflang="km" lang="km">
+<a class="language-card" href="/km/index.html" hreflang="km" lang="km">
 <img alt="" decoding="async" height="28" loading="lazy" src="https://flagcdn.com/w40/kh.png" width="40"/>
 <strong>ភាសាខ្មែរ</strong><span>AKG Global</span>
 </a>
-<a class="language-card" href="/lo/" hreflang="lo" lang="lo">
+<a class="language-card" href="/lo/index.html" hreflang="lo" lang="lo">
 <img alt="" decoding="async" height="28" loading="lazy" src="https://flagcdn.com/w40/la.png" width="40"/>
 <strong>ພາສາລາວ</strong><span>AKG Global</span>
 </a></nav>
 <footer>© 2026 AKG Global</footer>
 </main>
+
+<script id="save-preferred-language-cookie">
+(() => {
+  "use strict";
+
+  const supportedLanguages = new Set([
+    "zh-tw", "zh-cn", "en", "ja", "ko", "ms", "th", "vi",
+    "id", "ru", "my", "hi", "mn", "km", "lo"
+  ]);
+
+  document.querySelectorAll(".language-card[href]").forEach(card => {
+    card.addEventListener("click", event => {
+      try {
+        const url = new URL(card.href, window.location.origin);
+        const language = url.pathname.split("/").filter(Boolean)[0]?.toLowerCase();
+
+        if (!supportedLanguages.has(language)) return;
+
+        document.cookie = [
+          `vipyctmall_lang=${encodeURIComponent(language)}`,
+          "Path=/",
+          "Max-Age=31536000",
+          "SameSite=Lax"
+        ].join("; ");
+      } catch (error) {
+        console.warn("Preferred language cookie could not be saved:", error);
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>
