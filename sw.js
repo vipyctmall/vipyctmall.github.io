@@ -1,4 +1,4 @@
-const VIPYCTMALL_SW_VERSION = '20260803-root-pwa-v3';
+const VIPYCTMALL_SW_VERSION = '20260803-icon-max-v4';
 
 self.addEventListener('install', () => {
   self.skipWaiting();
