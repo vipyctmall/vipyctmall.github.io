@@ -11,7 +11,15 @@
 <meta content="telephone=no" name="format-detection"/>
 <link href="https://vipyctmall.com/zh-tw/" rel="canonical"/>
 <link href="/favicon.ico?v=20260729-max" rel="icon" sizes="any"/>
-<link href="/assets/brand/apple-touch-icon.png?v=20260729-max" rel="apple-touch-icon"/>
+<link href="/assets/brand/vipyctmall-apple-touch-max.png?v=20260803-mobile-ui-v8" rel="apple-touch-icon"/>
+<meta content="AKG GLOBAL" name="application-name"/>
+<meta content="Vipyctmall" name="apple-mobile-web-app-title"/>
+<meta content="yes" name="mobile-web-app-capable"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<link href="/site.webmanifest?v=20260803-mobile-ui-v8" rel="manifest"/>
+<link href="/assets/brand/vipyctmall-icon-max-192.png?v=20260803-mobile-ui-v8" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/assets/brand/vipyctmall-icon-max-512.png?v=20260803-mobile-ui-v8" rel="icon" sizes="512x512" type="image/png"/>
 <style>
     :root {
       --bg: #050a13;
@@ -450,6 +458,24 @@
   .tiers > .tier span { font-size: .68rem !important; }
   .tiers > .tier small { font-size: .63rem !important; }
 }
+</style><style id="mobile-language-actions-style">
+/* === Mobile language selector and fixed action buttons === */
+.mobile-language-box{position:relative;z-index:1200;flex:0 0 auto}
+.mobile-language-box summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:42px;padding:7px 10px;border:1px solid rgba(148,163,184,.28);border-radius:999px;background:rgba(15,23,42,.82);color:#f1f5f9;font-size:.82rem;font-weight:900;white-space:nowrap;box-shadow:inset 0 1px 0 rgba(255,255,255,.04);backdrop-filter:blur(12px)}
+.mobile-language-box summary::-webkit-details-marker{display:none}
+.mobile-language-box summary::after{content:"▾";font-size:.72rem;color:#93c5fd;transition:transform .2s ease}
+.mobile-language-box[open] summary::after{transform:rotate(180deg)}
+.mobile-language-box summary img,.mobile-language-menu img{display:block;width:26px;height:18px;object-fit:cover;border-radius:3px;box-shadow:0 0 0 1px rgba(255,255,255,.18)}
+.mobile-language-menu{position:absolute;top:calc(100% + 9px);right:0;z-index:1300;width:min(78vw,250px);max-height:min(62vh,470px);overflow:auto;padding:8px;border:1px solid #334155;border-radius:16px;background:rgba(7,16,31,.985);box-shadow:0 24px 60px rgba(0,0,0,.58);backdrop-filter:blur(18px)}
+.mobile-language-menu a{display:flex!important;align-items:center;gap:10px;min-height:42px;padding:8px 10px!important;border-radius:10px;color:#dbe7f5!important;text-decoration:none!important;font-size:.86rem;font-weight:800;white-space:normal}
+.mobile-language-menu a:hover,.mobile-language-menu a:focus-visible,.mobile-language-menu a[aria-current="page"]{background:#1e293b!important;color:#67d8ff!important;outline:none}
+.mobile-quick-actions{position:fixed;left:0;right:0;bottom:0;z-index:1100;display:none;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;padding:9px max(12px,env(safe-area-inset-right)) calc(9px + env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left));border-top:1px solid rgba(96,165,250,.28);background:rgba(7,16,31,.94);box-shadow:0 -12px 34px rgba(0,0,0,.38);backdrop-filter:blur(18px)}
+.mobile-quick-actions a{display:flex;align-items:center;justify-content:center;min-width:0;min-height:48px;padding:8px 7px;border-radius:12px;text-align:center;text-decoration:none;font-size:clamp(.72rem,3.5vw,.94rem);font-weight:950;line-height:1.18;overflow-wrap:anywhere;box-shadow:0 8px 22px rgba(0,0,0,.24)}
+.mobile-quick-actions .register-action{border:1px solid rgba(251,191,36,.7);background:linear-gradient(100deg,#ffd047,#f59e0b);color:#111827}
+.mobile-quick-actions .member-action{border:1px solid rgba(96,165,250,.72);background:linear-gradient(100deg,#2563eb,#4f8ff7);color:#fff}
+.mobile-quick-actions a:active{transform:scale(.98)}
+@media(max-width:900px){body{padding-bottom:82px!important}.mobile-quick-actions{display:grid}.topbar{padding-left:14px!important;padding-right:14px!important;gap:9px!important}.topbar .brand{flex:1 1 auto;min-width:0}.topbar .brand img{width:min(250px,49vw)!important}.site-header .brand{flex:1 1 auto;min-width:0}.site-header .brand img{width:min(260px,52vw)!important}.site-header .mobile-language-box{margin-left:auto}}
+@media(max-width:360px){.mobile-language-box summary{padding:7px 8px;font-size:.74rem;gap:5px}.mobile-language-box summary img,.mobile-language-menu img{width:23px;height:16px}.mobile-quick-actions{gap:7px;padding-left:8px;padding-right:8px}.mobile-quick-actions a{font-size:.7rem;padding:7px 4px}}
 </style></head>
 <body>
 <main class="page">
@@ -457,7 +483,7 @@
 <a aria-label="Vipyctmall AKG Global 手機首頁" class="brand" href="indexm.html">
 <img alt="Vipyctmall AKG Global" src="/assets/brand/vipyctmall-akg-global-lockup.png"/>
 </a>
-<a class="desktop-link" href="index.html?desktop=1" id="desktop-site-link">ເວັບໄຊເຕັມ</a>
+<details class="language-box mobile-language-box"><summary><img alt="" height="18" src="https://flagcdn.com/w40/la.png" width="26"/><span>ພາສາລາວ</span></summary><div class="language-menu mobile-language-menu"><a href="/zh-tw/indexm.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/tw.png" width="26"/><span>繁體中文</span></a><a href="/zh-cn/indexm.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/cn.png" width="26"/><span>简体中文</span></a><a href="/en/indexm.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/us.png" width="26"/><span>English</span></a><a href="/ja/indexm.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/jp.png" width="26"/><span>日本語</span></a><a href="/ko/indexm.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/kr.png" width="26"/><span>한국어</span></a><a href="/ms/indexm.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/my.png" width="26"/><span>Bahasa Melayu</span></a><a href="/th/indexm.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/th.png" width="26"/><span>ภาษาไทย</span></a><a href="/vi/indexm.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/vn.png" width="26"/><span>Tiếng Việt</span></a><a href="/id/indexm.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/id.png" width="26"/><span>Bahasa Indonesia</span></a><a href="/ru/indexm.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/ru.png" width="26"/><span>Русский</span></a><a href="/my/indexm.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/mm.png" width="26"/><span>မြန်မာဘာသာ</span></a><a href="/hi/indexm.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/in.png" width="26"/><span>हिन्दी</span></a><a href="/mn/indexm.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/mn.png" width="26"/><span>Монгол</span></a><a href="/km/indexm.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/kh.png" width="26"/><span>ភាសាខ្មែរ</span></a><a aria-current="page" href="/lo/indexm.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/la.png" width="26"/><span>ພາສາລາວ</span></a></div></details>
 </header>
 <section aria-labelledby="mobile-join-title" class="hero">
 <div class="kicker">MOBILE QUICK JOIN</div>
@@ -518,5 +544,6 @@
 </article>
 </section>
 </main>
-</body>
+<script src="/assets/js/pwa-install.js?v=20260803-mobile-ui-v8"></script>
+<nav aria-label="ຄຳສັ່ງດ່ວນ" class="mobile-quick-actions"><a class="register-action" href="https://point.vipyct.com/login?w=hs0QHK1efX-vk" rel="noopener sponsored" target="_blank">ລົງທະບຽນບັນຊີ</a><a class="member-action" href="https://www.vipyct.com/#/category?categoryType=self&amp;categoryId=1025" rel="noopener sponsored" target="_blank">ເຂົ້າເປັນສະມາຊິກ</a></nav></body>
 </html>
