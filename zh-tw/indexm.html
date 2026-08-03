@@ -486,7 +486,90 @@
 .mobile-quick-actions a:active{transform:scale(.98)}
 @media(max-width:900px){body{padding-bottom:82px!important}.mobile-quick-actions{display:grid}.topbar{padding-left:14px!important;padding-right:14px!important;gap:9px!important}.topbar .brand{flex:1 1 auto;min-width:0}.topbar .brand img{width:min(250px,49vw)!important}.site-header .brand{flex:1 1 auto;min-width:0}.site-header .brand img{width:min(260px,52vw)!important}.site-header .mobile-language-box{margin-left:auto}}
 @media(max-width:360px){.mobile-language-box summary{padding:7px 8px;font-size:.74rem;gap:5px}.mobile-language-box summary img,.mobile-language-menu img{width:23px;height:16px}.mobile-quick-actions{gap:7px;padding-left:8px;padding-right:8px}.mobile-quick-actions a{font-size:.7rem;padding:7px 4px}}
-</style></head>
+</style>
+<style id="mobile-cta-heartbeat">
+/* Match the desktop CTA heartbeat rhythm on both mobile action buttons. */
+.cta {
+  transform-origin: center;
+  will-change: transform, box-shadow;
+  animation: mobileHeartbeatGold 1.4s ease-in-out infinite;
+}
+
+.cta.blue {
+  animation-name: mobileHeartbeatBlue;
+}
+
+@keyframes mobileHeartbeatGold {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(245, 158, 11, .40),
+                0 13px 30px rgba(245, 158, 11, .25);
+  }
+  14% {
+    transform: scale(1.08);
+    box-shadow: 0 0 35px rgba(252, 211, 77, .82),
+                0 16px 34px rgba(245, 158, 11, .34);
+  }
+  28% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(245, 158, 11, .40),
+                0 13px 30px rgba(245, 158, 11, .25);
+  }
+  42% {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(252, 211, 77, .72),
+                0 15px 32px rgba(245, 158, 11, .31);
+  }
+  70%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(245, 158, 11, .40),
+                0 13px 30px rgba(245, 158, 11, .25);
+  }
+}
+
+@keyframes mobileHeartbeatBlue {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(37, 99, 235, .40),
+                0 13px 30px rgba(59, 130, 246, .24);
+  }
+  14% {
+    transform: scale(1.08);
+    box-shadow: 0 0 35px rgba(59, 130, 246, .82),
+                0 16px 34px rgba(59, 130, 246, .34);
+  }
+  28% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(37, 99, 235, .40),
+                0 13px 30px rgba(59, 130, 246, .24);
+  }
+  42% {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(59, 130, 246, .72),
+                0 15px 32px rgba(59, 130, 246, .31);
+  }
+  70%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(37, 99, 235, .40),
+                0 13px 30px rgba(59, 130, 246, .24);
+  }
+}
+
+.cta:active,
+.cta.blue:active {
+  animation: none !important;
+  transform: scale(.985) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta,
+  .cta.blue {
+    animation: none !important;
+  }
+}
+</style>
+
+</head>
 <body>
 <main class="page">
 <header class="topbar">
