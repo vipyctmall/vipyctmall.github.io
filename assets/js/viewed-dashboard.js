@@ -167,6 +167,15 @@
         });
       });
 
+      rows.sort(function (a, b) {
+        if (b.count !== a.count) return b.count - a.count;
+        return LANGUAGES.findIndex(function (item) {
+          return item.code === a.code;
+        }) - LANGUAGES.findIndex(function (item) {
+          return item.code === b.code;
+        });
+      });
+
       var total = Number(data.total);
       if (!Number.isFinite(total)) {
         total = rows.reduce(function (sum, row) {
