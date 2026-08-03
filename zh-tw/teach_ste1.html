@@ -111,7 +111,48 @@ html[lang^="ja"] *,html[lang^="zh"] *,html[lang^="ko"] *{line-break:strict}
 .image-dialog{width:min(94vw,1200px);max-height:94vh;padding:10px;border:1px solid #334155;border-radius:18px;background:#07101f;color:#fff;box-shadow:0 35px 100px rgba(0,0,0,.72)}.image-dialog::backdrop{background:rgba(1,5,12,.88);backdrop-filter:blur(5px)}.image-dialog img{display:block;max-width:100%;max-height:84vh;margin:auto;border-radius:12px;background:#fff}.dialog-bar{display:flex;align-items:center;justify-content:space-between;padding:4px 5px 10px}.dialog-bar strong{color:#dbeafe}.dialog-close{width:38px;height:38px;border:1px solid #475569;border-radius:50%;background:#0f172a;color:#fff;font-size:1.25rem;cursor:pointer}
 @media(max-width:1040px){.guide-step{grid-template-columns:1fr;padding:24px}}
 @media(max-width:640px){.account-fields{grid-template-columns:1fr}.guide-step{padding:18px;gap:18px}.guide-figure img{max-height:none}.guide-figure figcaption{display:block}.guide-meta span{width:100%}.step-label{font-size:.73rem}.guide-copy h2{font-size:1.9rem}}
-</style></head><body>
+</style>
+<style id="mobile-tier-row-fix">
+/* Keep the 1 / 3 / 5 membership plans side by side on portrait phones. */
+@media (max-width: 760px) {
+  .tiers {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+    width: 100% !important;
+  }
+  .tiers .tier {
+    min-width: 0 !important;
+    width: auto !important;
+    padding: 10px 4px !important;
+    border-radius: 11px !important;
+  }
+  .tiers .tier b {
+    font-size: 1rem !important;
+    line-height: 1.15 !important;
+  }
+  .tiers .tier span {
+    display: block !important;
+    font-size: .78rem !important;
+    line-height: 1.25 !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+  .tiers .tier small {
+    display: block !important;
+    font-size: .72rem !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+  }
+}
+@media (max-width: 360px) {
+  .tiers { gap: 4px !important; }
+  .tiers .tier { padding: 8px 2px !important; }
+  .tiers .tier span { font-size: .69rem !important; }
+  .tiers .tier small { font-size: .64rem !important; }
+}
+</style>
+</head><body>
 <header class="site-header">
 <a class="brand" href="/zh-tw/"><img alt="Vipyctmall AKG Global" src="/assets/brand/vipyctmall-akg-global-lockup.png"/></a>
 <nav class="nav">
