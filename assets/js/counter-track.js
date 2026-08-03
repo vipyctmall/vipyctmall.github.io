@@ -106,6 +106,12 @@
         "Content-Type": "application/json"
       },
       body: JSON.stringify(payload)
+    }).then(function (response) {
+      if (!response.ok) {
+        console.warn(
+          "AKG analytics event returned HTTP " + response.status
+        );
+      }
     }).catch(function (error) {
       console.warn("AKG analytics event failed:", error);
     });
@@ -149,8 +155,38 @@
     return "";
   }
 
-  // Every opened page under the language folder counts.
-  sendEvent("page_view");
+  function isPortraitRedirectSource() {
+    var redirectScript = document.getElementById(
+      "mobile-orientation-redirect"
+    );
+    if (!redirectScript) {
+      return false;
+    }
+
+    var normalizedPath = pathname
+      .toLowerCase()
+      .replace(/\/index\.html$/, "/");
+    if (normalizedPath !== "/" + language + "/") {
+      return false;
+    }
+
+    var width = Math.max(
+      window.innerWidth || 0,
+      document.documentElement.clientWidth || 0
+    );
+    var height = Math.max(
+      window.innerHeight || 0,
+      document.documentElement.clientHeight || 0
+    );
+
+    return width > 0 && height > 0 && width < height;
+  }
+
+  // Portrait language home pages redirect to indexm.html. Count only the
+  // destination page so one mobile opening does not create two page views.
+  if (!isPortraitRedirectSource()) {
+    sendEvent("page_view");
+  }
 
   // Existing buttons and layouts remain untouched.
   document.addEventListener(
