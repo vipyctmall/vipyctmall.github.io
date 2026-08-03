@@ -112,7 +112,6 @@ html[lang^="ja"] *,html[lang^="zh"] *,html[lang^="ko"] *{line-break:strict}
 @media(max-width:1040px){.guide-step{grid-template-columns:1fr;padding:24px}}
 @media(max-width:640px){.account-fields{grid-template-columns:1fr}.guide-step{padding:18px;gap:18px}.guide-figure img{max-height:none}.guide-figure figcaption{display:block}.guide-meta span{width:100%}.step-label{font-size:.73rem}.guide-copy h2{font-size:1.9rem}}
 </style>
-
 <style id="mobile-membership-tiers-fix">
 /* Vipyctmall mobile membership plans: always keep 1 / 3 / 5 plans in one row. */
 .tiers,
@@ -172,6 +171,24 @@ html[lang^="ja"] *,html[lang^="zh"] *,html[lang^="ko"] *{line-break:strict}
   .tiers > .tier span { font-size: .68rem !important; }
   .tiers > .tier small { font-size: .63rem !important; }
 }
+</style><style id="mobile-language-actions-style">
+/* === Mobile language selector and fixed action buttons === */
+.mobile-language-box{position:relative;z-index:1200;flex:0 0 auto}
+.mobile-language-box summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:42px;padding:7px 10px;border:1px solid rgba(148,163,184,.28);border-radius:999px;background:rgba(15,23,42,.82);color:#f1f5f9;font-size:.82rem;font-weight:900;white-space:nowrap;box-shadow:inset 0 1px 0 rgba(255,255,255,.04);backdrop-filter:blur(12px)}
+.mobile-language-box summary::-webkit-details-marker{display:none}
+.mobile-language-box summary::after{content:"▾";font-size:.72rem;color:#93c5fd;transition:transform .2s ease}
+.mobile-language-box[open] summary::after{transform:rotate(180deg)}
+.mobile-language-box summary img,.mobile-language-menu img{display:block;width:26px;height:18px;object-fit:cover;border-radius:3px;box-shadow:0 0 0 1px rgba(255,255,255,.18)}
+.mobile-language-menu{position:absolute;top:calc(100% + 9px);right:0;z-index:1300;width:min(78vw,250px);max-height:min(62vh,470px);overflow:auto;padding:8px;border:1px solid #334155;border-radius:16px;background:rgba(7,16,31,.985);box-shadow:0 24px 60px rgba(0,0,0,.58);backdrop-filter:blur(18px)}
+.mobile-language-menu a{display:flex!important;align-items:center;gap:10px;min-height:42px;padding:8px 10px!important;border-radius:10px;color:#dbe7f5!important;text-decoration:none!important;font-size:.86rem;font-weight:800;white-space:normal}
+.mobile-language-menu a:hover,.mobile-language-menu a:focus-visible,.mobile-language-menu a[aria-current="page"]{background:#1e293b!important;color:#67d8ff!important;outline:none}
+.mobile-quick-actions{position:fixed;left:0;right:0;bottom:0;z-index:1100;display:none;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;padding:9px max(12px,env(safe-area-inset-right)) calc(9px + env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left));border-top:1px solid rgba(96,165,250,.28);background:rgba(7,16,31,.94);box-shadow:0 -12px 34px rgba(0,0,0,.38);backdrop-filter:blur(18px)}
+.mobile-quick-actions a{display:flex;align-items:center;justify-content:center;min-width:0;min-height:48px;padding:8px 7px;border-radius:12px;text-align:center;text-decoration:none;font-size:clamp(.72rem,3.5vw,.94rem);font-weight:950;line-height:1.18;overflow-wrap:anywhere;box-shadow:0 8px 22px rgba(0,0,0,.24)}
+.mobile-quick-actions .register-action{border:1px solid rgba(251,191,36,.7);background:linear-gradient(100deg,#ffd047,#f59e0b);color:#111827}
+.mobile-quick-actions .member-action{border:1px solid rgba(96,165,250,.72);background:linear-gradient(100deg,#2563eb,#4f8ff7);color:#fff}
+.mobile-quick-actions a:active{transform:scale(.98)}
+@media(max-width:900px){body{padding-bottom:82px!important}.mobile-quick-actions{display:grid}.topbar{padding-left:14px!important;padding-right:14px!important;gap:9px!important}.topbar .brand{flex:1 1 auto;min-width:0}.topbar .brand img{width:min(250px,49vw)!important}.site-header .brand{flex:1 1 auto;min-width:0}.site-header .brand img{width:min(260px,52vw)!important}.site-header .mobile-language-box{margin-left:auto}}
+@media(max-width:360px){.mobile-language-box summary{padding:7px 8px;font-size:.74rem;gap:5px}.mobile-language-box summary img,.mobile-language-menu img{width:23px;height:16px}.mobile-quick-actions{gap:7px;padding-left:8px;padding-right:8px}.mobile-quick-actions a{font-size:.7rem;padding:7px 4px}}
 </style></head><body>
 <header class="site-header">
 <a class="brand" href="/mn/"><img alt="Vipyctmall AKG Global" src="/assets/brand/vipyctmall-akg-global-lockup.png"/></a>
@@ -180,8 +197,8 @@ html[lang^="ja"] *,html[lang^="zh"] *,html[lang^="ko"] *{line-break:strict}
 <a href="/mn/bonus-plan/">Bonus Plan</a>
 <a href="/mn/join/">Join</a>
 </nav>
-<a class="home-link" href="/mn/">← Нүүр хуудас руу буцах</a>
-<details class="language-box"><summary>Монгол</summary><div class="language-menu"><a href="https://vipyctmall.com/zh-tw/teach_ste1.html">繁體中文</a><a href="https://vipyctmall.com/zh-cn/teach_ste1.html">简体中文</a><a href="https://vipyctmall.com/en/teach_ste1.html">English</a><a href="https://vipyctmall.com/ja/teach_ste1.html">日本語</a><a href="https://vipyctmall.com/ko/teach_ste1.html">한국어</a><a href="https://vipyctmall.com/ms/teach_ste1.html">Bahasa Melayu</a><a href="https://vipyctmall.com/id/teach_ste1.html">Bahasa Indonesia</a><a href="https://vipyctmall.com/vi/teach_ste1.html">Tiếng Việt</a><a href="https://vipyctmall.com/th/teach_ste1.html">ภาษาไทย</a><a href="https://vipyctmall.com/ru/teach_ste1.html">Русский</a><a href="https://vipyctmall.com/my/teach_ste1.html">မြန်မာဘာသာ</a><a href="https://vipyctmall.com/hi/teach_ste1.html">हिन्दी</a><a aria-current="page" href="https://vipyctmall.com/mn/teach_ste1.html">Монгол</a><a href="https://vipyctmall.com/km/teach_ste1.html">ភាសាខ្មែរ</a><a href="https://vipyctmall.com/lo/teach_ste1.html">ພາສາລາວ</a></div></details>
+
+<details class="language-box mobile-language-box"><summary><img alt="" height="18" src="https://flagcdn.com/w40/mn.png" width="26"/><span>Монгол</span></summary><div class="language-menu mobile-language-menu"><a href="/zh-tw/teach_ste1.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/tw.png" width="26"/><span>繁體中文</span></a><a href="/zh-cn/teach_ste1.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/cn.png" width="26"/><span>简体中文</span></a><a href="/en/teach_ste1.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/us.png" width="26"/><span>English</span></a><a href="/ja/teach_ste1.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/jp.png" width="26"/><span>日本語</span></a><a href="/ko/teach_ste1.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/kr.png" width="26"/><span>한국어</span></a><a href="/ms/teach_ste1.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/my.png" width="26"/><span>Bahasa Melayu</span></a><a href="/th/teach_ste1.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/th.png" width="26"/><span>ภาษาไทย</span></a><a href="/vi/teach_ste1.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/vn.png" width="26"/><span>Tiếng Việt</span></a><a href="/id/teach_ste1.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/id.png" width="26"/><span>Bahasa Indonesia</span></a><a href="/ru/teach_ste1.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/ru.png" width="26"/><span>Русский</span></a><a href="/my/teach_ste1.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/mm.png" width="26"/><span>မြန်မာဘာသာ</span></a><a href="/hi/teach_ste1.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/in.png" width="26"/><span>हिन्दी</span></a><a aria-current="page" href="/mn/teach_ste1.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/mn.png" width="26"/><span>Монгол</span></a><a href="/km/teach_ste1.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/kh.png" width="26"/><span>ភាសាខ្មែរ</span></a><a href="/lo/teach_ste1.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/la.png" width="26"/><span>ພາສາລາວ</span></a></div></details>
 </header>
 <main>
 <section class="hero guide-hero">
@@ -253,4 +270,4 @@ html[lang^="ja"] *,html[lang^="zh"] *,html[lang^="ko"] *{line-break:strict}
   });
   dialog.addEventListener('close', () => { image.removeAttribute('src'); });
 })();
-</script></body></html>
+</script><nav aria-label="Шуурхай үйлдэл" class="mobile-quick-actions"><a class="register-action" href="https://point.vipyct.com/login?w=hs0QHK1efX-vk" rel="noopener sponsored" target="_blank">Бүртгэл үүсгэх</a><a class="member-action" href="https://www.vipyct.com/#/category?categoryType=self&amp;categoryId=1025" rel="noopener sponsored" target="_blank">Албан ёсны гишүүн</a></nav></body></html>
