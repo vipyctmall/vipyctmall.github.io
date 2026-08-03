@@ -1,4 +1,4 @@
-const VIPYCTMALL_SW_VERSION = '20260803-install-detect-v5';
+const VIPYCTMALL_SW_VERSION = '20260803-native-install-v6';
 
 self.addEventListener('install', () => {
   self.skipWaiting();
