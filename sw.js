@@ -1,4 +1,4 @@
-const VIPYCTMALL_SW_VERSION = '20260803-native-install-v7-full-icon';
+const VIPYCTMALL_SW_VERSION = '20260803-mobile-ui-v8';
 
 self.addEventListener('install', () => {
   self.skipWaiting();
