@@ -44,19 +44,77 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 50% 0,rgba(30,58,138,.34),transparent 36%),var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans","Microsoft JhengHei",sans-serif}a{color:inherit}
 .site-header{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:18px;padding:13px 4%;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(7,11,20,.92);backdrop-filter:blur(14px)}.brand img{width:min(300px,55vw);height:50px;object-fit:contain}.nav{display:flex;gap:8px;margin-left:auto}.nav a,.language-box summary,.home-link{padding:9px 12px;border-radius:999px;text-decoration:none;color:#cbd5e1;font-weight:800;font-size:.86rem}.nav a:hover,.language-box summary:hover,.home-link:hover{background:#1e293b;color:#fff}.home-link{color:#bfdbfe}.language-box{position:relative}.language-box summary{list-style:none;cursor:pointer}.language-box summary::-webkit-details-marker{display:none}.language-menu{position:absolute;right:0;top:48px;width:230px;max-height:360px;overflow:auto;padding:8px;border:1px solid #334155;border-radius:15px;background:#0f172a;box-shadow:0 22px 45px rgba(0,0,0,.45)}.language-menu a{display:block;padding:9px 12px;border-radius:10px;text-decoration:none;color:#cbd5e1}.language-menu a:hover,.language-menu a[aria-current="page"]{background:#1e293b;color:#60a5fa}
 .hero{max-width:1220px;margin:0 auto;padding:74px 20px 34px}.kicker{color:#93c5fd;font-size:.78rem;font-weight:900;letter-spacing:.15em}.hero h1{font-size:clamp(2.3rem,5vw,4.1rem);line-height:1.08;margin:14px 0 0;background:linear-gradient(90deg,#fff,#93c5fd,#5eead4);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.section{max-width:1220px;margin:0 auto;padding:16px 20px 64px}.guide-step{display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,510px);gap:28px;align-items:center;margin:0 0 22px;padding:28px;border:1px solid rgba(255,255,255,.06);border-radius:28px;background:linear-gradient(135deg,rgba(11,26,56,.95),rgba(4,12,26,.95));box-shadow:0 18px 40px rgba(0,0,0,.22)}.guide-copy{min-width:0}.step-label{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;letter-spacing:.08em;font-weight:900;color:#9cc7ff;text-transform:uppercase;margin-bottom:14px}.step-label b{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:14px;background:linear-gradient(145deg,#14b8a6,#0f766e);font-size:1rem;color:#fff;letter-spacing:normal}.guide-copy h2{font-size:clamp(1.75rem,3vw,2.55rem);line-height:1.2;margin:0 0 18px}.check-list{margin:0;padding:0;list-style:none;display:grid;gap:12px}.check-list li{position:relative;padding:13px 16px 13px 48px;border:1px solid rgba(148,163,184,.12);border-radius:14px;background:linear-gradient(180deg,rgba(6,18,36,.82),rgba(8,21,42,.62));color:#e2ebf6;line-height:1.64;box-shadow:inset 0 1px 0 rgba(255,255,255,.02)}.check-list li:before{content:"✓";position:absolute;left:14px;top:13px;display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:rgba(16,185,129,.18);color:#34d399;font-weight:950}.guide-note{margin-top:14px;padding:14px 16px;border-left:4px solid #38bdf8;border-radius:0 12px 12px 0;background:linear-gradient(90deg,rgba(10,54,90,.42),rgba(8,24,46,.58));color:#d8efff;line-height:1.68;font-size:.92rem}.guide-figure{margin:0;align-self:stretch}.guide-figure button{display:block;width:100%;padding:14px;border:1px solid rgba(255,255,255,.06);border-radius:22px;background:linear-gradient(180deg,#f8fbff,#eef5ff);cursor:zoom-in;overflow:hidden;box-shadow:0 18px 45px rgba(0,0,0,.32)}.guide-figure img{display:block;width:100%;height:auto;max-height:760px;object-fit:contain;background:#fff;border-radius:14px}.guide-figure figcaption{display:flex;justify-content:space-between;gap:10px;margin-top:11px;color:#8ea1ba;font-size:.79rem}.guide-figure figcaption span:last-child{color:#93c5fd;font-weight:800}.disclaimer{max-width:1100px;margin:6px auto 38px;padding:19px 22px;color:#94a3b8;font-size:.85rem;line-height:1.7;border-left:4px solid #f59e0b;background:rgba(120,53,15,.12)}footer{text-align:center;padding:28px 20px 46px;color:#7f8ea3;font-size:.9rem}
+.section{max-width:1220px;margin:0 auto;padding:16px 20px 64px}.guide-step{display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,510px);gap:28px;align-items:center;margin:0 0 22px;padding:28px;border:1px solid rgba(255,255,255,.06);border-radius:28px;background:linear-gradient(135deg,rgba(11,26,56,.95),rgba(4,12,26,.95));box-shadow:0 18px 40px rgba(0,0,0,.22)}.guide-copy{min-width:0}.step-label{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;letter-spacing:.08em;font-weight:900;color:#9cc7ff;text-transform:uppercase;margin-bottom:14px}.step-label b{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:14px;background:linear-gradient(145deg,#14b8a6,#0f766e);font-size:1rem;color:#fff;letter-spacing:normal}.guide-copy h2{font-size:clamp(1.75rem,3vw,2.55rem);line-height:1.2;margin:0 0 14px}.check-list{margin:0;padding:0;list-style:none;display:grid;gap:8px}.check-list li{position:relative;padding:10px 14px 10px 42px;border:1px solid rgba(148,163,184,.12);border-radius:12px;background:linear-gradient(180deg,rgba(6,18,36,.82),rgba(8,21,42,.62));color:#e2ebf6;line-height:1.42;box-shadow:inset 0 1px 0 rgba(255,255,255,.02)}.check-list li:before{content:"✓";position:absolute;left:12px;top:10px;display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:rgba(16,185,129,.18);color:#34d399;font-weight:950}.guide-note{margin-top:14px;padding:14px 16px;border-left:4px solid #38bdf8;border-radius:0 12px 12px 0;background:linear-gradient(90deg,rgba(10,54,90,.42),rgba(8,24,46,.58));color:#d8efff;line-height:1.5;font-size:.9rem}.guide-figure{margin:0;align-self:stretch}.guide-figure button{display:block;width:100%;padding:14px;border:1px solid rgba(255,255,255,.06);border-radius:22px;background:linear-gradient(180deg,#f8fbff,#eef5ff);cursor:zoom-in;overflow:hidden;box-shadow:0 18px 45px rgba(0,0,0,.32)}.guide-figure img{display:block;width:100%;height:auto;max-height:760px;object-fit:contain;background:#fff;border-radius:14px}.guide-figure figcaption{display:flex;justify-content:space-between;gap:10px;margin-top:11px;color:#8ea1ba;font-size:.79rem}.guide-figure figcaption span:last-child{color:#93c5fd;font-weight:800}.disclaimer{max-width:1100px;margin:6px auto 38px;padding:19px 22px;color:#94a3b8;font-size:.85rem;line-height:1.7;border-left:4px solid #f59e0b;background:rgba(120,53,15,.12)}footer{text-align:center;padding:28px 20px 46px;color:#7f8ea3;font-size:.9rem}
 .image-dialog{width:min(94vw,1200px);max-height:94vh;padding:10px;border:1px solid #334155;border-radius:18px;background:#07101f;color:#fff;box-shadow:0 35px 100px rgba(0,0,0,.72)}.image-dialog::backdrop{background:rgba(1,5,12,.88);backdrop-filter:blur(5px)}.image-dialog img{display:block;max-width:100%;max-height:84vh;margin:auto;border-radius:12px;background:#fff}.dialog-bar{display:flex;align-items:center;justify-content:space-between;padding:4px 5px 10px}.dialog-bar strong{color:#dbeafe}.dialog-close{width:38px;height:38px;border:1px solid #475569;border-radius:50%;background:#0f172a;color:#fff;font-size:1.25rem;cursor:pointer}
-@media(max-width:1040px){.guide-step{grid-template-columns:1fr}.hero{padding-top:58px}}@media(max-width:760px){.site-header{flex-wrap:wrap}.nav{display:none}.home-link{margin-left:auto}.language-box{width:100%}.language-menu{left:0;right:auto}.guide-step{padding:18px;gap:18px}.guide-figure img{max-height:none}.guide-figure figcaption{display:block}.step-label{font-size:.72rem}.guide-copy h2{font-size:1.85rem}.brand img{height:42px}}
+@media(max-width:1040px){.guide-step{grid-template-columns:1fr}.hero{padding-top:58px}}@media(max-width:760px){.site-header{flex-wrap:nowrap;align-items:center}.nav{display:none}.home-link{margin-left:auto}.language-box{width:auto}.language-menu{left:auto;right:0}.guide-step{padding:18px;gap:18px}.guide-figure img{max-height:none}.guide-figure figcaption{display:block}.step-label{font-size:.72rem}.guide-copy h2{font-size:1.85rem}.brand{flex:1 1 auto;min-width:0}.brand img{height:42px;width:min(250px,49vw)}}
 
 .cta{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:13px 25px;border-radius:999px;text-decoration:none;font-weight:900;text-align:center;line-height:1.35}.cta.primary{background:linear-gradient(90deg,#f59e0b,#ea8800);color:#101827;box-shadow:0 0 25px rgba(245,158,11,.35)}.section-heading{text-align:center;max-width:900px;margin:0 auto 32px}.section-heading h2{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.2;margin:0 0 14px}.section-heading p{color:var(--muted);line-height:1.82}.flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(34px,4vw,72px);align-items:start}.flow-item{position:relative;min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center;padding:10px}.flow-circle{width:180px;height:180px;position:relative;display:flex;align-items:center;justify-content:center;border:2px solid rgba(59,130,246,.32);border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.2),rgba(15,23,42,.7));box-shadow:0 12px 28px rgba(0,0,0,.34);margin-bottom:35px}.flow-circle:before{content:"";position:absolute;width:80%;height:80%;border:1px dashed rgba(255,255,255,.15);border-radius:50%}.flow-circle svg{position:relative;z-index:1}.flow-badge{position:absolute;bottom:-21px;left:50%;transform:translateX(-50%);width:56px;height:56px;border-radius:50%;border:4px solid var(--bg);display:grid;place-items:center;background:#e11d48;font-weight:900;box-shadow:0 0 20px rgba(225,29,72,.5)}.flow-item:nth-child(2) .flow-badge{background:#d97706;box-shadow:0 0 20px rgba(217,119,6,.5)}.flow-item:nth-child(3) .flow-badge{background:#059669;box-shadow:0 0 20px rgba(5,150,105,.5)}.flow h3{font-size:clamp(1.25rem,1.8vw,1.55rem);line-height:1.38;margin:12px 0 10px;writing-mode:horizontal-tb;word-break:normal;overflow-wrap:break-word}.flow p{color:var(--muted);line-height:1.72;min-height:92px;margin:0 0 12px;writing-mode:horizontal-tb;overflow-wrap:anywhere}.flow-arrow{position:absolute;right:calc(-1 * clamp(52px,5vw,88px));top:76px;width:80px;opacity:.65}.tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;width:100%;margin:10px 0}.tier{padding:12px 7px;border:1px solid rgba(245,158,11,.4);border-radius:13px;background:linear-gradient(145deg,rgba(245,158,11,.15),rgba(15,23,42,.86))}.tier b{display:block;color:#fbbf24;font-size:1.1rem}.tier span{display:block;font-weight:800}.tier small{color:#93c5fd;font-weight:800}.flow .cta{width:min(100%,420px);margin-top:9px}@media(max-width:1040px){.flow{grid-template-columns:1fr;gap:26px}.flow-arrow{display:none}.flow p{min-height:0}}
 </style>
-</head>
+<style id="mobile-tier-row-fix">
+/* Keep the 1 / 3 / 5 membership plans side by side on portrait phones. */
+@media (max-width: 760px) {
+  .tiers {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+    width: 100% !important;
+  }
+  .tiers .tier {
+    min-width: 0 !important;
+    width: auto !important;
+    padding: 10px 4px !important;
+    border-radius: 11px !important;
+  }
+  .tiers .tier b {
+    font-size: 1rem !important;
+    line-height: 1.15 !important;
+  }
+  .tiers .tier span {
+    display: block !important;
+    font-size: .78rem !important;
+    line-height: 1.25 !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+  .tiers .tier small {
+    display: block !important;
+    font-size: .72rem !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+  }
+}
+@media (max-width: 360px) {
+  .tiers { gap: 4px !important; }
+  .tiers .tier { padding: 8px 2px !important; }
+  .tiers .tier span { font-size: .69rem !important; }
+  .tiers .tier small { font-size: .64rem !important; }
+}
+</style>
+<style id="mobile-language-actions-style">
+/* === Mobile language selector and fixed action buttons === */
+.mobile-language-box{position:relative;z-index:1200;flex:0 0 auto}
+.mobile-language-box summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:42px;padding:7px 10px;border:1px solid rgba(148,163,184,.28);border-radius:999px;background:rgba(15,23,42,.82);color:#f1f5f9;font-size:.82rem;font-weight:900;white-space:nowrap;box-shadow:inset 0 1px 0 rgba(255,255,255,.04);backdrop-filter:blur(12px)}
+.mobile-language-box summary::-webkit-details-marker{display:none}
+.mobile-language-box summary::after{content:"▾";font-size:.72rem;color:#93c5fd;transition:transform .2s ease}
+.mobile-language-box[open] summary::after{transform:rotate(180deg)}
+.mobile-language-box summary img,.mobile-language-menu img{display:block;width:26px;height:18px;object-fit:cover;border-radius:3px;box-shadow:0 0 0 1px rgba(255,255,255,.18)}
+.mobile-language-menu{position:absolute;top:calc(100% + 9px);right:0;z-index:1300;width:min(78vw,250px);max-height:min(62vh,470px);overflow:auto;padding:8px;border:1px solid #334155;border-radius:16px;background:rgba(7,16,31,.985);box-shadow:0 24px 60px rgba(0,0,0,.58);backdrop-filter:blur(18px)}
+.mobile-language-menu a{display:flex!important;align-items:center;gap:10px;min-height:42px;padding:8px 10px!important;border-radius:10px;color:#dbe7f5!important;text-decoration:none!important;font-size:.86rem;font-weight:800;white-space:normal}
+.mobile-language-menu a:hover,.mobile-language-menu a:focus-visible,.mobile-language-menu a[aria-current="page"]{background:#1e293b!important;color:#67d8ff!important;outline:none}
+.mobile-quick-actions{position:fixed;left:0;right:0;bottom:0;z-index:1100;display:none;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;padding:9px max(12px,env(safe-area-inset-right)) calc(9px + env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left));border-top:1px solid rgba(96,165,250,.28);background:rgba(7,16,31,.94);box-shadow:0 -12px 34px rgba(0,0,0,.38);backdrop-filter:blur(18px)}
+.mobile-quick-actions a{display:flex;align-items:center;justify-content:center;min-width:0;min-height:48px;padding:8px 7px;border-radius:12px;text-align:center;text-decoration:none;font-size:clamp(.72rem,3.5vw,.94rem);font-weight:950;line-height:1.18;overflow-wrap:anywhere;box-shadow:0 8px 22px rgba(0,0,0,.24)}
+.mobile-quick-actions .register-action{border:1px solid rgba(251,191,36,.7);background:linear-gradient(100deg,#ffd047,#f59e0b);color:#111827}
+.mobile-quick-actions .member-action{border:1px solid rgba(96,165,250,.72);background:linear-gradient(100deg,#2563eb,#4f8ff7);color:#fff}
+.mobile-quick-actions a:active{transform:scale(.98)}
+@media(max-width:900px){body{padding-bottom:82px!important}.mobile-quick-actions{display:grid}.topbar{padding-left:14px!important;padding-right:14px!important;gap:9px!important}.topbar .brand{flex:1 1 auto;min-width:0}.topbar .brand img{width:min(250px,49vw)!important}.site-header .brand{flex:1 1 auto;min-width:0}.site-header .brand img{width:min(260px,52vw)!important}.site-header .mobile-language-box{margin-left:auto}}
+@media(max-width:360px){.mobile-language-box summary{padding:7px 8px;font-size:.74rem;gap:5px}.mobile-language-box summary img,.mobile-language-menu img{width:23px;height:16px}.mobile-quick-actions{gap:7px;padding-left:8px;padding-right:8px}.mobile-quick-actions a{font-size:.7rem;padding:7px 4px}}
+</style></head>
 <body>
 <header class="site-header">
 <a class="brand" href="/ko/"><img alt="Vipyctmall AKG Global" src="/assets/brand/vipyctmall-akg-global-lockup.png"/></a>
 <nav class="nav"><a href="/ko/products/">추천 상품</a><a href="/ko/bonus-plan/">보너스 제도</a><a href="/ko/join/">회원 가입</a></nav>
-<a class="home-link" href="/ko/">← 한국어 홈으로 돌아가기</a>
-<details class="language-box"><summary>한국어</summary><div class="language-menu"><a href="https://vipyctmall.com/zh-tw/teach_ste2.html">繁體中文</a><a href="https://vipyctmall.com/zh-cn/teach_ste2.html">简体中文</a><a href="https://vipyctmall.com/en/teach_ste2.html">English</a><a href="https://vipyctmall.com/ja/teach_ste2.html">日本語</a><a aria-current="page" href="https://vipyctmall.com/ko/teach_ste2.html">한국어</a><a href="https://vipyctmall.com/ms/teach_ste2.html">Bahasa Melayu</a><a href="https://vipyctmall.com/th/teach_ste2.html">ภาษาไทย</a><a href="https://vipyctmall.com/vi/teach_ste2.html">Tiếng Việt</a><a href="https://vipyctmall.com/id/teach_ste2.html">Bahasa Indonesia</a><a href="https://vipyctmall.com/ru/teach_ste2.html">Русский</a><a href="https://vipyctmall.com/my/teach_ste2.html">မြန်မာဘာသာ</a><a href="https://vipyctmall.com/hi/teach_ste2.html">हिन्दी</a><a href="https://vipyctmall.com/mn/teach_ste2.html">Монгол</a><a href="https://vipyctmall.com/km/teach_ste2.html">ភាសាខ្មែរ</a><a href="https://vipyctmall.com/lo/teach_ste2.html">ພາສາລາວ</a></div></details>
+
+<details class="language-box mobile-language-box"><summary><img alt="" height="18" src="https://flagcdn.com/w40/kr.png" width="26"/><span>한국어</span></summary><div class="language-menu mobile-language-menu"><a href="/zh-tw/teach_ste2.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/tw.png" width="26"/><span>繁體中文</span></a><a href="/zh-cn/teach_ste2.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/cn.png" width="26"/><span>简体中文</span></a><a href="/en/teach_ste2.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/us.png" width="26"/><span>English</span></a><a href="/ja/teach_ste2.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/jp.png" width="26"/><span>日本語</span></a><a aria-current="page" href="/ko/teach_ste2.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/kr.png" width="26"/><span>한국어</span></a><a href="/ms/teach_ste2.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/my.png" width="26"/><span>Bahasa Melayu</span></a><a href="/th/teach_ste2.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/th.png" width="26"/><span>ภาษาไทย</span></a><a href="/vi/teach_ste2.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/vn.png" width="26"/><span>Tiếng Việt</span></a><a href="/id/teach_ste2.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/id.png" width="26"/><span>Bahasa Indonesia</span></a><a href="/ru/teach_ste2.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/ru.png" width="26"/><span>Русский</span></a><a href="/my/teach_ste2.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/mm.png" width="26"/><span>မြန်မာဘာသာ</span></a><a href="/hi/teach_ste2.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/in.png" width="26"/><span>हिन्दी</span></a><a href="/mn/teach_ste2.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/mn.png" width="26"/><span>Монгол</span></a><a href="/km/teach_ste2.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/kh.png" width="26"/><span>ភាសាខ្មែរ</span></a><a href="/lo/teach_ste2.html"><img alt="" height="18" loading="lazy" src="https://flagcdn.com/w40/la.png" width="26"/><span>ພາສາລາວ</span></a></div></details>
 </header>
 <main>
 <section class="hero"><div class="kicker">VIPYCTMALL SHOPPING GUIDE</div><h1>쇼핑 전체 이용 가이드</h1></section>
@@ -66,70 +124,57 @@
 <div class="step-label"><b>01</b> MALL LOGIN</div>
 <h2>쇼핑몰 로그인</h2>
 <ul class="check-list"><li>등록한 사용자 이름과 로그인 비밀번호를 입력합니다.</li><li>내용을 확인한 뒤 “로그인”을 눌러 Higo에 접속합니다.</li><li>계정 또는 배송 주소가 없으면 먼저 등록을 완료합니다.</li></ul>
-
 </div>
 <figure class="guide-figure">
 <button data-guide-image="/assets/teach2/ko/01-shop-login.png" data-guide-title="쇼핑몰 로그인" type="button"><img alt="쇼핑몰 로그인" decoding="async" loading="lazy" src="/assets/teach2/ko/01-shop-login.png"/></button>
-
 </figure>
 </article><article class="guide-step" id="choose-product">
 <div class="guide-copy">
 <div class="step-label"><b>02</b> PRODUCT CATEGORY</div>
 <h2>미국 직배송 상품으로 이동</h2>
 <ul class="check-list"><li>상단 메뉴에서 “상품”을 선택합니다.</li><li>왼쪽 필터에서 “자체 운영 상품” → “미국 직배송”을 선택합니다.</li><li>상품 목록에서 구매할 상품을 선택합니다.</li></ul>
-
 </div>
 <figure class="guide-figure">
 <button data-guide-image="/assets/teach2/ko/02-choose-product.png" data-guide-title="미국 직배송 상품으로 이동" type="button"><img alt="미국 직배송 상품으로 이동" decoding="async" loading="lazy" src="/assets/teach2/ko/02-choose-product.png"/></button>
-
 </figure>
 </article><article class="guide-step" id="product-detail">
 <div class="guide-copy">
 <div class="step-label"><b>03</b> PRODUCT DETAILS</div>
 <h2>수량 조정 후 바로 구매</h2>
 <ul class="check-list"><li>상품명, 가격, 상품 정보를 확인합니다.</li><li>“+”“−”로 수량을 조정합니다. 안내 예시는 5개입니다.</li><li>수량 확인 후 “바로 구매”를 선택합니다.</li></ul>
-
 </div>
 <figure class="guide-figure">
 <button data-guide-image="/assets/teach2/ko/03-product-detail.png" data-guide-title="수량 조정 후 바로 구매" type="button"><img alt="수량 조정 후 바로 구매" decoding="async" loading="lazy" src="/assets/teach2/ko/03-product-detail.png"/></button>
-
 </figure>
 </article><article class="guide-step" id="shipping-checkout">
 <div class="guide-copy">
 <div class="step-label"><b>04</b> SHIPPING</div>
 <h2>배송 방법과 주소 확인</h2>
 <ul class="check-list"><li>배송 방법에서 “우편 배송”을 선택합니다.</li><li>수령인 이름, 전화번호, 이메일과 주소를 확인합니다.</li><li>소계, 배송비와 총액을 확인한 뒤 “결제하기”를 선택합니다.</li></ul>
-
 </div>
 <figure class="guide-figure">
 <button data-guide-image="/assets/teach2/ko/04-shipping-checkout.png" data-guide-title="배송 방법과 주소 확인" type="button"><img alt="배송 방법과 주소 확인" decoding="async" loading="lazy" src="/assets/teach2/ko/04-shipping-checkout.png"/></button>
-
 </figure>
 </article><article class="guide-step" id="payment-order">
 <div class="guide-copy">
 <div class="step-label"><b>05</b> PAYMENT METHOD</div>
 <h2>통합 결제 선택 후 주문 제출</h2>
 <ul class="check-list"><li>상품 합계, 배송비와 결제 금액을 확인합니다.</li><li>결제 방법에서 “통합 결제”를 선택합니다.</li><li>가입 시 설정한 결제 비밀번호를 입력하고 주소 확인 후 주문을 제출합니다.</li></ul>
-
 </div>
 <figure class="guide-figure">
 <button data-guide-image="/assets/teach2/ko/05-payment-submit-order.png" data-guide-title="통합 결제 선택 후 주문 제출" type="button"><img alt="통합 결제 선택 후 주문 제출" decoding="async" loading="lazy" src="/assets/teach2/ko/05-payment-submit-order.png"/></button>
-
 </figure>
 </article><article class="guide-step" id="card-payment">
 <div class="guide-copy">
 <div class="step-label"><b>06</b> CARD PAYMENT</div>
 <h2>카드 정보 입력 후 결제 완료</h2>
 <ul class="check-list"><li>주문 금액과 결제 통화를 확인합니다.</li><li>카드 번호, 유효기간, 보안 코드와 카드 소유자 이름을 입력합니다.</li><li>내용 확인 후 결제를 제출합니다.</li></ul>
-
 </div>
 <figure class="guide-figure">
 <button data-guide-image="/assets/teach2/ko/06-credit-card-payment.png" data-guide-title="카드 정보 입력 후 결제 완료" type="button"><img alt="카드 정보 입력 후 결제 완료" decoding="async" loading="lazy" src="/assets/teach2/ko/06-credit-card-payment.png"/></button>
-
 </figure>
 </article>
 </section>
-
 <section class="section"><div class="section-heading"><h2>다음 단계: 정식 회원 가입 완료</h2><p>무료 계정 생성이 완료되면 필요에 따라 공식 몰에서 해당 GnAKG 가입 플랜을 선택할 수 있습니다.</p></div>
 <div aria-label="3단계로 정식 회원 가입 완료" class="flow">
 <article class="flow-item"><div class="flow-circle"><svg fill="none" height="64" stroke="#3B82F6" stroke-width="1.5" viewbox="0 0 24 24" width="64"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM20 8v6M23 11h-6"></path></svg><div class="flow-badge">1</div></div><h3>무료 계정 등록</h3><p>teach_ste1 안내에 따라 개인 계정 등록, 로그인, 배송지 설정을 완료하세요.</p><a class="cta primary" href="https://point.vipyct.com/login?w=hs0QHK1efX-vk" rel="noopener sponsored" target="_blank">무료 등록</a><svg class="flow-arrow" fill="none" stroke="#3B82F6" stroke-width="2" viewbox="0 0 24 24"><path d="M13 5l7 7-7 7M5 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path></svg></article>
@@ -141,5 +186,5 @@
 <script src="/assets/js/counter-config.js?v=20260729-analytics-v2"></script>
 <script src="/assets/js/counter-track.js?v=20260729-analytics-v2"></script>
 <script>(()=>{const dialog=document.getElementById('guideImageDialog'),image=document.getElementById('guideDialogImage'),title=document.getElementById('guideDialogTitle');if(!dialog||!image||!title)return;document.querySelectorAll('[data-guide-image]').forEach(button=>button.addEventListener('click',()=>{image.src=button.dataset.guideImage;title.textContent=button.dataset.guideTitle||'안내 이미지';dialog.showModal();}));dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});dialog.addEventListener('close',()=>image.removeAttribute('src'));})();</script>
-</body>
+<nav aria-label="빠른 작업" class="mobile-quick-actions"><a class="register-action" href="https://point.vipyct.com/login?w=hs0QHK1efX-vk" rel="noopener sponsored" target="_blank">계정 등록</a><a class="member-action" href="https://www.vipyct.com/#/category?categoryType=self&amp;categoryId=1025" rel="noopener sponsored" target="_blank">정회원 가입</a></nav></body>
 </html>
