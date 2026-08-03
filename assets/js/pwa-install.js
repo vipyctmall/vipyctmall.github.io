@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const VERSION = '20260803-native-install-v6';
+  const VERSION = '20260803-native-install-v7-full-icon';
 
   const strings = {
     'zh-hant': {
