@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const VERSION = '20260803-native-install-v7-full-icon';
+  const VERSION = '20260803-mobile-ui-v8';
 
   const strings = {
     'zh-hant': {
@@ -69,7 +69,7 @@
     const style = document.createElement('style');
     style.id = 'akg-pwa-install-style';
     style.textContent = `
-      .akg-pwa{position:fixed;z-index:2147483647;left:max(12px,env(safe-area-inset-left));right:max(12px,env(safe-area-inset-right));bottom:max(14px,env(safe-area-inset-bottom));display:none;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:center;max-width:680px;margin:auto;padding:14px;border:1px solid rgba(96,165,250,.4);border-radius:22px;background:linear-gradient(145deg,rgba(13,27,51,.985),rgba(5,12,25,.985));color:#f8fafc;box-shadow:0 24px 70px rgba(0,0,0,.58);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",sans-serif;backdrop-filter:blur(18px)}
+      .akg-pwa{position:fixed;z-index:2147483647;left:max(12px,env(safe-area-inset-left));right:max(12px,env(safe-area-inset-right));bottom:max(88px,calc(env(safe-area-inset-bottom) + 78px));display:none;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:center;max-width:680px;margin:auto;padding:14px;border:1px solid rgba(96,165,250,.4);border-radius:22px;background:linear-gradient(145deg,rgba(13,27,51,.985),rgba(5,12,25,.985));color:#f8fafc;box-shadow:0 24px 70px rgba(0,0,0,.58);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",sans-serif;backdrop-filter:blur(18px)}
       .akg-pwa.show{display:grid;animation:akg-pwa-in .28s ease-out}
       .akg-pwa img{width:64px;height:64px;border-radius:17px;background:#07101f;object-fit:cover}
       .akg-pwa h2{margin:0 0 4px;font-size:1rem;line-height:1.3;color:#fff}
