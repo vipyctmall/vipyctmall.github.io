@@ -1,15 +1,18 @@
-const VIPYCTMALL_SW_VERSION = '2026-08-03-pwa-v1';
+const VIPYCTMALL_SW_VERSION = '20260803-root-pwa-v3';
 
 self.addEventListener('install', () => {
   self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
-  event.waitUntil(self.clients.claim());
+  event.waitUntil((async () => {
+    const keys = await caches.keys();
+    await Promise.all(keys.filter((key) => key.startsWith('vipyctmall-')).map((key) => caches.delete(key)));
+    await self.clients.claim();
+  })());
 });
 
-// Keep the site network-first and avoid stale page caches while still
-// providing a service worker for installability.
+// Keep every page network-first so website updates are not trapped in an old cache.
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
   event.respondWith(fetch(event.request));
