@@ -1,4 +1,4 @@
-const VIPYCTMALL_SW_VERSION = '20260803-native-install-v6';
+const VIPYCTMALL_SW_VERSION = '20260803-native-install-v7-full-icon';
 
 self.addEventListener('install', () => {
   self.skipWaiting();
