@@ -1,4 +1,4 @@
-const VIPYCTMALL_SW_VERSION = '20260803-icon-max-v4';
+const VIPYCTMALL_SW_VERSION = '20260803-install-detect-v5';
 
 self.addEventListener('install', () => {
   self.skipWaiting();
