@@ -1087,6 +1087,135 @@ body{background:#030712;color:var(--gv-text)}
 @media(max-width:500px){.gv-title{font-size:2.65rem}.gv-sub{font-size:1rem}.gv-hero-tagline{grid-template-columns:1fr}.gv-action{width:100%;font-size:1rem}.gv-stage{aspect-ratio:1.08}.gv-stage-product{inset:7%;width:86%;height:86%;object-fit:cover;border-radius:24px}.gv-dna{width:68%;right:-12%}.gv-age-line{padding:24px 12px}.gv-age-points{gap:3px;min-height:280px}.gv-human{width:48px;height:105px}.gv-age-point b{font-size:.9rem}.gv-age-point strong{font-size:1rem}.gv-age-point small{font-size:.66rem}.gv-product-menu{grid-template-columns:1fr}.gv-step-links{grid-template-columns:1fr}.gv-share-card{width:82vw;height:360px}.gv-equation span{width:54px;height:54px;font-size:1.35rem}.gv-equation b{font-size:1.45rem}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}.gv-reveal{opacity:1;transform:none;filter:none}}
 </style>
+
+<style id="formal-dna-experience-v5">
+:root{
+  --dna-cyan:#5cf4ff;
+  --dna-blue:#287dff;
+  --dna-gold:#ffc84d;
+  --dna-deep:#020713;
+}
+body{
+  background:
+    radial-gradient(circle at 12% 18%,rgba(31,127,255,.15),transparent 26rem),
+    radial-gradient(circle at 88% 44%,rgba(35,232,220,.09),transparent 28rem),
+    radial-gradient(circle at 46% 78%,rgba(255,184,40,.07),transparent 34rem),
+    #020713!important;
+}
+#future-particles{opacity:.84!important;mix-blend-mode:screen}
+.visual-home{isolation:isolate}
+.gv-section,.gv-hero{isolation:isolate}
+.gv-section:before{
+  content:"";position:absolute;inset:4% 0 auto;width:100%;height:42%;z-index:-1;pointer-events:none;opacity:.20;
+  background:
+    radial-gradient(ellipse at 10% 50%,rgba(62,205,255,.28),transparent 34%),
+    radial-gradient(ellipse at 90% 50%,rgba(255,190,57,.16),transparent 31%);
+  animation:dnaSectionBreath 7s ease-in-out infinite;
+}
+.gv-section:nth-of-type(even):before{animation-delay:-3.5s;transform:scaleX(-1)}
+.gv-section .gv-shell{position:relative;z-index:2}
+.gv-title{text-shadow:0 0 32px rgba(62,190,255,.12)}
+.gv-center{margin-bottom:clamp(34px,4vw,60px)}
+.gv-center:after{content:"";display:block;width:min(360px,55vw);height:2px;margin:22px auto 0;background:linear-gradient(90deg,transparent,var(--dna-cyan),var(--dna-gold),transparent);box-shadow:0 0 16px rgba(71,220,255,.55);animation:dnaLinePulse 2.4s ease-in-out infinite}
+
+/* Continuous DNA dividers */
+.dna-divider{position:relative;height:82px;overflow:hidden;opacity:.86;pointer-events:none}
+.dna-divider-strand{position:absolute;left:-8%;right:-8%;top:50%;height:2px;border-radius:999px;transform-origin:center;background:linear-gradient(90deg,transparent,#48cfff 15%,#8efeff 48%,#48cfff 82%,transparent);box-shadow:0 0 14px #3ecbff;animation:dnaWaveA 5.6s linear infinite}
+.dna-divider-strand.b{background:linear-gradient(90deg,transparent,#ffd05e 15%,#fff2ae 48%,#ffc43c 82%,transparent);box-shadow:0 0 14px #ffbd39;animation-name:dnaWaveB}
+.dna-divider-rungs{position:absolute;inset:20px 0;background:repeating-linear-gradient(90deg,transparent 0 42px,rgba(180,230,255,.38) 43px 45px,transparent 46px 78px);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);animation:dnaRungs 7s linear infinite}
+
+/* Original image marquee, upgraded */
+.gv-product-marquee-section{overflow:hidden}
+.gv-image-marquee{width:100%;overflow:hidden;padding:16px 0 42px;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.gv-image-track{display:flex;width:max-content;animation:gvImageMarquee 62s linear infinite;will-change:transform}
+.gv-image-marquee:hover .gv-image-track{animation-play-state:paused}
+.gv-image-group{display:flex;gap:22px;padding-right:22px}
+.gv-marquee-card{display:block;height:410px;aspect-ratio:269/380;border:1px solid rgba(89,191,255,.28);border-radius:22px;overflow:hidden;background:#07162f;box-shadow:0 22px 58px rgba(0,0,0,.38),0 0 20px rgba(41,153,255,.08);transform:translateZ(0);transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease}
+.gv-marquee-card:hover{transform:translateY(-12px) scale(1.035);border-color:rgba(110,239,255,.75);box-shadow:0 28px 70px rgba(0,0,0,.48),0 0 38px rgba(71,214,255,.28)}
+.gv-marquee-card img{width:100%;height:100%;object-fit:cover;display:block}
+.gv-product-quick-actions{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:2px}
+.gv-icon-cta{display:inline-flex;align-items:center;gap:12px;min-width:210px;justify-content:center;padding:15px 24px;border:1px solid rgba(76,187,255,.32);border-radius:999px;background:rgba(8,29,63,.82);color:#dff5ff;text-decoration:none;font-size:1.05rem;box-shadow:0 14px 36px rgba(0,0,0,.28);transition:.25s ease}
+.gv-icon-cta.gold{border-color:rgba(255,198,72,.45);color:#fff0bb;background:rgba(61,38,5,.62)}
+.gv-icon-cta-symbol{font-size:1.45rem;color:var(--dna-cyan);filter:drop-shadow(0 0 10px currentColor)}
+.gv-icon-cta.gold .gv-icon-cta-symbol{color:var(--dna-gold)}
+.gv-icon-cta:hover{transform:translateY(-4px);box-shadow:0 0 34px rgba(76,199,255,.28)}
+
+/* Stronger two-step visual without extra explanation */
+#visual-steps .gv-two-step{position:relative}
+#visual-steps .gv-two-step:before{content:"";position:absolute;left:12%;right:12%;top:50%;height:4px;background:linear-gradient(90deg,var(--dna-cyan),var(--dna-gold));box-shadow:0 0 24px rgba(77,224,255,.55);z-index:0;animation:dnaFlowLine 2.4s linear infinite}
+#visual-steps .gv-step-action,#visual-steps .gv-step-result{position:relative;z-index:2;overflow:hidden}
+#visual-steps .gv-step-action:before,#visual-steps .gv-step-result:before{content:"";position:absolute;inset:-70%;background:conic-gradient(transparent,rgba(76,214,255,.18),transparent 28%,transparent 72%,rgba(255,197,65,.14),transparent);animation:dnaOrbitSpin 10s linear infinite;z-index:-1}
+#visual-steps .gv-step-number{animation:dnaNumberPulse 1.8s ease-in-out infinite}
+#visual-steps .gv-step-action:nth-of-type(2) .gv-step-number{animation-delay:.35s}
+
+/* Testimonials feel alive */
+#visual-share .gv-share-window{position:relative}
+#visual-share .gv-share-window:before,#visual-share .gv-share-window:after{content:"";position:absolute;top:0;bottom:0;width:120px;z-index:3;pointer-events:none}
+#visual-share .gv-share-window:before{left:0;background:linear-gradient(90deg,#030b1c,transparent)}
+#visual-share .gv-share-window:after{right:0;background:linear-gradient(-90deg,#030b1c,transparent)}
+.gv-share-card{border-color:rgba(91,213,255,.38)!important;box-shadow:0 20px 54px rgba(0,0,0,.40),0 0 22px rgba(47,174,255,.13)!important}
+
+/* Resource cards and posters */
+.gv-resource,.gv-poster{position:relative;overflow:hidden}
+.gv-resource:after,.gv-poster:after{content:"";position:absolute;inset:-50%;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.20) 49%,transparent 62%);transform:translateX(-80%) rotate(8deg);animation:dnaCardShine 5.4s ease-in-out infinite;pointer-events:none}
+.gv-resource:nth-child(2n):after,.gv-poster:nth-child(2n):after{animation-delay:-2.7s}
+
+/* Floating formal-member window */
+.member-orbit{position:fixed;right:22px;bottom:104px;z-index:99996;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+.member-orbit-toggle{position:relative;display:flex;align-items:center;gap:10px;min-height:56px;padding:8px 18px 8px 9px;border:1px solid rgba(82,218,255,.52);border-radius:999px;background:linear-gradient(135deg,rgba(7,32,70,.96),rgba(4,13,31,.97));color:#fff;font:inherit;font-weight:950;cursor:pointer;box-shadow:0 0 28px rgba(48,173,255,.28),0 18px 42px rgba(0,0,0,.42);animation:memberOrbPulse 2.2s ease-in-out infinite}
+.member-orbit-dna{position:relative;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,rgba(55,201,255,.24),rgba(9,31,66,.9));overflow:hidden}
+.member-orbit-dna i{position:absolute;width:28px;height:3px;border-radius:99px;background:linear-gradient(90deg,#4be8ff,#ffd05b);box-shadow:0 0 8px #4be8ff;animation:miniDna 2.4s linear infinite}
+.member-orbit-dna i:nth-child(2){animation-delay:-.48s}.member-orbit-dna i:nth-child(3){animation-delay:-.96s}.member-orbit-dna i:nth-child(4){animation-delay:-1.44s}.member-orbit-dna i:nth-child(5){animation-delay:-1.92s}
+.member-orbit-panel{position:relative;width:min(360px,calc(100vw - 28px));padding:22px;border:1px solid rgba(88,209,255,.34);border-radius:24px;background:linear-gradient(145deg,rgba(8,29,63,.985),rgba(3,11,27,.985));box-shadow:0 28px 80px rgba(0,0,0,.58),0 0 38px rgba(40,166,255,.17);backdrop-filter:blur(18px);transform-origin:bottom right;animation:memberPanelIn .28s ease-out}
+.member-orbit-close{position:absolute;right:10px;top:8px;border:0;background:transparent;color:#8ba4bf;font-size:1.35rem;cursor:pointer}
+.member-orbit-title{font-size:1.18rem;font-weight:950;color:#fff;margin-bottom:16px}
+.member-orbit-flow{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px}
+.member-orbit-flow>a{display:grid;place-items:center;gap:7px;min-height:92px;padding:12px;border:1px solid rgba(75,196,255,.30);border-radius:18px;background:rgba(9,32,68,.75);color:#eaf8ff;text-decoration:none;font-weight:900;transition:.25s}
+.member-orbit-flow>a:last-of-type{border-color:rgba(255,195,64,.38)}
+.member-orbit-flow>a:hover{transform:translateY(-4px);box-shadow:0 0 24px rgba(69,205,255,.25)}
+.member-orbit-flow b{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#1c86ff,#53e7ff);color:#04101f;font-size:1rem}
+.member-orbit-flow>a:last-of-type b{background:linear-gradient(135deg,#ff9d11,#ffe068)}
+.member-orbit-flow i{color:#61dfff;font-style:normal;font-size:1.4rem;animation:gvArrow 1.4s ease-in-out infinite}
+.member-orbit-links{display:flex;gap:8px;margin-top:12px}.member-orbit-links a{flex:1;text-align:center;padding:9px 8px;border-radius:12px;background:rgba(255,255,255,.055);color:#a9d7ff;text-decoration:none;font-size:.82rem;font-weight:850}
+.dna-cursor-glow{position:fixed;left:0;top:0;width:340px;height:340px;border-radius:50%;pointer-events:none;z-index:-1;opacity:.16;background:radial-gradient(circle,rgba(72,219,255,.55),rgba(33,102,255,.14) 38%,transparent 70%);transform:translate(-50%,-50%);filter:blur(9px)}
+
+/* Sticky bar appears after real engagement instead of immediately */
+.member-sticky-bar{transform:translateY(120%);opacity:0;transition:transform .4s ease,opacity .4s ease}
+.member-sticky-bar.is-visible{transform:translateY(0);opacity:1}
+
+@keyframes dnaSectionBreath{0%,100%{opacity:.13;transform:scale(.97)}50%{opacity:.30;transform:scale(1.04)}}
+@keyframes dnaLinePulse{0%,100%{opacity:.45;transform:scaleX(.78)}50%{opacity:1;transform:scaleX(1)}}
+@keyframes dnaWaveA{0%{transform:translateY(-15px) skewY(-3deg)}25%{transform:translateY(15px) skewY(3deg)}50%{transform:translateY(-15px) skewY(-3deg)}75%{transform:translateY(15px) skewY(3deg)}100%{transform:translateY(-15px) skewY(-3deg)}}
+@keyframes dnaWaveB{0%{transform:translateY(15px) skewY(3deg)}25%{transform:translateY(-15px) skewY(-3deg)}50%{transform:translateY(15px) skewY(3deg)}75%{transform:translateY(-15px) skewY(-3deg)}100%{transform:translateY(15px) skewY(3deg)}}
+@keyframes dnaRungs{to{background-position:156px 0}}
+@keyframes gvImageMarquee{to{transform:translateX(-50%)}}
+@keyframes dnaFlowLine{0%{filter:hue-rotate(0deg);background-position:0 0}100%{filter:hue-rotate(20deg);background-position:280px 0}}
+@keyframes dnaOrbitSpin{to{transform:rotate(360deg)}}
+@keyframes dnaNumberPulse{0%,100%{transform:scale(1);box-shadow:0 0 18px rgba(54,199,255,.28)}50%{transform:scale(1.12);box-shadow:0 0 36px rgba(54,199,255,.66)}}
+@keyframes dnaCardShine{0%,18%{transform:translateX(-85%) rotate(8deg)}48%,100%{transform:translateX(95%) rotate(8deg)}}
+@keyframes memberOrbPulse{0%,100%{transform:scale(1);box-shadow:0 0 24px rgba(48,173,255,.24),0 18px 42px rgba(0,0,0,.42)}50%{transform:scale(1.045);box-shadow:0 0 46px rgba(48,207,255,.54),0 20px 48px rgba(0,0,0,.48)}}
+@keyframes miniDna{0%{transform:translateY(-16px) scaleX(.35) rotate(0)}50%{transform:translateY(0) scaleX(1) rotate(180deg)}100%{transform:translateY(16px) scaleX(.35) rotate(360deg)}}
+@keyframes memberPanelIn{from{opacity:0;transform:scale(.86) translateY(14px)}to{opacity:1;transform:none}}
+
+@media(max-width:900px){
+  .gv-marquee-card{height:330px}
+  #visual-steps .gv-two-step:before{left:50%;right:auto;top:10%;bottom:10%;width:4px;height:auto}
+  .member-orbit{right:10px;bottom:92px}
+  .member-orbit-toggle{min-height:50px;padding-right:14px;font-size:.86rem}
+  .member-orbit-dna{width:34px;height:34px}
+  .dna-cursor-glow{display:none}
+}
+@media(max-width:520px){
+  .gv-marquee-card{height:275px;border-radius:16px}
+  .gv-image-group{gap:14px;padding-right:14px}
+  .gv-icon-cta{min-width:0;flex:1;padding:13px 14px;font-size:.9rem}
+  .dna-divider{height:60px}
+  .member-orbit-panel{padding:18px}
+}
+@media(prefers-reduced-motion:reduce){
+  .gv-image-track,.dna-divider-strand,.dna-divider-rungs,.member-orbit-toggle,.member-orbit-dna i,.gv-resource:after,.gv-poster:after{animation:none!important}
+}
+</style>
 </head>
 <body class="lang-zh-TW"><a class="skip-link" href="#main-content">Skip to content</a>
 <!-- 頂部導覽列 -->
@@ -1094,12 +1223,12 @@ body{background:#030712;color:var(--gv-text)}
 <div class="logo"><img alt="Vipyctmall 與 AKG Global 品牌標誌" decoding="async" fetchpriority="high" height="220" src="/assets/brand/vipyctmall-akg-global-lockup.png" width="1200"/></div>
 <!-- <div>000012</div> -->
 <div class="nav-links">
-<a href="#visual-story">科技圖解</a>
+<a href="#visual-story">NAD+科技</a>
 <a href="#visual-products">產品</a>
-<a href="#visual-plan">5瓶方案</a>
-<a href="#visual-steps">入會步驟</a>
-<a href="#visual-share">分享</a>
+<a href="#visual-steps">正式入會</a>
+<a href="#visual-share">見證</a>
 <a href="#official-resources">官方資料</a>
+<a href="#gv-system">獎金制度</a>
 </div>
 <div class="lang-dropdown-wrapper">
 <!-- 主按鈕 -->
@@ -1113,203 +1242,192 @@ body{background:#030712;color:var(--gv-text)}
 <!-- 下拉選單選單 -->
 <div class="lang-dropdown-menu" id="langMenu"><a aria-current="page" class="lang-option" href="../zh-tw/" hreflang="zh-Hant" lang="zh-Hant-TW"><img alt="" class="lang-flag-img" decoding="async" fetchpriority="low" height="14" loading="lazy" src="https://flagcdn.com/w20/tw.png" width="20"/><span>繁體中文</span></a><a class="lang-option" href="../zh-cn/" hreflang="zh-Hans" lang="zh-Hans-CN"><img alt="" class="lang-flag-img" decoding="async" fetchpriority="low" height="14" loading="lazy" src="https://flagcdn.com/w20/cn.png" width="20"/><span>简体中文</span></a><a class="lang-option" href="../en/" hreflang="en" lang="en"><img alt="" class="lang-flag-img" decoding="async" fetchpriority="low" height="14" loading="lazy" src="https://flagcdn.com/w20/us.png" width="20"/><span>English</span></a><a class="lang-option" href="../ja/" hreflang="ja" lang="ja"><img alt="" class="lang-flag-img" decoding="async" fetchpriority="low" height="14" loading="lazy" src="https://flagcdn.com/w20/jp.png" width="20"/><span>日本語</span></a><a class="lang-option" href="../ko/" hreflang="ko" lang="ko"><img alt="" class="lang-flag-img" decoding="async" fetchpriority="low" height="14" loading="lazy" src="https://flagcdn.com/w20/kr.png" width="20"/><span>한국어</span></a><a class="lang-option" href="../ms/" hreflang="ms" lang="ms"><img alt="" class="lang-flag-img" decoding="async" fetchpriority="low" height="14" loading="lazy" src="https://flagcdn.com/w20/my.png" width="20"/><span>Bahasa Melayu</span></a><a class="lang-option" href="../th/" hreflang="th" lang="th"><img alt="" class="lang-flag-img" decoding="async" fetchpriority="low" height="14" loading="lazy" src="https://flagcdn.com/w20/th.png" width="20"/><span>ภาษาไทย</span></a><a class="lang-option" href="../vi/" hreflang="vi" lang="vi"><img alt="" class="lang-flag-img" decoding="async" fetchpriority="low" height="14" loading="lazy" src="https://flagcdn.com/w20/vn.png" width="20"/><span>Tiếng Việt</span></a><a class="lang-option" href="../id/" hreflang="id" lang="id"><img alt="" class="lang-flag-img" decoding="async" fetchpriority="low" height="14" loading="lazy" src="https://flagcdn.com/w20/id.png" width="20"/><span>Bahasa Indonesia</span></a><a class="lang-option" href="../ru/" hreflang="ru" lang="ru"><img alt="" class="lang-flag-img" decoding="async" fetchpriority="low" height="14" loading="lazy" src="https://flagcdn.com/w20/ru.png" width="20"/><span>Русский</span></a><a class="lang-option" href="../my/" hreflang="my" lang="my"><img alt="" class="lang-flag-img" decoding="async" fetchpriority="low" height="14" loading="lazy" src="https://flagcdn.com/w20/mm.png" width="20"/><span>မြန်မာဘာသာ</span></a><a class="lang-option" href="../hi/" hreflang="hi" lang="hi"><img alt="" class="lang-flag-img" decoding="async" fetchpriority="low" height="14" loading="lazy" src="https://flagcdn.com/w20/in.png" width="20"/><span>हिन्दी</span></a><a class="lang-option" href="../mn/" hreflang="mn" lang="mn"><img alt="" class="lang-flag-img" decoding="async" fetchpriority="low" height="14" loading="lazy" src="https://flagcdn.com/w20/mn.png" width="20"/><span>Монгол</span></a><a class="lang-option" href="../km/" hreflang="km" lang="km"><img alt="" class="lang-flag-img" decoding="async" fetchpriority="low" height="14" loading="lazy" src="https://flagcdn.com/w20/kh.png" width="20"/><span>ភាសាខ្មែរ</span></a><a class="lang-option" href="../lo/" hreflang="lo" lang="lo"><img alt="" class="lang-flag-img" decoding="async" fetchpriority="low" height="14" loading="lazy" src="https://flagcdn.com/w20/la.png" width="20"/><span>ພາສາລາວ</span></a></div>
 </div>
-</nav><main id="main-content" class="visual-home">
-<canvas id="future-particles" aria-hidden="true"></canvas>
+</nav><main class="visual-home" id="main-content">
+<canvas aria-hidden="true" id="future-particles"></canvas>
+<section aria-labelledby="gv-hero-title" class="gv-hero">
+<div class="gv-shell gv-hero-grid">
+<div class="gv-hero-copy gv-reveal">
+<img alt="Higo Global" class="gv-hero-logo" height="180" src="/pic/Higo.png" width="641"/>
+<div class="gv-kicker">FUTURE WELLNESS × GLOBAL MEMBERSHIP</div>
+<h1 id="gv-hero-title">健康活力<br/>未來事業</h1>
+<div aria-label="首頁重點" class="gv-hero-tagline">
+<span><i></i>DNA・細胞能量研究</span>
+<span><i></i>全球健康科技趨勢</span>
+<span><i></i>會員發展機會</span>
+</div>
+<div class="gv-hero-actions">
+<a class="gv-action gold" href="https://point.vipyct.com/login?w=hs0QHK1efX-vk" rel="noopener sponsored" target="_blank">免費註冊帳號</a>
+<a class="gv-action blue" href="https://www.vipyct.com/#/category?categoryType=self&amp;categoryId=1025" rel="noopener sponsored" target="_blank">查看正式方案</a>
+</div>
+</div>
+<div class="gv-hero-visual gv-reveal" data-delay="1">
+<div class="gv-stage gv-tilt">
+<div aria-hidden="true" class="gv-ring"></div>
+<svg aria-hidden="true" class="gv-dna" viewbox="0 0 300 560">
+<path class="strand" d="M75 5 C235 65 235 135 75 195 C-10 228 -10 302 75 335 C235 395 235 465 75 555"></path>
+<path class="strand gold" d="M225 5 C65 65 65 135 225 195 C310 228 310 302 225 335 C65 395 65 465 225 555"></path>
+<g class="rung">
+<line x1="88" x2="212" y1="45" y2="45"></line><line x1="56" x2="244" y1="90" y2="90"></line>
+<line x1="72" x2="228" y1="145" y2="145"></line><line x1="108" x2="192" y1="205" y2="205"></line>
+<line x1="52" x2="248" y1="255" y2="255"></line><line x1="86" x2="214" y1="310" y2="310"></line>
+<line x1="105" x2="195" y1="365" y2="365"></line><line x1="58" x2="242" y1="420" y2="420"></line>
+<line x1="74" x2="226" y1="475" y2="475"></line><line x1="104" x2="196" y1="525" y2="525"></line>
+</g>
+</svg>
+<img alt="Higo 產品系列" class="gv-stage-product" fetchpriority="high" height="941" src="/pic/indextop/tw/page-10.png" width="1672"/>
+<div class="gv-stage-badge health"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.6-7 10-7 10Z"></path></svg><span>健康活力</span></div>
+<div class="gv-stage-badge growth"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"></path><path d="m4 9 6-4 6 7 5-8"></path></svg><span>成長機會</span></div>
+<div class="gv-stage-badge future"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 4v8l5 3"></path></svg><span>未來趨勢</span></div>
+</div>
+</div>
+</div>
+<div aria-hidden="true" class="gv-scroll-cue"></div>
+</section>
+<div aria-hidden="true" class="dna-divider"><span class="dna-divider-strand a"></span><span class="dna-divider-strand b"></span><span class="dna-divider-rungs"></span></div><section aria-labelledby="visual-story-title" class="gv-section" id="visual-story">
+<div class="gv-shell">
+<div class="gv-center">
 
-<section class="gv-hero" aria-labelledby="gv-hero-title">
-  <div class="gv-shell gv-hero-grid">
-    <div class="gv-hero-copy gv-reveal">
-      <img class="gv-hero-logo" src="/pic/Higo.png" width="641" height="180" alt="Higo Global"/>
-      <div class="gv-kicker">FUTURE WELLNESS × GLOBAL MEMBERSHIP</div>
-      <h1 id="gv-hero-title">健康活力<br/>未來事業</h1>
-      <div class="gv-hero-tagline" aria-label="首頁重點">
-        <span><i></i>DNA・細胞能量研究</span>
-        <span><i></i>全球健康科技趨勢</span>
-        <span><i></i>會員發展機會</span>
-      </div>
-      <div class="gv-hero-actions">
-        <a class="gv-action gold" href="https://point.vipyct.com/login?w=hs0QHK1efX-vk" target="_blank" rel="noopener sponsored">免費註冊帳號</a>
-        <a class="gv-action blue" href="https://www.vipyct.com/#/category?categoryType=self&amp;categoryId=1025" target="_blank" rel="noopener sponsored">查看正式方案</a>
-      </div>
-    </div>
+<h2 class="gv-title" id="visual-story-title">快速啟動增生 NAD+</h2>
 
-    <div class="gv-hero-visual gv-reveal" data-delay="1">
-      <div class="gv-stage gv-tilt">
-        <div class="gv-ring" aria-hidden="true"></div>
-        <svg class="gv-dna" viewBox="0 0 300 560" aria-hidden="true">
-          <path class="strand" d="M75 5 C235 65 235 135 75 195 C-10 228 -10 302 75 335 C235 395 235 465 75 555"/>
-          <path class="strand gold" d="M225 5 C65 65 65 135 225 195 C310 228 310 302 225 335 C65 395 65 465 225 555"/>
-          <g class="rung">
-            <line x1="88" y1="45" x2="212" y2="45"/><line x1="56" y1="90" x2="244" y2="90"/>
-            <line x1="72" y1="145" x2="228" y2="145"/><line x1="108" y1="205" x2="192" y2="205"/>
-            <line x1="52" y1="255" x2="248" y2="255"/><line x1="86" y1="310" x2="214" y2="310"/>
-            <line x1="105" y1="365" x2="195" y2="365"/><line x1="58" y1="420" x2="242" y2="420"/>
-            <line x1="74" y1="475" x2="226" y2="475"/><line x1="104" y1="525" x2="196" y2="525"/>
-          </g>
-        </svg>
-        <img class="gv-stage-product" src="/pic/indextop/tw/page-10.png" width="1672" height="941" alt="Higo 產品系列" fetchpriority="high"/>
-        <div class="gv-stage-badge health"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.6-7 10-7 10Z"/></svg><span>健康活力</span></div>
-        <div class="gv-stage-badge growth"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/><path d="m4 9 6-4 6 7 5-8"/></svg><span>成長機會</span></div>
-        <div class="gv-stage-badge future"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4v8l5 3"/></svg><span>未來趨勢</span></div>
-      </div>
-    </div>
-  </div>
-  <div class="gv-scroll-cue" aria-hidden="true"></div>
+</div>
+<div class="gv-journey gv-reveal">
+<div class="gv-journey-track">
+<div aria-hidden="true" class="gv-energy-orb"></div>
+<div class="gv-journey-product gv-tilt">
+<img alt="GnAKG 產品圖解" height="941" src="/pic/indextop/tw/page-07.png" width="1672"/>
+<strong>GnAKG</strong>
+</div>
+<div class="gv-flow-arrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="m5 12 14 0M14 6l6 6-6 6"></path></svg></div>
+<div class="gv-journey-node gv-tilt"><div class="time" data-count="3">0</div><div class="min">MIN</div><svg fill="none" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24"><path d="M12 2s6 7 6 12a6 6 0 1 1-12 0c0-5 6-12 6-12Z"></path><path d="M9 15c.8 1.4 2 2 3.5 2"></path></svg><strong>進入血液</strong></div>
+<div class="gv-flow-arrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="m5 12 14 0M14 6l6 6-6 6"></path></svg></div>
+<div class="gv-journey-node gv-tilt"><div class="time" data-count="15">0</div><div class="min">MIN</div><svg fill="none" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="3"></circle><path d="M12 4v3M12 17v3M4 12h3M17 12h3"></path></svg><strong>進入細胞</strong></div>
+<div class="gv-flow-arrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="m5 12 14 0M14 6l6 6-6 6"></path></svg></div>
+<div class="gv-journey-node gv-tilt"><div class="time" data-count="30">0</div><div class="min">MIN</div><svg fill="none" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"></path></svg><strong>增生 NAD+</strong></div>
+</div>
+</div>
+
+</div>
+</section>
+<div aria-hidden="true" class="dna-divider"><span class="dna-divider-strand a"></span><span class="dna-divider-strand b"></span><span class="dna-divider-rungs"></span></div><section aria-labelledby="gv-age-title" class="gv-section">
+<div class="gv-shell">
+<div class="gv-center"><h2 class="gv-title" id="gv-age-title">NAD+濃度隨年齡快速下降</h2></div>
+<div class="gv-age-visual gv-reveal">
+<div class="gv-age-line">
+<div class="gv-age-points">
+<div class="gv-age-point"><div class="gv-human" style="--energy:82%"><div class="energy"></div><svg fill="none" stroke="currentColor" stroke-width="1.3" viewbox="0 0 64 120"><circle cx="32" cy="14" r="10"></circle><path d="M22 30h20l7 35-8 4-2 43H25l-2-43-8-4 7-35Z"></path></svg></div><b>出生</b><strong data-count="100">0</strong><small>%</small></div>
+<div class="gv-age-point"><div class="gv-human" style="--energy:58%"><div class="energy"></div><svg fill="none" stroke="currentColor" stroke-width="1.3" viewbox="0 0 64 120"><circle cx="32" cy="14" r="10"></circle><path d="M22 30h20l7 35-8 4-2 43H25l-2-43-8-4 7-35Z"></path></svg></div><b>20歲</b><strong data-count="50">0</strong><small>%</small></div>
+<div class="gv-age-point"><div class="gv-human" style="--energy:38%"><div class="energy"></div><svg fill="none" stroke="currentColor" stroke-width="1.3" viewbox="0 0 64 120"><circle cx="32" cy="14" r="10"></circle><path d="M22 30h20l7 35-8 4-2 43H25l-2-43-8-4 7-35Z"></path></svg></div><b>40歲</b><strong data-count="25">0</strong><small>%</small></div>
+<div class="gv-age-point"><div class="gv-human" style="--energy:22%"><div class="energy"></div><svg fill="none" stroke="currentColor" stroke-width="1.3" viewbox="0 0 64 120"><circle cx="32" cy="14" r="10"></circle><path d="M22 30h20l7 35-8 4-2 43H25l-2-43-8-4 7-35Z"></path></svg></div><b>60歲</b><strong data-count="12.5">0</strong><small>%</small></div>
+<div class="gv-age-point"><div class="gv-human" style="--energy:11%"><div class="energy"></div><svg fill="none" stroke="currentColor" stroke-width="1.3" viewbox="0 0 64 120"><circle cx="32" cy="14" r="10"></circle><path d="M22 30h20l7 35-8 4-2 43H25l-2-43-8-4 7-35Z"></path></svg></div><b>80歲</b><strong data-count="6.25">0</strong><small>%</small></div>
+</div>
+</div>
+<div class="gv-dna-core gv-tilt">
+<svg aria-hidden="true" viewbox="0 0 320 520"><path class="strand" d="M75 10 C250 70 250 145 75 205 C-10 235 -10 310 75 340 C250 400 250 470 75 510" fill="none" stroke="#55dfff" stroke-dasharray="18 12" stroke-linecap="round" stroke-width="7"></path><path class="strand gold" d="M245 10 C70 70 70 145 245 205 C330 235 330 310 245 340 C70 400 70 470 245 510" fill="none" stroke="#ffc342" stroke-dasharray="18 12" stroke-linecap="round" stroke-width="7"></path><g stroke="rgba(210,242,255,.68)" stroke-width="3"><line x1="92" x2="228" y1="58" y2="58"></line><line x1="55" x2="265" y1="115" y2="115"></line><line x1="86" x2="234" y1="174" y2="174"></line><line x1="112" x2="208" y1="232" y2="232"></line><line x1="60" x2="260" y1="292" y2="292"></line><line x1="86" x2="234" y1="352" y2="352"></line><line x1="104" x2="216" y1="410" y2="410"></line><line x1="68" x2="252" y1="468" y2="468"></line></g></svg>
+<div class="core-label"><strong>DNA × 細胞能量</strong><span>未來長壽科技的關注焦點</span></div>
+</div>
+</div>
+</div>
+</section>
+<div aria-hidden="true" class="dna-divider"><span class="dna-divider-strand a"></span><span class="dna-divider-strand b"></span><span class="dna-divider-rungs"></span></div><section aria-labelledby="gv-products-title" class="gv-section gv-product-marquee-section" id="visual-products">
+<div class="gv-shell">
+<div class="gv-center"><h2 class="gv-title" id="gv-products-title">產品・科技・全球趨勢</h2></div>
+</div>
+<div aria-label="Higo 產品與科技圖解跑馬燈" class="gv-image-marquee gv-reveal">
+<div class="gv-image-track">
+<div class="gv-image-group">
+<a class="gv-marquee-card" href="products/"><img alt="Higo 全球健康科技與會員機會" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-01.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="AKG 與細胞能量研究" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-02.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="NAD+ 與粒線體活力" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-03.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="健康老化與長壽科技" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-04.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="細胞活力與年輕狀態" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-05.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="GnAKG 產品特色" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-06.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="GnCell 產品特色" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-07.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="女性健康產品" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-08.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="男性健康產品" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-09.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="植物營養與免疫健康" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-10.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="Higo 每日活力配方" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-11.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="商品品質與來源" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-12.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="海購會員註冊流程" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-13.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="全球獎金制度" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-14.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="全球事業機會" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-15.png" width="269"/></a>
+</div>
+<div aria-hidden="true" class="gv-image-group">
+<a class="gv-marquee-card" href="products/"><img alt="Higo 全球健康科技與會員機會" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-01.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="AKG 與細胞能量研究" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-02.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="NAD+ 與粒線體活力" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-03.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="健康老化與長壽科技" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-04.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="細胞活力與年輕狀態" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-05.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="GnAKG 產品特色" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-06.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="GnCell 產品特色" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-07.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="女性健康產品" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-08.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="男性健康產品" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-09.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="植物營養與免疫健康" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-10.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="Higo 每日活力配方" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-11.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="商品品質與來源" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-12.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="海購會員註冊流程" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-13.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="全球獎金制度" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-14.png" width="269"/></a>
+<a class="gv-marquee-card" href="products/"><img alt="全球事業機會" decoding="async" height="380" loading="lazy" src="/pic/indextop/tw/page-15.png" width="269"/></a>
+</div>
+</div>
+</div>
+<div class="gv-shell gv-product-quick-actions gv-reveal">
+<a aria-label="查看明星產品" class="gv-icon-cta" href="products/"><span class="gv-icon-cta-symbol">✦</span><b>明星產品</b></a>
+<a aria-label="查看正式會員方案" class="gv-icon-cta gold" href="https://www.vipyct.com/#/category?categoryType=self&amp;categoryId=1025" rel="noopener sponsored" target="_blank"><span class="gv-icon-cta-symbol">◆</span><b>正式會員</b></a>
+</div>
 </section>
 
-<section class="gv-section" id="visual-story" aria-labelledby="visual-story-title">
-  <div class="gv-shell">
-    <div class="gv-center">
-      <span class="gv-eyebrow">能量旅程</span>
-      <h2 class="gv-title" id="visual-story-title">從補充到細胞能量</h2>
-      <p class="gv-sub">產品 → 血液 → 細胞 → NAD+ 議題，一條能量線看懂官方課件所描述的 3・15・30。</p>
-    </div>
-    <div class="gv-journey gv-reveal">
-      <div class="gv-journey-track">
-        <div class="gv-energy-orb" aria-hidden="true"></div>
-        <div class="gv-journey-product gv-tilt">
-          <img src="/pic/indextop/tw/page-07.png" width="1672" height="941" alt="GnAKG 產品圖解"/>
-          <strong>GnAKG</strong>
-        </div>
-        <div class="gv-flow-arrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m5 12 14 0M14 6l6 6-6 6"/></svg></div>
-        <div class="gv-journey-node gv-tilt"><div class="time" data-count="3">0</div><div class="min">MIN</div><svg fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M12 2s6 7 6 12a6 6 0 1 1-12 0c0-5 6-12 6-12Z"/><path d="M9 15c.8 1.4 2 2 3.5 2"/></svg><strong>進入血液</strong></div>
-        <div class="gv-flow-arrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m5 12 14 0M14 6l6 6-6 6"/></svg></div>
-        <div class="gv-journey-node gv-tilt"><div class="time" data-count="15">0</div><div class="min">MIN</div><svg fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3"/></svg><strong>進入細胞</strong></div>
-        <div class="gv-flow-arrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m5 12 14 0M14 6l6 6-6 6"/></svg></div>
-        <div class="gv-journey-node gv-tilt"><div class="time" data-count="30">0</div><div class="min">MIN</div><svg fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg><strong>NAD+ 議題</strong></div>
-      </div>
-    </div>
-    <div class="gv-micro-note">依使用者提供之官方課件製作視覺導覽；不代表本站獨立醫療驗證或個別時間保證。</div>
-  </div>
+
+<div aria-hidden="true" class="dna-divider"><span class="dna-divider-strand a"></span><span class="dna-divider-strand b"></span><span class="dna-divider-rungs"></span></div><section aria-labelledby="gv-steps-title" class="gv-section" id="visual-steps">
+<div class="gv-shell">
+<div class="gv-center"><h2 class="gv-title" id="gv-steps-title">2 步完成正式會員</h2></div>
+<div class="gv-two-step gv-reveal">
+<article class="gv-step-action gv-tilt"><div class="gv-step-number">1</div><svg fill="none" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="9" cy="8" r="4"></circle><path d="M3 21v-2a6 6 0 0 1 12 0v2M19 8v6M16 11h6"></path></svg><h3>免費註冊帳號</h3><p>建立帳號・完成基本資料</p><div class="gv-step-links"><a class="gv-mini-action primary" href="https://point.vipyct.com/login?w=hs0QHK1efX-vk" rel="noopener sponsored" target="_blank">前往註冊</a><a class="gv-mini-action" href="teach_ste1.html">看圖教學</a></div></article>
+<div class="gv-step-arrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="m5 12 14 0M14 6l6 6-6 6"></path></svg></div>
+<article class="gv-step-action gv-tilt"><div class="gv-step-number">2</div><svg fill="none" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24"><path d="M4 7h16l-1 13H5L4 7ZM8 7a4 4 0 0 1 8 0"></path><path d="M8 13h8"></path></svg><h3>購入產品方案</h3><p>選擇方案・完成商品購買</p><div class="gv-step-links"><a class="gv-mini-action primary" href="https://www.vipyct.com/#/category?categoryType=self&amp;categoryId=1025" rel="noopener sponsored" target="_blank">選擇方案</a><a class="gv-mini-action" href="teach_ste2.html">購物教學</a></div></article>
+<div class="gv-step-arrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="m5 12 14 0M14 6l6 6-6 6"></path></svg></div>
+<article class="gv-step-result"><svg fill="none" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24"><path d="m12 3 3 6 6 .9-4.5 4.4 1.1 6.2L12 17.6l-5.6 2.9 1.1-6.2L3 9.9 9 9l3-6Z"></path></svg><h3>正式會員</h3></article>
+</div>
+</div>
+</section>
+<div aria-hidden="true" class="dna-divider"><span class="dna-divider-strand a"></span><span class="dna-divider-strand b"></span><span class="dna-divider-rungs"></span></div><section aria-labelledby="gv-share-title" class="gv-section" id="visual-share">
+<div class="gv-shell">
+<div class="gv-center"><h2 class="gv-title" id="gv-share-title">見證分享</h2></div>
+<div class="gv-share-window gv-reveal">
+<div class="gv-share-track">
+<figure class="gv-share-card"><img alt="使用者分享素材一" height="430" loading="lazy" src="/assets/home/zh-tw/community-share-01.webp" width="424"/></figure>
+<figure class="gv-share-card"><img alt="使用者分享素材二" height="319" loading="lazy" src="/assets/home/zh-tw/community-share-02.webp" width="430"/></figure>
+<figure class="gv-share-card"><img alt="使用者分享素材三" height="583" loading="lazy" src="/assets/home/zh-tw/community-share-03.webp" width="580"/></figure>
+<figure class="gv-share-card"><img alt="使用者分享素材一複本" height="430" loading="lazy" src="/assets/home/zh-tw/community-share-01.webp" width="424"/></figure>
+<figure class="gv-share-card"><img alt="使用者分享素材二複本" height="319" loading="lazy" src="/assets/home/zh-tw/community-share-02.webp" width="430"/></figure>
+<figure class="gv-share-card"><img alt="使用者分享素材三複本" height="583" loading="lazy" src="/assets/home/zh-tw/community-share-03.webp" width="580"/></figure>
+</div>
+</div>
+
+</div>
+</section>
+<div aria-hidden="true" class="dna-divider"><span class="dna-divider-strand a"></span><span class="dna-divider-strand b"></span><span class="dna-divider-rungs"></span></div><section aria-labelledby="gv-resource-title" class="gv-section" id="official-resources">
+<div class="gv-shell">
+
+<div class="gv-resource-grid gv-reveal">
+<a class="gv-resource" href="https://tinyurl.com/HiGo-Company1-CN-20250820" rel="noopener" target="_blank"><img alt="公司與長壽科技介紹" height="941" loading="lazy" src="/pic/indextop/tw/page-02.png" width="1672"/><div class="gv-resource-content"><div class="gv-resource-icon"><svg fill="none" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24"><path d="M3 21V8l9-5 9 5v13M8 21v-8h8v8"></path></svg></div><strong>公司介紹</strong><span>Company</span></div></a>
+<a class="gv-resource" href="https://tinyurl.com/H1go-Gnakg-CN-20250820" rel="noopener" target="_blank"><img alt="GnAKG 產品課件" height="941" loading="lazy" src="/pic/indextop/tw/page-07.png" width="1672"/><div class="gv-resource-content"><div class="gv-resource-icon"><svg fill="none" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24"><path d="M8 3h8v4l2 2v12H6V9l2-2V3Z"></path><path d="M8 7h8M9 13h6"></path></svg></div><strong>產品課件</strong><span>GnAKG・GnCell</span></div></a>
+<a class="gv-resource" href="https://tinyurl.com/H1go-Commplan-CN-20250820" rel="noopener" target="_blank"><img alt="Higo 獎金制度" height="1402" loading="lazy" src="/StartPic/Star10_tw.png" width="1122"/><div class="gv-resource-content"><div class="gv-resource-icon"><svg fill="none" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path></svg></div><strong>獎金制度</strong><span>Comp Plan</span></div></a>
+<a class="gv-resource" href="https://tinyurl.com/Gnakgproduct-Video-Cn-20250820" rel="noopener" target="_blank"><img alt="NAD+ 與產品影片" height="941" loading="lazy" src="/pic/indextop/tw/page-03.png" width="1672"/><div class="gv-resource-content"><div class="gv-resource-icon"><svg fill="none" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><path d="m10 9 5 3-5 3V9Z"></path></svg></div><strong>產品影片</strong><span>Video</span></div></a>
+<a class="gv-resource" href="teach_ste1.html"><img alt="註冊帳號教學" height="1536" loading="lazy" src="/Step/Step_tw.png" width="1024"/><div class="gv-resource-content"><div class="gv-resource-icon"><svg fill="none" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="9" cy="8" r="4"></circle><path d="M3 21v-2a6 6 0 0 1 12 0v2M19 8v6M16 11h6"></path></svg></div><strong>註冊教學</strong><span>Step 1</span></div></a>
+<a class="gv-resource" href="teach_ste2.html"><img alt="商品購買教學" height="941" loading="lazy" src="/pic/indextop/tw/page-10.png" width="1672"/><div class="gv-resource-content"><div class="gv-resource-icon"><svg fill="none" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24"><path d="M4 7h16l-1 13H5L4 7ZM8 7a4 4 0 0 1 8 0"></path></svg></div><strong>購物教學</strong><span>Step 2</span></div></a>
+</div>
+</div>
+</section>
+<div aria-hidden="true" class="dna-divider"><span class="dna-divider-strand a"></span><span class="dna-divider-strand b"></span><span class="dna-divider-rungs"></span></div><section aria-labelledby="gv-system-title" class="gv-section" id="gv-system">
+<div class="gv-shell">
+<div class="gv-center"><h2 class="gv-title" id="gv-system-title">獎金制度</h2></div>
+<div class="gv-poster-grid gv-reveal">
+<a class="gv-poster" href="bonus-plan/"><img alt="Higo Star10 獎金制度圖解" height="1402" loading="lazy" src="/StartPic/Star10_tw.png" width="1122"/></a>
+<a class="gv-poster" href="join/"><img alt="Higo 會員加入與生態流程圖解" height="1536" loading="lazy" src="/Step/Step_tw.png" width="1024"/></a>
+</div>
+</div>
 </section>
 
-<section class="gv-section" aria-labelledby="gv-age-title">
-  <div class="gv-shell">
-    <div class="gv-center"><span class="gv-eyebrow">年齡 × 能量</span><h2 class="gv-title" id="gv-age-title">一眼看見下降趨勢</h2><p class="gv-sub">用人體能量填充與 DNA 動態，呈現課件中的年齡比例概念。</p></div>
-    <div class="gv-age-visual gv-reveal">
-      <div class="gv-age-line">
-        <div class="gv-age-points">
-          <div class="gv-age-point"><div class="gv-human" style="--energy:82%"><div class="energy"></div><svg fill="none" stroke="currentColor" stroke-width="1.3" viewBox="0 0 64 120"><circle cx="32" cy="14" r="10"/><path d="M22 30h20l7 35-8 4-2 43H25l-2-43-8-4 7-35Z"/></svg></div><b>出生</b><strong data-count="100">0</strong><small>%</small></div>
-          <div class="gv-age-point"><div class="gv-human" style="--energy:58%"><div class="energy"></div><svg fill="none" stroke="currentColor" stroke-width="1.3" viewBox="0 0 64 120"><circle cx="32" cy="14" r="10"/><path d="M22 30h20l7 35-8 4-2 43H25l-2-43-8-4 7-35Z"/></svg></div><b>20歲</b><strong data-count="50">0</strong><small>%</small></div>
-          <div class="gv-age-point"><div class="gv-human" style="--energy:38%"><div class="energy"></div><svg fill="none" stroke="currentColor" stroke-width="1.3" viewBox="0 0 64 120"><circle cx="32" cy="14" r="10"/><path d="M22 30h20l7 35-8 4-2 43H25l-2-43-8-4 7-35Z"/></svg></div><b>40歲</b><strong data-count="25">0</strong><small>%</small></div>
-          <div class="gv-age-point"><div class="gv-human" style="--energy:22%"><div class="energy"></div><svg fill="none" stroke="currentColor" stroke-width="1.3" viewBox="0 0 64 120"><circle cx="32" cy="14" r="10"/><path d="M22 30h20l7 35-8 4-2 43H25l-2-43-8-4 7-35Z"/></svg></div><b>60歲</b><strong data-count="12.5">0</strong><small>%</small></div>
-          <div class="gv-age-point"><div class="gv-human" style="--energy:11%"><div class="energy"></div><svg fill="none" stroke="currentColor" stroke-width="1.3" viewBox="0 0 64 120"><circle cx="32" cy="14" r="10"/><path d="M22 30h20l7 35-8 4-2 43H25l-2-43-8-4 7-35Z"/></svg></div><b>80歲</b><strong data-count="6.25">0</strong><small>%</small></div>
-        </div>
-      </div>
-      <div class="gv-dna-core gv-tilt">
-        <svg viewBox="0 0 320 520" aria-hidden="true"><path class="strand" fill="none" stroke="#55dfff" stroke-width="7" stroke-linecap="round" stroke-dasharray="18 12" d="M75 10 C250 70 250 145 75 205 C-10 235 -10 310 75 340 C250 400 250 470 75 510"/><path class="strand gold" fill="none" stroke="#ffc342" stroke-width="7" stroke-linecap="round" stroke-dasharray="18 12" d="M245 10 C70 70 70 145 245 205 C330 235 330 310 245 340 C70 400 70 470 245 510"/><g stroke="rgba(210,242,255,.68)" stroke-width="3"><line x1="92" y1="58" x2="228" y2="58"/><line x1="55" y1="115" x2="265" y2="115"/><line x1="86" y1="174" x2="234" y2="174"/><line x1="112" y1="232" x2="208" y2="232"/><line x1="60" y1="292" x2="260" y2="292"/><line x1="86" y1="352" x2="234" y2="352"/><line x1="104" y1="410" x2="216" y2="410"/><line x1="68" y1="468" x2="252" y2="468"/></g></svg>
-        <div class="core-label"><strong>DNA × 細胞能量</strong><span>未來長壽科技的關注焦點</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="gv-section" id="visual-products" aria-labelledby="gv-products-title">
-  <div class="gv-shell">
-    <div class="gv-center"><span class="gv-eyebrow">產品圖像</span><h2 class="gv-title" id="gv-products-title">產品、科技、全球趨勢</h2><p class="gv-sub">不靠長篇說明，直接滑動觀看產品系列、核心重點與研究方向。</p></div>
-    <div class="gv-product-showcase gv-reveal">
-      <div class="gv-carousel" id="gv-carousel" aria-label="產品圖像輪播">
-        <div class="gv-slide active"><img src="/pic/indextop/tw/page-10.png" width="1672" height="941" alt="Higo 產品系列"/><div class="gv-slide-label"><strong>產品系列</strong><span>GnCell・GnAKG</span></div></div>
-        <div class="gv-slide"><img src="/pic/indextop/tw/page-07.png" width="1672" height="941" alt="GnAKG 核心重點" loading="lazy"/><div class="gv-slide-label"><strong>核心重點</strong><span>官方課件視覺整理</span></div></div>
-        <div class="gv-slide"><img src="/pic/indextop/tw/page-06.png" width="1672" height="941" alt="科學與細胞研究圖解" loading="lazy"/><div class="gv-slide-label"><strong>科技研究</strong><span>DNA・細胞・能量</span></div></div>
-        <div class="gv-slide"><img src="/pic/indextop/tw/page-09.png" width="1672" height="941" alt="全球健康市場趨勢" loading="lazy"/><div class="gv-slide-label"><strong>全球趨勢</strong><span>健康科技市場</span></div></div>
-        <div class="gv-carousel-dots" aria-label="選擇輪播圖片"><button class="active" aria-label="第1張"></button><button aria-label="第2張"></button><button aria-label="第3張"></button><button aria-label="第4張"></button></div>
-      </div>
-      <div class="gv-product-menu">
-        <a class="gv-product-tile gv-tilt" href="products/"><svg fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M8 3h8v4l2 2v12H6V9l2-2V3Z"/><path d="M8 7h8M9 13h6"/></svg><strong>明星產品</strong><span>商品與規格</span></a>
-        <a class="gv-product-tile gv-tilt" href="akg-vs-nad-plus/"><svg fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M12 2c3 4 3 6 0 10s-3 6 0 10M5 4c4 2 10 2 14 0M5 20c4-2 10-2 14 0M7 8h10M7 16h10"/></svg><strong>AKG × NAD+</strong><span>研究比較</span></a>
-        <a class="gv-product-tile gv-tilt" href="health-and-aging/"><svg fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.6-7 10-7 10Z"/><path d="M8 13h3l1-3 2 6 1-3h2"/></svg><strong>健康活力</strong><span>熟齡趨勢</span></a>
-        <a class="gv-product-tile gv-tilt" href="global-opportunity/"><svg fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><strong>全球機會</strong><span>會員生態</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="gv-section" aria-labelledby="gv-dual-title">
-  <div class="gv-shell">
-    <div class="gv-center"><span class="gv-eyebrow">雙引擎</span><h2 class="gv-title" id="gv-dual-title">健康活力 × 會員成長</h2><p class="gv-sub">一邊關注健康科技，一邊理解會員分享與團隊發展機會。</p></div>
-    <div class="gv-dual gv-reveal">
-      <article class="gv-engine health gv-tilt"><div class="gv-engine-icon"><svg fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.6-7 10-7 10Z"/><path d="M8 13h3l1-3 2 6 1-3h2"/></svg></div><h3>健康活力</h3><p>產品體驗、日常保養、細胞能量與長壽科技趨勢。</p><div class="gv-engine-visual" aria-hidden="true"></div></article>
-      <div class="gv-engine-connector"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m5 12 14 0M14 6l6 6-6 6"/></svg></div>
-      <article class="gv-engine growth gv-tilt"><div class="gv-engine-icon"><svg fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/><path d="m4 9 6-4 6 7 5-8"/></svg></div><h3>會員成長</h3><p>低門檻起步、自用分享、團隊發展；成果取決於實際經營。</p><div class="gv-engine-visual" aria-hidden="true"></div></article>
-    </div>
-  </div>
-</section>
-
-<section class="gv-section" id="visual-plan" aria-labelledby="gv-plan-title">
-  <div class="gv-shell">
-    <div class="gv-center"><span class="gv-eyebrow">會員方案</span><h2 class="gv-title" id="gv-plan-title">1・3・5 瓶，一眼比較</h2><p class="gv-sub">5 瓶方案以視覺突出為建議選項，但訪客可依需求自行決定。</p></div>
-    <div class="gv-plan-grid gv-reveal">
-      <article class="gv-plan-card gv-tilt"><div class="bottle-count">1<span>瓶</span></div><div class="gv-plan-bottles"><i class="gv-bottle"></i></div><h3>普通代理</h3><div class="price">US$135</div></article>
-      <article class="gv-plan-card gv-tilt"><div class="bottle-count">3<span>瓶</span></div><div class="gv-plan-bottles"><i class="gv-bottle"></i><i class="gv-bottle"></i><i class="gv-bottle"></i></div><h3>高級代理</h3><div class="price">US$405</div></article>
-      <article class="gv-plan-card recommended gv-tilt"><div class="gv-recommend-ribbon">推薦</div><div class="bottle-count">5<span>瓶</span></div><div class="gv-plan-bottles"><i class="gv-bottle"></i><i class="gv-bottle"></i><i class="gv-bottle"></i><i class="gv-bottle"></i><i class="gv-bottle"></i></div><h3>省級代理</h3><div class="price">US$675</div></article>
-    </div>
-  </div>
-</section>
-
-<section class="gv-section" id="visual-steps" aria-labelledby="gv-steps-title">
-  <div class="gv-shell">
-    <div class="gv-center"><span class="gv-eyebrow">兩個行動</span><h2 class="gv-title" id="gv-steps-title">2 步完成正式會員</h2><p class="gv-sub">不是四個步驟，也不是只註冊：先建立帳號，再購入方案，完成正式會員資格。</p></div>
-    <div class="gv-two-step gv-reveal">
-      <article class="gv-step-action gv-tilt"><div class="gv-step-number">1</div><svg fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M3 21v-2a6 6 0 0 1 12 0v2M19 8v6M16 11h6"/></svg><h3>免費註冊帳號</h3><p>建立帳號並完成基本資料。</p><div class="gv-step-links"><a class="gv-mini-action primary" href="https://point.vipyct.com/login?w=hs0QHK1efX-vk" target="_blank" rel="noopener sponsored">前往註冊</a><a class="gv-mini-action" href="teach_ste1.html">看圖教學</a></div></article>
-      <div class="gv-step-arrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m5 12 14 0M14 6l6 6-6 6"/></svg></div>
-      <article class="gv-step-action gv-tilt"><div class="gv-step-number">2</div><svg fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M4 7h16l-1 13H5L4 7ZM8 7a4 4 0 0 1 8 0"/><path d="M8 13h8"/></svg><h3>購入產品方案</h3><p>選擇 1／3／5 瓶並完成購買。</p><div class="gv-step-links"><a class="gv-mini-action primary" href="https://www.vipyct.com/#/category?categoryType=self&amp;categoryId=1025" target="_blank" rel="noopener sponsored">選擇方案</a><a class="gv-mini-action" href="teach_ste2.html">購物教學</a></div></article>
-      <div class="gv-step-arrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m5 12 14 0M14 6l6 6-6 6"/></svg></div>
-      <article class="gv-step-result"><svg fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="m12 3 3 6 6 .9-4.5 4.4 1.1 6.2L12 17.6l-5.6 2.9 1.1-6.2L3 9.9 9 9l3-6Z"/></svg><h3>正式會員</h3></article>
-    </div>
-  </div>
-</section>
-
-<section class="gv-section" id="visual-share" aria-labelledby="gv-share-title">
-  <div class="gv-shell">
-    <div class="gv-center"><span class="gv-eyebrow">社群分享</span><h2 class="gv-title" id="gv-share-title">使用者分享，自動輪播</h2><p class="gv-sub">滑鼠移入可暫停，直接觀看社群提供的前後影像與心得素材。</p></div>
-    <div class="gv-share-window gv-reveal">
-      <div class="gv-share-track">
-        <figure class="gv-share-card"><img src="/assets/home/zh-tw/community-share-01.webp" width="424" height="430" alt="使用者分享素材一" loading="lazy"/></figure>
-        <figure class="gv-share-card"><img src="/assets/home/zh-tw/community-share-02.webp" width="430" height="319" alt="使用者分享素材二" loading="lazy"/></figure>
-        <figure class="gv-share-card"><img src="/assets/home/zh-tw/community-share-03.webp" width="580" height="583" alt="使用者分享素材三" loading="lazy"/></figure>
-        <figure class="gv-share-card"><img src="/assets/home/zh-tw/community-share-01.webp" width="424" height="430" alt="使用者分享素材一複本" loading="lazy"/></figure>
-        <figure class="gv-share-card"><img src="/assets/home/zh-tw/community-share-02.webp" width="430" height="319" alt="使用者分享素材二複本" loading="lazy"/></figure>
-        <figure class="gv-share-card"><img src="/assets/home/zh-tw/community-share-03.webp" width="580" height="583" alt="使用者分享素材三複本" loading="lazy"/></figure>
-      </div>
-    </div>
-    <div class="gv-caution"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 3 2 21h20L12 3Z"/><path d="M12 9v5M12 18h.01"/></svg><span>以上為使用者提供的社群分享素材，個人經驗不代表普遍結果，也不構成疾病診斷、治療或療效證明。健康問題請諮詢合格醫療人員。</span></div>
-  </div>
-</section>
-
-<section class="gv-section" id="official-resources" aria-labelledby="gv-resource-title">
-  <div class="gv-shell">
-    <div class="gv-center"><span class="gv-eyebrow">官方資料中心</span><h2 class="gv-title" id="gv-resource-title">看圖選擇，不再猜入口</h2><p class="gv-sub">公司、產品、制度、影片與教學，改用大圖卡直接辨識。</p></div>
-    <div class="gv-resource-grid gv-reveal">
-      <a class="gv-resource" href="https://tinyurl.com/HiGo-Company1-CN-20250820" target="_blank" rel="noopener"><img src="/pic/indextop/tw/page-02.png" width="1672" height="941" alt="公司與長壽科技介紹" loading="lazy"/><div class="gv-resource-content"><div class="gv-resource-icon"><svg fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M3 21V8l9-5 9 5v13M8 21v-8h8v8"/></svg></div><strong>公司介紹</strong><span>Company</span></div></a>
-      <a class="gv-resource" href="https://tinyurl.com/H1go-Gnakg-CN-20250820" target="_blank" rel="noopener"><img src="/pic/indextop/tw/page-07.png" width="1672" height="941" alt="GnAKG 產品課件" loading="lazy"/><div class="gv-resource-content"><div class="gv-resource-icon"><svg fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M8 3h8v4l2 2v12H6V9l2-2V3Z"/><path d="M8 7h8M9 13h6"/></svg></div><strong>產品課件</strong><span>GnAKG・GnCell</span></div></a>
-      <a class="gv-resource" href="https://tinyurl.com/H1go-Commplan-CN-20250820" target="_blank" rel="noopener"><img src="/StartPic/Star10_tw.png" width="1122" height="1402" alt="Higo 獎金制度" loading="lazy"/><div class="gv-resource-content"><div class="gv-resource-icon"><svg fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><strong>獎金制度</strong><span>Comp Plan</span></div></a>
-      <a class="gv-resource" href="https://tinyurl.com/Gnakgproduct-Video-Cn-20250820" target="_blank" rel="noopener"><img src="/pic/indextop/tw/page-03.png" width="1672" height="941" alt="NAD+ 與產品影片" loading="lazy"/><div class="gv-resource-content"><div class="gv-resource-icon"><svg fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9 5 3-5 3V9Z"/></svg></div><strong>產品影片</strong><span>Video</span></div></a>
-      <a class="gv-resource" href="teach_ste1.html"><img src="/Step/Step_tw.png" width="1024" height="1536" alt="註冊帳號教學" loading="lazy"/><div class="gv-resource-content"><div class="gv-resource-icon"><svg fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M3 21v-2a6 6 0 0 1 12 0v2M19 8v6M16 11h6"/></svg></div><strong>註冊教學</strong><span>Step 1</span></div></a>
-      <a class="gv-resource" href="teach_ste2.html"><img src="/pic/indextop/tw/page-10.png" width="1672" height="941" alt="商品購買教學" loading="lazy"/><div class="gv-resource-content"><div class="gv-resource-icon"><svg fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M4 7h16l-1 13H5L4 7ZM8 7a4 4 0 0 1 8 0"/></svg></div><strong>購物教學</strong><span>Step 2</span></div></a>
-    </div>
-  </div>
-</section>
-
-<section class="gv-section" aria-labelledby="gv-system-title">
-  <div class="gv-shell">
-    <div class="gv-center"><span class="gv-eyebrow">制度 × 生態</span><h2 class="gv-title" id="gv-system-title">保留兩張完整圖解</h2></div>
-    <div class="gv-poster-grid gv-reveal">
-      <a class="gv-poster" href="bonus-plan/"><img src="/StartPic/Star10_tw.png" width="1122" height="1402" alt="Higo Star10 獎金制度圖解" loading="lazy"/></a>
-      <a class="gv-poster" href="join/"><img src="/Step/Step_tw.png" width="1024" height="1536" alt="Higo 會員加入與生態流程圖解" loading="lazy"/></a>
-    </div>
-  </div>
-</section>
-
-<section class="gv-section gv-end" aria-labelledby="gv-end-title">
-  <div class="gv-shell">
-    <div class="gv-end-card gv-reveal">
-      <div class="gv-end-copy"><span class="gv-eyebrow">YOUR CHOICE</span><h2 id="gv-end-title">先了解，再決定</h2><p>免費註冊與購入商品缺一不可；完成兩個行動後，才是正式會員。</p><div class="gv-equation" aria-label="免費註冊加上購入商品等於正式會員"><span>註冊</span><b>＋</b><span>購買</span><b>＝</b><span>會員</span></div></div>
-      <div class="gv-end-actions"><a class="gv-action gold" href="https://point.vipyct.com/login?w=hs0QHK1efX-vk" target="_blank" rel="noopener sponsored">免費註冊帳號</a><a class="gv-action blue" href="https://www.vipyct.com/#/category?categoryType=self&amp;categoryId=1025" target="_blank" rel="noopener sponsored">選擇正式方案</a></div>
-    </div>
-    <details class="gv-disclosure"><summary>資料與風險說明</summary><div>本站以圖像方式整理使用者提供的官方課件、產品、會員與教學資訊。產品不作為疾病診斷或治療；使用者分享不代表普遍結果。會員獎金依官方最新制度、資格、業績、結算與個人經營結果，不是固定薪資或保證收益。</div></details>
-  </div>
-</section>
 </main><footer style="text-align: center; padding: 30px; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05); color: #475569;">
 <p>© 2026 AKG Global｜Higo 商品、會員方案與官方資源圖解入口。</p>
 <!-- 📊 CountAPI 專用即時瀏覽計數器區塊 -->
@@ -1335,130 +1453,200 @@ body{background:#030712;color:var(--gv-text)}
 })();
 </script>
 <!-- AKG Cloudflare D1: language-page visitor counter --><aside aria-label="會員加入快捷入口" class="member-sticky-bar" id="member-sticky-bar">
-<div class="member-sticky-copy"><strong>2 步完成正式會員</strong><span>免費註冊 ＋ 購入商品方案</span></div>
+<div class="member-sticky-copy"><strong>正式會員通道</strong><span>免費註冊＋購入方案</span></div>
 <a class="member-sticky-button" href="https://point.vipyct.com/login?w=hs0QHK1efX-vk" rel="noopener sponsored" target="_blank">免費註冊</a>
-<a class="member-sticky-button" style="background:linear-gradient(90deg,#2563eb,#4f8ff7);color:#fff" href="https://www.vipyct.com/#/category?categoryType=self&amp;categoryId=1025" rel="noopener sponsored" target="_blank">正式方案</a>
+<a class="member-sticky-button" href="https://www.vipyct.com/#/category?categoryType=self&amp;categoryId=1025" rel="noopener sponsored" style="background:linear-gradient(90deg,#2563eb,#4f8ff7);color:#fff" target="_blank">正式方案</a>
 <button aria-label="關閉會員加入快捷列" class="member-sticky-close" onclick="this.parentElement.remove();document.body.style.paddingBottom='0'" type="button">×</button>
 </aside>
-
-<script id="graphic-first-home-v4-js">
+<script id="graphic-first-home-v5-js">
 (() => {
+  'use strict';
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Reveal with stagger
+  // Reveal sections progressively.
   const reveals = document.querySelectorAll('.gv-reveal');
   if (!('IntersectionObserver' in window) || reduceMotion) {
     reveals.forEach(el => el.classList.add('in'));
   } else {
-    const revealObserver = new IntersectionObserver(entries => {
+    const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('in');
-          revealObserver.unobserve(entry.target);
+          observer.unobserve(entry.target);
         }
       });
     }, { threshold: .12, rootMargin: '0px 0px -7% 0px' });
-    reveals.forEach(el => revealObserver.observe(el));
+    reveals.forEach(el => observer.observe(el));
   }
 
-  // Count-up numbers
-  const counters = document.querySelectorAll('[data-count]');
+  // Count-up numbers.
   const animateCounter = el => {
     if (el.dataset.done) return;
     el.dataset.done = '1';
     const target = Number(el.dataset.count);
     const decimals = String(el.dataset.count).includes('.') ? String(el.dataset.count).split('.')[1].length : 0;
-    const duration = 1150;
     const start = performance.now();
+    const duration = 1150;
     const tick = now => {
       const p = Math.min(1, (now - start) / duration);
-      const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = (target * eased).toFixed(decimals);
+      el.textContent = (target * (1 - Math.pow(1 - p, 3))).toFixed(decimals);
       if (p < 1) requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
   };
+  const counters = document.querySelectorAll('[data-count]');
   if ('IntersectionObserver' in window && !reduceMotion) {
-    const countObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          countObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: .6 });
-    counters.forEach(el => countObserver.observe(el));
+    const co = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) { animateCounter(entry.target); co.unobserve(entry.target); }
+    }), { threshold: .55 });
+    counters.forEach(el => co.observe(el));
   } else counters.forEach(animateCounter);
 
-  // Carousel
-  const carousel = document.getElementById('gv-carousel');
-  if (carousel) {
-    const slides = [...carousel.querySelectorAll('.gv-slide')];
-    const dots = [...carousel.querySelectorAll('.gv-carousel-dots button')];
-    let index = 0;
-    let timer = null;
-    const show = n => {
-      index = (n + slides.length) % slides.length;
-      slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
-      dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
-    };
-    const start = () => {
-      if (reduceMotion) return;
-      clearInterval(timer);
-      timer = setInterval(() => show(index + 1), 4200);
-    };
-    dots.forEach((dot, i) => dot.addEventListener('click', () => { show(i); start(); }));
-    carousel.addEventListener('mouseenter', () => clearInterval(timer));
-    carousel.addEventListener('mouseleave', start);
-    start();
-  }
-
-  // Gentle tilt on pointer devices
+  // 3D response and moving cursor glow.
   if (!reduceMotion && window.matchMedia('(pointer:fine)').matches) {
-    document.querySelectorAll('.gv-tilt').forEach(card => {
-      card.addEventListener('pointermove', e => {
+    document.querySelectorAll('.gv-tilt,.gv-resource,.gv-poster').forEach(card => {
+      card.addEventListener('pointermove', event => {
         const r = card.getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width - .5;
-        const y = (e.clientY - r.top) / r.height - .5;
-        card.style.transform = `perspective(900px) rotateX(${-y * 5}deg) rotateY(${x * 7}deg) translateY(-3px)`;
+        const x = (event.clientX - r.left) / r.width - .5;
+        const y = (event.clientY - r.top) / r.height - .5;
+        card.style.transform = `perspective(950px) rotateX(${-y * 4.5}deg) rotateY(${x * 6.5}deg) translateY(-4px)`;
       });
       card.addEventListener('pointerleave', () => { card.style.transform = ''; });
     });
+    const glow = document.querySelector('.dna-cursor-glow');
+    window.addEventListener('pointermove', event => {
+      if (!glow) return;
+      glow.style.transform = `translate(${event.clientX - 170}px,${event.clientY - 170}px)`;
+    }, { passive:true });
   }
 
-  // Particle background
+  // Formal member floating panel.
+  const orbit = document.getElementById('member-orbit');
+  const toggle = document.getElementById('member-orbit-toggle');
+  const panel = document.getElementById('member-orbit-panel');
+  const close = orbit?.querySelector('.member-orbit-close');
+  let autoPeeked = false;
+  const setPanel = open => {
+    if (!toggle || !panel) return;
+    toggle.setAttribute('aria-expanded', String(open));
+    panel.hidden = !open;
+  };
+  toggle?.addEventListener('click', () => setPanel(toggle.getAttribute('aria-expanded') !== 'true'));
+  close?.addEventListener('click', () => setPanel(false));
+  document.addEventListener('keydown', event => { if (event.key === 'Escape') setPanel(false); });
+
+  // Sticky CTA appears after engagement, floating panel gently previews once.
+  const sticky = document.getElementById('member-sticky-bar');
+  const onScroll = () => {
+    const progress = window.scrollY / Math.max(1, document.documentElement.scrollHeight - innerHeight);
+    sticky?.classList.toggle('is-visible', progress > .16);
+    if (!autoPeeked && progress > .34 && panel && toggle && !reduceMotion) {
+      autoPeeked = true;
+      setPanel(true);
+      window.setTimeout(() => {
+        if (toggle.getAttribute('aria-expanded') === 'true') setPanel(false);
+      }, 6500);
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+
+  // Full-viewport DNA universe: particles + multiple animated helices.
   const canvas = document.getElementById('future-particles');
   if (!canvas || reduceMotion) return;
-  const ctx = canvas.getContext('2d');
-  let width = 0, height = 0, dpr = 1, particles = [];
+  const ctx = canvas.getContext('2d', { alpha:true });
+  let width = 0, height = 0, dpr = 1, particles = [], raf = 0;
+  let mouseX = .5, mouseY = .5;
+  window.addEventListener('pointermove', e => { mouseX = e.clientX / innerWidth; mouseY = e.clientY / innerHeight; }, { passive:true });
+
   const resize = () => {
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    width = window.innerWidth; height = window.innerHeight;
-    canvas.width = width * dpr; canvas.height = height * dpr;
+    dpr = Math.min(window.devicePixelRatio || 1, 1.75);
+    width = innerWidth; height = innerHeight;
+    canvas.width = Math.floor(width * dpr); canvas.height = Math.floor(height * dpr);
     canvas.style.width = width + 'px'; canvas.style.height = height + 'px';
     ctx.setTransform(dpr,0,0,dpr,0,0);
-    const count = Math.max(28, Math.min(78, Math.floor(width / 20)));
+    const count = Math.max(36, Math.min(90, Math.floor(width / 16)));
     particles = Array.from({length:count}, () => ({
-      x:Math.random()*width,y:Math.random()*height,r:Math.random()*1.8+.5,
-      vx:(Math.random()-.5)*.22,vy:Math.random()*.28+.05,a:Math.random()*.55+.18
+      x:Math.random()*width, y:Math.random()*height, r:Math.random()*1.6+.35,
+      vx:(Math.random()-.5)*.18, vy:Math.random()*.25+.04, a:Math.random()*.48+.12
     }));
   };
-  const frame = () => {
-    ctx.clearRect(0,0,width,height);
-    for (const p of particles) {
-      p.x += p.vx; p.y += p.vy;
-      if (p.y > height + 10) { p.y = -10; p.x = Math.random()*width; }
-      if (p.x < -10) p.x = width+10; if (p.x > width+10) p.x = -10;
-      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle = `rgba(74,190,255,${p.a})`; ctx.shadowBlur = 10; ctx.shadowColor = '#3ec5ff'; ctx.fill();
+
+  const drawHelix = (cx, amp, phase, scale, alpha, gold=false) => {
+    const step = 16;
+    const pointsA = [], pointsB = [];
+    for (let y=-30; y<height+30; y+=step) {
+      const t = y * .018 * scale + phase;
+      const sway = Math.sin(t) * amp;
+      const parallax = (mouseX-.5) * amp * .18;
+      pointsA.push([cx + sway + parallax, y]);
+      pointsB.push([cx - sway + parallax, y]);
+    }
+    const stroke = gold ? `rgba(255,199,72,${alpha})` : `rgba(71,216,255,${alpha})`;
+    const stroke2 = gold ? `rgba(255,239,173,${alpha*.85})` : `rgba(149,246,255,${alpha*.85})`;
+    ctx.lineWidth = 1.65;
+    ctx.shadowBlur = 14;
+    ctx.shadowColor = gold ? '#ffc84d' : '#4adfff';
+    for (const points of [pointsA, pointsB]) {
+      ctx.beginPath();
+      points.forEach((p,i) => i ? ctx.lineTo(p[0],p[1]) : ctx.moveTo(p[0],p[1]));
+      ctx.strokeStyle = stroke; ctx.stroke();
     }
     ctx.shadowBlur = 0;
-    requestAnimationFrame(frame);
+    for (let i=0;i<pointsA.length;i+=2) {
+      const depth = (Math.sin(pointsA[i][1]*.018*scale+phase)+1)/2;
+      ctx.beginPath(); ctx.moveTo(pointsA[i][0],pointsA[i][1]); ctx.lineTo(pointsB[i][0],pointsB[i][1]);
+      ctx.strokeStyle = depth>.5 ? stroke2 : `rgba(130,190,230,${alpha*.35})`;
+      ctx.lineWidth = depth>.5 ? 1.25 : .7; ctx.stroke();
+      if (depth>.72) {
+        ctx.beginPath(); ctx.arc(pointsA[i][0],pointsA[i][1],2.1,0,Math.PI*2);
+        ctx.fillStyle=stroke2; ctx.fill();
+      }
+    }
   };
-  resize(); window.addEventListener('resize', resize, {passive:true}); frame();
+
+  const frame = now => {
+    ctx.clearRect(0,0,width,height);
+    const scrollPhase = window.scrollY * .0012;
+    for (const p of particles) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.y > height+8) { p.y=-8; p.x=Math.random()*width; }
+      if (p.x < -8) p.x=width+8; if (p.x>width+8) p.x=-8;
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(82,205,255,${p.a})`; ctx.shadowBlur=9; ctx.shadowColor='#38c5ff'; ctx.fill();
+    }
+    ctx.shadowBlur=0;
+    const t = now*.00042 + scrollPhase;
+    drawHelix(width*.09, Math.min(52,width*.055), t, 1, .18, false);
+    drawHelix(width*.50, Math.min(66,width*.07), -t*.82+1.3, .86, .11, true);
+    drawHelix(width*.91, Math.min(48,width*.05), t*.94+2.6, 1.12, .17, false);
+    raf=requestAnimationFrame(frame);
+  };
+
+  resize();
+  window.addEventListener('resize', resize, { passive:true });
+  raf=requestAnimationFrame(frame);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) cancelAnimationFrame(raf); else raf=requestAnimationFrame(frame);
+  });
 })();
 </script>
 <script src="/assets/js/counter-config.js?v=20260803-analytics-v3-mobile"></script>
 <script src="/assets/js/counter-track.js?v=20260803-analytics-v3-mobile"></script>
-</body>
+<aside aria-label="正式會員快速入口" class="member-orbit" id="member-orbit">
+<button aria-controls="member-orbit-panel" aria-expanded="false" class="member-orbit-toggle" id="member-orbit-toggle" type="button">
+<span aria-hidden="true" class="member-orbit-dna"><i></i><i></i><i></i><i></i><i></i></span>
+<span>正式會員</span>
+</button>
+<div class="member-orbit-panel" hidden="" id="member-orbit-panel">
+<button aria-label="收合正式會員入口" class="member-orbit-close" type="button">×</button>
+<div class="member-orbit-title">2 步啟動正式會員</div>
+<div class="member-orbit-flow">
+<a href="https://point.vipyct.com/login?w=hs0QHK1efX-vk" rel="noopener sponsored" target="_blank"><b>1</b><span>免費註冊</span></a>
+<i aria-hidden="true">→</i>
+<a href="https://www.vipyct.com/#/category?categoryType=self&amp;categoryId=1025" rel="noopener sponsored" target="_blank"><b>2</b><span>購入方案</span></a>
+</div>
+<div class="member-orbit-links"><a href="teach_ste1.html">註冊教學</a><a href="teach_ste2.html">購物教學</a></div>
+</div>
+</aside><div aria-hidden="true" class="dna-cursor-glow"></div></body>
 </html>
