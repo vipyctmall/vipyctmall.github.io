@@ -6,96 +6,84 @@
 (() => {
   "use strict";
 
-  const supportedLanguages = new Set([
+  const SUPPORTED = new Set([
     "zh-tw", "zh-cn", "en", "ja", "ko", "ms", "th", "vi",
     "id", "ru", "my", "hi", "mn", "km", "lo"
   ]);
 
-  const languageAliases = {
-    "tw": "zh-tw",
-    "zh-tw": "zh-tw",
-    "zh_tw": "zh-tw",
-    "zh-hant": "zh-tw",
-    "zh-hant-tw": "zh-tw",
-    "traditional-chinese": "zh-tw",
+  const ALIASES = {
+    "tw":"zh-tw", "zh-tw":"zh-tw", "zh_tw":"zh-tw",
+    "zh-hant":"zh-tw", "zh-hant-tw":"zh-tw", "zh-hant-hk":"zh-tw",
+    "zh-hant-mo":"zh-tw", "zh-hk":"zh-tw", "zh-mo":"zh-tw",
+    "traditional-chinese":"zh-tw",
 
-    "cn": "zh-cn",
-    "zh-cn": "zh-cn",
-    "zh_cn": "zh-cn",
-    "zh-hans": "zh-cn",
-    "zh-hans-cn": "zh-cn",
-    "simplified-chinese": "zh-cn",
+    "cn":"zh-cn", "zh-cn":"zh-cn", "zh_cn":"zh-cn",
+    "zh-hans":"zh-cn", "zh-hans-cn":"zh-cn", "zh-hans-sg":"zh-cn",
+    "zh-sg":"zh-cn", "simplified-chinese":"zh-cn",
 
-    "en-us": "en",
-    "en-gb": "en",
-    "jp": "ja",
-    "ja-jp": "ja",
-    "kr": "ko",
-    "ko-kr": "ko",
-    "ms-my": "ms",
-    "th-th": "th",
-    "vi-vn": "vi",
-    "id-id": "id",
-    "ru-ru": "ru",
-    "mm": "my",
-    "my-mm": "my",
-    "hi-in": "hi",
-    "mn-mn": "mn",
-    "kh": "km",
-    "km-kh": "km",
-    "la": "lo",
-    "lo-la": "lo"
+    "en-us":"en", "en-gb":"en", "en-au":"en", "en-ca":"en",
+    "jp":"ja", "ja-jp":"ja", "kr":"ko", "ko-kr":"ko",
+    "ms-my":"ms", "th-th":"th", "vi-vn":"vi", "id-id":"id",
+    "ru-ru":"ru", "mm":"my", "my-mm":"my", "hi-in":"hi",
+    "mn-mn":"mn", "kh":"km", "km-kh":"km", "la":"lo", "lo-la":"lo"
   };
 
-  const cookieNames = [
-    "vipyctmall_lang",
-    "akg_language",
-    "preferredLanguage",
-    "preferred_language",
-    "site_language",
-    "language",
-    "locale",
-    "lang"
+  const COOKIE_NAMES = [
+    "vipyctmall_lang", "akg_language", "preferredLanguage",
+    "preferred_language", "site_language", "language", "locale", "lang"
   ];
+
+  function safeDecode(value) {
+    try { return decodeURIComponent(value); }
+    catch (_) { return value; }
+  }
 
   function normalizeLanguage(value) {
     if (!value) return "";
-    const normalized = decodeURIComponent(value)
-      .trim()
-      .toLowerCase()
-      .replace(/\s+/g, "-");
+    const normalized = safeDecode(String(value))
+      .trim().toLowerCase().replace(/_/g, "-").replace(/\s+/g, "-");
 
-    if (supportedLanguages.has(normalized)) return normalized;
-    return languageAliases[normalized] || "";
+    if (SUPPORTED.has(normalized)) return normalized;
+    if (ALIASES[normalized]) return ALIASES[normalized];
+
+    const base = normalized.split("-")[0];
+    if (SUPPORTED.has(base)) return base;
+    return "";
   }
 
   function getCookie(name) {
     const prefix = `${encodeURIComponent(name)}=`;
-    const item = document.cookie
-      .split(";")
-      .map(part => part.trim())
+    const item = document.cookie.split(";").map(part => part.trim())
       .find(part => part.startsWith(prefix));
-
     return item ? item.slice(prefix.length) : "";
   }
 
-  // Add ?language-select=1 to temporarily display the language selection page.
+  function clearLanguageCookies() {
+    COOKIE_NAMES.forEach(name => {
+      document.cookie = `${encodeURIComponent(name)}=; Path=/; Max-Age=0; SameSite=Lax; Secure`;
+    });
+  }
+
   const params = new URLSearchParams(window.location.search);
+
+  // Manual override: always keep the global language selector visible.
+  if (params.get("reset-language") === "1") {
+    clearLanguageCookies();
+    return;
+  }
   if (params.get("language-select") === "1") return;
 
   let preferredLanguage = "";
-
-  for (const cookieName of cookieNames) {
+  for (const cookieName of COOKIE_NAMES) {
     preferredLanguage = normalizeLanguage(getCookie(cookieName));
     if (preferredLanguage) break;
   }
 
+  // SEO-safe rule: only a previously saved choice triggers an automatic redirect.
+  // First-time visitors stay on the x-default selector page.
   if (!preferredLanguage) return;
 
-  const target = `/${preferredLanguage}/index.html`;
-
-  // replace() keeps the root selector page out of browser history.
-  window.location.replace(target);
+  window.location.replace(`/${preferredLanguage}/`);
 })();
 </script>
 <title>AKG Global | AKG, NAD+, Healthy Aging &amp; Global Shopping</title>
@@ -151,6 +139,22 @@
     .language-card strong { font-size:1rem; }
     .language-card span { font-size:.78rem;color:#8E9BB0; }
     footer { margin-top:30px;color:#66758C;font-size:.82rem; }
+    .language-card.is-recommended {
+      border-color:var(--gold);
+      box-shadow:0 0 0 1px rgba(244,201,107,.22),0 12px 32px rgba(244,201,107,.13);
+    }
+    .language-card.is-recommended::after {
+      content:"Suggested";grid-column:2;justify-self:start;margin-top:7px;
+      padding:3px 8px;border-radius:999px;background:rgba(244,201,107,.12);
+      color:var(--gold);font-size:.68rem;font-weight:800;letter-spacing:.03em;
+    }
+    .detected-language-note {
+      display:none;margin:-10px auto 22px;padding:10px 14px;max-width:720px;
+      border:1px solid rgba(96,165,250,.24);border-radius:12px;
+      background:rgba(37,99,235,.08);color:#BFD7FF;font-size:.9rem;line-height:1.55;
+    }
+    .detected-language-note.is-visible { display:block; }
+
   </style>
 <link crossorigin="" href="https://point.vipyct.com" rel="preconnect"/><link href="https://point.vipyct.com" rel="dns-prefetch"/><link crossorigin="" href="https://cdnjs.cloudflare.com" rel="preconnect"/><link href="https://cdnjs.cloudflare.com" rel="dns-prefetch"/><link crossorigin="" href="https://www.youtube.com" rel="preconnect"/><link href="https://www.youtube.com" rel="dns-prefetch"/><link crossorigin="" href="https://www.youtube-nocookie.com" rel="preconnect"/><link href="https://www.youtube-nocookie.com" rel="dns-prefetch"/><link crossorigin="" href="https://i.ytimg.com" rel="preconnect"/><link href="https://i.ytimg.com" rel="dns-prefetch"/><link crossorigin="" href="https://higos3.s3.ap-southeast-1.amazonaws.com" rel="preconnect"/><link href="https://higos3.s3.ap-southeast-1.amazonaws.com" rel="dns-prefetch"/><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://vipyctmall.com/#organization","name":"Vipyctmall","url":"https://vipyctmall.com/","logo":{"@type":"ImageObject","@id":"https://vipyctmall.com/#logo","url":"https://vipyctmall.com/assets/brand/icon-512.png","contentUrl":"https://vipyctmall.com/assets/brand/icon-512.png","caption":"Vipyctmall","width":512,"height":512},"image":{"@id":"https://vipyctmall.com/#logo"},"alternateName":"AKG Global"},{"@type":"WebSite","@id":"https://vipyctmall.com/#website","url":"https://vipyctmall.com/","name":"Vipyctmall","alternateName":"AKG Global Knowledge Center","publisher":{"@id":"https://vipyctmall.com/#organization","name":"Vipyctmall","alternateName":"AKG Global","logo":{"@type":"ImageObject","url":"https://vipyctmall.com/assets/brand/icon-512.png","contentUrl":"https://vipyctmall.com/assets/brand/icon-512.png","width":512,"height":512,"caption":"Vipyctmall"}},"inLanguage":["zh-Hant-TW","zh-Hans-CN","en","ja","ko","ms","th","vi","id","ru","my","hi","mn","km","lo"]},{"@type":"ImageObject","@id":"https://vipyctmall.com/#primaryimage","url":"https://vipyctmall.com/assets/social/en-1200x630.png","contentUrl":"https://vipyctmall.com/assets/social/en-1200x630.png","width":1200,"height":630,"caption":"AKG Global multilingual research and business portal","inLanguage":"en"},{"@type":"WebPage","@id":"https://vipyctmall.com/#webpage","url":"https://vipyctmall.com/","name":"AKG Global multilingual portal","description":"Choose from 15 languages to explore AKG, NAD+, longevity and healthy aging research, wellness products, cross-border e-commerce and global business resources.","isPartOf":{"@id":"https://vipyctmall.com/#website","name":"Vipyctmall","alternateName":"AKG Global Knowledge Center"},"about":[{"@type":"Thing","name":"Alpha-ketoglutarate (AKG)"},{"@type":"Thing","name":"NAD+"},{"@type":"Thing","name":"Healthy aging"},{"@type":"Thing","name":"Cross-border e-commerce"}],"primaryImageOfPage":{"@id":"https://vipyctmall.com/#primaryimage"},"image":{"@id":"https://vipyctmall.com/#primaryimage"},"thumbnailUrl":"https://vipyctmall.com/assets/social/en-1200x630.png","breadcrumb":{"@id":"https://vipyctmall.com/#breadcrumb"},"inLanguage":"en","dateModified":"2026-07-28"},{"@type":"BreadcrumbList","@id":"https://vipyctmall.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Vipyctmall","item":"https://vipyctmall.com/"}]}]}</script>
 <meta content="Vipyctmall" name="application-name"/>
@@ -244,30 +248,66 @@
 (() => {
   "use strict";
 
-  const supportedLanguages = new Set([
+  const SUPPORTED = new Set([
     "zh-tw", "zh-cn", "en", "ja", "ko", "ms", "th", "vi",
     "id", "ru", "my", "hi", "mn", "km", "lo"
   ]);
 
+  const ALIASES = {
+    "zh":"zh-cn", "zh-cn":"zh-cn", "zh-sg":"zh-cn", "zh-hans":"zh-cn",
+    "zh-tw":"zh-tw", "zh-hk":"zh-tw", "zh-mo":"zh-tw", "zh-hant":"zh-tw",
+    "en":"en", "ja":"ja", "ko":"ko", "ms":"ms", "th":"th", "vi":"vi",
+    "id":"id", "ru":"ru", "my":"my", "hi":"hi", "mn":"mn", "km":"km", "lo":"lo"
+  };
+
+  function normalizeLanguage(value) {
+    if (!value) return "";
+    const tag = String(value).trim().toLowerCase().replace(/_/g, "-");
+    if (SUPPORTED.has(tag)) return tag;
+    if (tag.startsWith("zh-hant") || tag === "zh-hk" || tag === "zh-mo") return "zh-tw";
+    if (tag.startsWith("zh-hans") || tag === "zh-cn" || tag === "zh-sg" || tag === "zh") return "zh-cn";
+    if (ALIASES[tag]) return ALIASES[tag];
+    const base = tag.split("-")[0];
+    return SUPPORTED.has(base) ? base : "";
+  }
+
+  function saveLanguage(language) {
+    const normalized = normalizeLanguage(language);
+    if (!normalized) return;
+    document.cookie = [
+      `vipyctmall_lang=${encodeURIComponent(normalized)}`,
+      "Path=/", "Max-Age=31536000", "SameSite=Lax", "Secure"
+    ].join("; ");
+  }
+
   document.querySelectorAll(".language-card[href]").forEach(card => {
-    card.addEventListener("click", event => {
+    card.addEventListener("click", () => {
       try {
         const url = new URL(card.href, window.location.origin);
-        const language = url.pathname.split("/").filter(Boolean)[0]?.toLowerCase();
-
-        if (!supportedLanguages.has(language)) return;
-
-        document.cookie = [
-          `vipyctmall_lang=${encodeURIComponent(language)}`,
-          "Path=/",
-          "Max-Age=31536000",
-          "SameSite=Lax"
-        ].join("; ");
-      } catch (error) {
-        console.warn("Preferred language cookie could not be saved:", error);
-      }
+        saveLanguage(url.pathname.split("/").filter(Boolean)[0]);
+      } catch (_) {}
     });
   });
+
+  // A browser exposes preferred browser languages, not a guaranteed OS language.
+  // We recommend the best match but deliberately do not force a first-visit redirect.
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("language-select") === "1" || params.get("reset-language") === "1") return;
+
+  const browserLanguages = Array.isArray(navigator.languages) && navigator.languages.length
+    ? navigator.languages : [navigator.language];
+  const detected = browserLanguages.map(normalizeLanguage).find(Boolean) || "";
+  if (!detected) return;
+
+  const card = document.querySelector(`.language-card[href^="/${detected}/"]`);
+  if (!card) return;
+  card.classList.add("is-recommended");
+  card.setAttribute("aria-label", `${card.textContent.trim()} — suggested from browser language`);
+
+  const note = document.createElement("p");
+  note.className = "detected-language-note is-visible";
+  note.textContent = `Suggested from your browser language: ${card.querySelector("strong")?.textContent || detected}. You can still choose any language.`;
+  document.querySelector(".language-note")?.insertAdjacentElement("afterend", note);
 })();
 </script>
 </body>
