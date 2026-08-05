@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
-
+Disallow: /tools/
 Sitemap: https://vipyctmall.com/sitemap.xml
+Sitemap: https://vipyctmall.com/sitemap-images.xml
+Sitemap: https://vipyctmall.com/sitemap-videos.xml
