@@ -1571,7 +1571,6 @@ html { scroll-behavior: auto !important; }
  */
 @media (max-width: 900px){
   html{scroll-padding-top:94px!important;}
-  #desktop-fit-canvas > nav{visibility:hidden!important;}
 
   /* Native-size sticky header; this nav is moved outside #desktop-fit-canvas by the script below. */
   body > nav.mobile-native-nav{
@@ -1906,6 +1905,34 @@ html { scroll-behavior: auto !important; }
 .member-join-step2 .member-join-copy{max-width:36ch}
 .member-join-step2 .member-join-note{max-width:36ch}
 @media (max-width:1180px){.member-join-grid{grid-template-columns:1fr;gap:28px}.member-join-card{max-width:860px;margin:0 auto}.member-join-arrow{display:none}.member-join-icon-wrap{width:220px;height:220px}.member-join-card h3{font-size:clamp(32px,4vw,48px)}.member-join-copy{font-size:clamp(18px,2vw,25px)}.member-join-btn{font-size:clamp(22px,2vw,28px)}.member-join-plans{max-width:720px;margin-left:auto;margin-right:auto}}
+</style>
+
+
+<style id="mobile-language-top-row-v8">
+@media (max-width:900px){
+  body > nav.mobile-native-nav{
+    grid-template-columns:minmax(0,1fr) auto!important;
+    grid-template-rows:auto auto!important;
+  }
+  body > nav.mobile-native-nav .logo{
+    grid-column:1!important;
+    grid-row:1!important;
+    justify-self:start!important;
+    align-self:center!important;
+  }
+  body > nav.mobile-native-nav .lang-dropdown-wrapper{
+    grid-column:2!important;
+    grid-row:1!important;
+    justify-self:end!important;
+    align-self:center!important;
+    margin:0!important;
+  }
+  body > nav.mobile-native-nav .nav-links{
+    grid-column:1 / -1!important;
+    grid-row:2!important;
+    margin-top:2px!important;
+  }
+}
 </style>
 
 </head>
