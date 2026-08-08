@@ -1,218 +1,134 @@
 (() => {
   'use strict';
 
-  const VERSION = '20260803-mobile-ui-v8';
+  const VERSION = '20260808-pwa-restored-v1';
+  const DISMISS_KEY = 'vipyctmall_pwa_install_dismissed_at';
+  const DISMISS_MS = 7 * 24 * 60 * 60 * 1000;
+  let deferredPrompt = null;
+  let panel = null;
 
-  const strings = {
-    'zh-hant': {
-      title: '安裝 AKG GLOBAL',
-      text: '安裝後可像一般 App 一樣快速開啟 Vipyctmall。',
-      install: '立即安裝',
-      later: '暫時不要'
-    },
-    'zh-hans': {
-      title: '安装 AKG GLOBAL',
-      text: '安装后可像普通 App 一样快速打开 Vipyctmall。',
-      install: '立即安装',
-      later: '暂时不要'
-    },
-    en: {
-      title: 'Install AKG GLOBAL',
-      text: 'Install Vipyctmall for fast, app-like access.',
-      install: 'Install now',
-      later: 'Not now'
-    },
-    ja: {title:'AKG GLOBAL をインストール',text:'Vipyctmall をアプリのようにすぐ開けます。',install:'今すぐインストール',later:'今はしない'},
-    ko: {title:'AKG GLOBAL 설치',text:'Vipyctmall을 앱처럼 빠르게 열 수 있습니다.',install:'지금 설치',later:'나중에'},
-    ms: {title:'Pasang AKG GLOBAL',text:'Pasang Vipyctmall untuk akses pantas seperti aplikasi.',install:'Pasang sekarang',later:'Bukan sekarang'},
-    th: {title:'ติดตั้ง AKG GLOBAL',text:'ติดตั้ง Vipyctmall เพื่อเปิดใช้งานได้รวดเร็วเหมือนแอป',install:'ติดตั้งตอนนี้',later:'ไว้ภายหลัง'},
-    vi: {title:'Cài đặt AKG GLOBAL',text:'Cài đặt Vipyctmall để mở nhanh như một ứng dụng.',install:'Cài đặt ngay',later:'Để sau'},
-    id: {title:'Instal AKG GLOBAL',text:'Instal Vipyctmall agar dapat dibuka cepat seperti aplikasi.',install:'Instal sekarang',later:'Nanti'},
-    ru: {title:'Установить AKG GLOBAL',text:'Установите Vipyctmall для быстрого запуска как приложения.',install:'Установить',later:'Не сейчас'},
-    my: {title:'AKG GLOBAL ကို ထည့်သွင်းပါ',text:'Vipyctmall ကို App ကဲ့သို့ အမြန်ဖွင့်နိုင်ရန် ထည့်သွင်းပါ။',install:'ယခုထည့်သွင်းမည်',later:'နောက်မှ'},
-    hi: {title:'AKG GLOBAL इंस्टॉल करें',text:'Vipyctmall को ऐप की तरह तेज़ी से खोलने के लिए इंस्टॉल करें।',install:'अभी इंस्टॉल करें',later:'अभी नहीं'},
-    mn: {title:'AKG GLOBAL суулгах',text:'Vipyctmall-ийг апп шиг хурдан нээхийн тулд суулгана уу.',install:'Одоо суулгах',later:'Дараа'},
-    km: {title:'ដំឡើង AKG GLOBAL',text:'ដំឡើង Vipyctmall ដើម្បីបើកបានលឿនដូចកម្មវិធី។',install:'ដំឡើងឥឡូវនេះ',later:'ពេលក្រោយ'},
-    lo: {title:'ຕິດຕັ້ງ AKG GLOBAL',text:'ຕິດຕັ້ງ Vipyctmall ເພື່ອເປີດໄດ້ໄວເໝືອນແອັບ.',install:'ຕິດຕັ້ງດຽວນີ້',later:'ໄວ້ພາຍຫຼັງ'}
+  const standalone = () =>
+    window.matchMedia('(display-mode: standalone)').matches ||
+    window.navigator.standalone === true;
+
+  const isIOS = () => /iphone|ipad|ipod/i.test(navigator.userAgent);
+  const isSafari = () => /^((?!chrome|android|crios|fxios|edgios).)*safari/i.test(navigator.userAgent);
+
+  const localeCode = () => {
+    const raw = (document.documentElement.lang || '').toLowerCase();
+    if (raw.startsWith('zh-tw') || raw.startsWith('zh-hant')) return 'zh-tw';
+    if (raw.startsWith('zh-cn') || raw.startsWith('zh-hans') || raw === 'zh') return 'zh-cn';
+    return raw.split('-')[0] || 'en';
   };
 
-  const lang = (document.documentElement.lang || 'en').toLowerCase();
-  const locale = lang.startsWith('zh-hant') || lang === 'zh-tw' ? 'zh-hant'
-    : lang.startsWith('zh-hans') || lang === 'zh-cn' ? 'zh-hans'
-    : lang.split('-')[0];
-  const copy = strings[locale] || strings.en;
+  const copy = {
+    'zh-tw': {title:'安裝 AKG GLOBAL', body:'將網站加入手機主畫面，之後可像 APP 一樣快速開啟。', install:'安裝 APP', close:'稍後', ios:'Safari：點選「分享」→「加入主畫面」即可安裝。', ok:'知道了'},
+    'zh-cn': {title:'安装 AKG GLOBAL', body:'将网站添加到手机主屏幕，之后可像 APP 一样快速打开。', install:'安装 APP', close:'稍后', ios:'Safari：点击“分享”→“添加到主屏幕”即可安装。', ok:'知道了'},
+    en: {title:'Install AKG GLOBAL', body:'Add this site to your home screen for app-like quick access.', install:'Install App', close:'Later', ios:'Safari: tap Share → Add to Home Screen.', ok:'Got it'},
+    ja: {title:'AKG GLOBAL をインストール', body:'ホーム画面に追加すると、アプリのようにすぐ開けます。', install:'アプリを追加', close:'後で', ios:'Safari：「共有」→「ホーム画面に追加」を選択してください。', ok:'OK'},
+    ko: {title:'AKG GLOBAL 설치', body:'홈 화면에 추가하면 앱처럼 빠르게 열 수 있습니다.', install:'앱 설치', close:'나중에', ios:'Safari: 공유 → 홈 화면에 추가를 선택하세요.', ok:'확인'},
+    ms: {title:'Pasang AKG GLOBAL', body:'Tambah laman ini ke skrin utama untuk akses pantas seperti aplikasi.', install:'Pasang Aplikasi', close:'Kemudian', ios:'Safari: tekan Kongsi → Tambah ke Skrin Utama.', ok:'Faham'},
+    th: {title:'ติดตั้ง AKG GLOBAL', body:'เพิ่มเว็บไซต์นี้ไปยังหน้าจอหลักเพื่อเปิดใช้งานได้รวดเร็วเหมือนแอป', install:'ติดตั้งแอป', close:'ภายหลัง', ios:'Safari: แตะ แชร์ → เพิ่มไปยังหน้าจอโฮม', ok:'ตกลง'},
+    vi: {title:'Cài đặt AKG GLOBAL', body:'Thêm trang này vào màn hình chính để truy cập nhanh như ứng dụng.', install:'Cài ứng dụng', close:'Để sau', ios:'Safari: chạm Chia sẻ → Thêm vào Màn hình chính.', ok:'Đã hiểu'},
+    id: {title:'Instal AKG GLOBAL', body:'Tambahkan situs ini ke layar utama untuk akses cepat seperti aplikasi.', install:'Instal Aplikasi', close:'Nanti', ios:'Safari: ketuk Bagikan → Tambahkan ke Layar Utama.', ok:'Mengerti'},
+    ru: {title:'Установить AKG GLOBAL', body:'Добавьте сайт на главный экран для быстрого доступа как к приложению.', install:'Установить', close:'Позже', ios:'Safari: нажмите «Поделиться» → «На экран Домой».', ok:'Понятно'},
+    my: {title:'AKG GLOBAL ကို ထည့်သွင်းရန်', body:'APP ကဲ့သို့ အမြန်ဖွင့်နိုင်ရန် ပင်မမျက်နှာပြင်သို့ ထည့်ပါ။', install:'APP ထည့်သွင်းရန်', close:'နောက်မှ', ios:'Safari: Share → Add to Home Screen ကို နှိပ်ပါ။', ok:'နားလည်ပါပြီ'},
+    hi: {title:'AKG GLOBAL इंस्टॉल करें', body:'ऐप जैसी तेज़ पहुँच के लिए इसे होम स्क्रीन पर जोड़ें।', install:'ऐप इंस्टॉल करें', close:'बाद में', ios:'Safari: Share → Add to Home Screen चुनें।', ok:'ठीक है'},
+    mn: {title:'AKG GLOBAL суулгах', body:'Апп шиг хурдан нээхийн тулд нүүр дэлгэцэнд нэмнэ үү.', install:'Апп суулгах', close:'Дараа', ios:'Safari: Share → Add to Home Screen сонгоно уу.', ok:'Ойлголоо'},
+    km: {title:'ដំឡើង AKG GLOBAL', body:'បន្ថែមគេហទំព័រនេះទៅអេក្រង់ដើម ដើម្បីបើកបានរហ័សដូចកម្មវិធី។', install:'ដំឡើង APP', close:'ពេលក្រោយ', ios:'Safari៖ ចុច Share → Add to Home Screen។', ok:'យល់ហើយ'},
+    lo: {title:'ຕິດຕັ້ງ AKG GLOBAL', body:'ເພີ່ມເວັບໄຊນີ້ໄປໜ້າຈໍຫຼັກ ເພື່ອເປີດໄດ້ໄວເໝືອນ APP.', install:'ຕິດຕັ້ງ APP', close:'ພາຍຫຼັງ', ios:'Safari: ແຕະ Share → Add to Home Screen.', ok:'ເຂົ້າໃຈແລ້ວ'}
+  };
 
-  const isStandalone = () =>
-    window.matchMedia('(display-mode: standalone)').matches ||
-    window.matchMedia('(display-mode: fullscreen)').matches ||
-    navigator.standalone === true ||
-    document.referrer.startsWith('android-app://');
+  const t = () => copy[localeCode()] || copy.en;
 
-  const isMobile = () =>
-    window.matchMedia('(pointer: coarse)').matches ||
-    navigator.maxTouchPoints > 0 ||
-    window.innerWidth <= 900;
+  const recentlyDismissed = () => {
+    try {
+      const ts = Number(localStorage.getItem(DISMISS_KEY) || 0);
+      return ts > 0 && Date.now() - ts < DISMISS_MS;
+    } catch (_) { return false; }
+  };
 
-  let deferredPrompt = null;
-  let banner = null;
-  let dismissedForThisPage = false;
-  let pageLoaded = document.readyState === 'complete';
+  const markDismissed = () => {
+    try { localStorage.setItem(DISMISS_KEY, String(Date.now())); } catch (_) {}
+  };
 
-  function removeBanner() {
-    if (banner) banner.remove();
-    banner = null;
-  }
+  const hide = () => {
+    if (panel) panel.remove();
+    panel = null;
+  };
 
-  function ensureStyle() {
-    if (document.getElementById('akg-pwa-install-style')) return;
+  const show = (mode) => {
+    if (standalone() || panel || recentlyDismissed()) return;
+    const txt = t();
+    panel = document.createElement('aside');
+    panel.id = 'vipyctmall-pwa-install';
+    panel.setAttribute('role', 'dialog');
+    panel.setAttribute('aria-label', txt.title);
+    panel.innerHTML = `
+      <img src="/assets/brand/vipyctmall-icon-max-192.png?v=${VERSION}" alt="" width="48" height="48">
+      <div class="vipyctmall-pwa-copy">
+        <strong>${txt.title}</strong>
+        <span>${mode === 'ios' ? txt.ios : txt.body}</span>
+      </div>
+      <button type="button" class="vipyctmall-pwa-primary">${mode === 'ios' ? txt.ok : txt.install}</button>
+      <button type="button" class="vipyctmall-pwa-close" aria-label="${txt.close}">×</button>`;
 
     const style = document.createElement('style');
-    style.id = 'akg-pwa-install-style';
+    style.id = 'vipyctmall-pwa-install-style';
     style.textContent = `
-      .akg-pwa{position:fixed;z-index:2147483647;left:max(12px,env(safe-area-inset-left));right:max(12px,env(safe-area-inset-right));bottom:max(88px,calc(env(safe-area-inset-bottom) + 78px));display:none;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:center;max-width:680px;margin:auto;padding:14px;border:1px solid rgba(96,165,250,.4);border-radius:22px;background:linear-gradient(145deg,rgba(13,27,51,.985),rgba(5,12,25,.985));color:#f8fafc;box-shadow:0 24px 70px rgba(0,0,0,.58);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",sans-serif;backdrop-filter:blur(18px)}
-      .akg-pwa.show{display:grid;animation:akg-pwa-in .28s ease-out}
-      .akg-pwa img{width:64px;height:64px;border-radius:17px;background:#07101f;object-fit:cover}
-      .akg-pwa h2{margin:0 0 4px;font-size:1rem;line-height:1.3;color:#fff}
-      .akg-pwa p{margin:0;color:#bcc9da;font-size:.84rem;line-height:1.46}
-      .akg-pwa-actions{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:9px}
-      .akg-pwa button{min-height:44px;border-radius:13px;font:inherit;font-weight:900;cursor:pointer}
-      .akg-pwa button:disabled{opacity:.65;cursor:wait}
-      .akg-pwa-install{border:0;background:linear-gradient(100deg,#ffc229,#f59e0b);color:#111827}
-      .akg-pwa-later{border:1px solid rgba(148,163,184,.3);background:rgba(15,23,42,.92);color:#dbeafe}
-      @keyframes akg-pwa-in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-      @media(max-width:350px){.akg-pwa{grid-template-columns:52px minmax(0,1fr);padding:12px}.akg-pwa img{width:52px;height:52px}.akg-pwa-actions{grid-template-columns:1fr}}
+      #vipyctmall-pwa-install{position:fixed;left:50%;bottom:calc(78px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:100000;width:min(94vw,520px);box-sizing:border-box;display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:10px;align-items:center;padding:12px 42px 12px 12px;border:1px solid rgba(94,225,220,.42);border-radius:18px;background:#09172a;color:#eef7ff;box-shadow:0 12px 34px rgba(0,0,0,.48);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans",sans-serif}
+      #vipyctmall-pwa-install img{display:block;border-radius:12px}
+      #vipyctmall-pwa-install .vipyctmall-pwa-copy{min-width:0;display:grid;gap:3px}
+      #vipyctmall-pwa-install strong{font-size:14px;line-height:1.25}
+      #vipyctmall-pwa-install span{font-size:11.5px;line-height:1.4;color:#b8cadf}
+      #vipyctmall-pwa-install .vipyctmall-pwa-primary{min-height:38px;padding:0 14px;border:0;border-radius:999px;background:#ffbd23;color:#07101f;font-weight:900;white-space:nowrap;cursor:pointer}
+      #vipyctmall-pwa-install .vipyctmall-pwa-close{position:absolute;right:8px;top:8px;width:28px;height:28px;border:0;border-radius:50%;background:rgba(255,255,255,.08);color:#dce8f7;font-size:20px;line-height:1;cursor:pointer}
+      @media(max-width:420px){#vipyctmall-pwa-install{grid-template-columns:42px minmax(0,1fr);padding:10px 38px 10px 10px}#vipyctmall-pwa-install img{width:42px;height:42px}#vipyctmall-pwa-install .vipyctmall-pwa-primary{grid-column:1/-1;width:100%;min-height:40px}#vipyctmall-pwa-install strong{font-size:13px}#vipyctmall-pwa-install span{font-size:11px}}
     `;
-    document.head.appendChild(style);
-  }
+    if (!document.getElementById(style.id)) document.head.appendChild(style);
+    document.body.appendChild(panel);
 
-  function showNativeInstallBanner() {
-    // Never show a fake/manual install prompt.
-    // The button is rendered only when the browser has supplied a real
-    // BeforeInstallPromptEvent and the app is not already installed.
-    if (
-      banner ||
-      dismissedForThisPage ||
-      isStandalone() ||
-      !isMobile() ||
-      !deferredPrompt
-    ) return;
-
-    ensureStyle();
-
-    const box = document.createElement('aside');
-    box.className = 'akg-pwa';
-    box.setAttribute('role', 'dialog');
-    box.setAttribute('aria-live', 'polite');
-    box.innerHTML = `
-      <img src="/assets/brand/vipyctmall-icon-max-192.png?v=${VERSION}" alt="" width="64" height="64">
-      <div><h2></h2><p></p></div>
-      <div class="akg-pwa-actions">
-        <button type="button" class="akg-pwa-later"></button>
-        <button type="button" class="akg-pwa-install"></button>
-      </div>`;
-
-    box.querySelector('h2').textContent = copy.title;
-    box.querySelector('p').textContent = copy.text;
-
-    const laterButton = box.querySelector('.akg-pwa-later');
-    const installButton = box.querySelector('.akg-pwa-install');
-
-    laterButton.textContent = copy.later;
-    installButton.textContent = copy.install;
-
-    laterButton.addEventListener('click', () => {
-      // Only hide during the current document lifetime.
-      // Reloading or reopening the page checks installability again.
-      dismissedForThisPage = true;
-      removeBanner();
+    panel.querySelector('.vipyctmall-pwa-close').addEventListener('click', () => {
+      markDismissed();
+      hide();
     });
 
-    installButton.addEventListener('click', async () => {
-      // The browser requires this call to happen directly inside a user click.
-      const promptEvent = deferredPrompt;
-      if (!promptEvent || isStandalone()) {
-        removeBanner();
+    panel.querySelector('.vipyctmall-pwa-primary').addEventListener('click', async () => {
+      if (mode === 'ios') {
+        markDismissed();
+        hide();
         return;
       }
-
-      installButton.disabled = true;
-      laterButton.disabled = true;
-
+      if (!deferredPrompt) return;
+      const promptEvent = deferredPrompt;
+      deferredPrompt = null;
       try {
-        // This opens the browser's native installation confirmation.
-        // Web security does not allow a site to silently install without it.
-        promptEvent.prompt();
-        const choice = await promptEvent.userChoice;
-
-        deferredPrompt = null;
-        removeBanner();
-
-        if (choice && choice.outcome === 'dismissed') {
-          dismissedForThisPage = true;
-        }
-      } catch (error) {
-        console.warn('AKG GLOBAL native install prompt failed:', error);
-        deferredPrompt = null;
-        removeBanner();
-      }
+        await promptEvent.prompt();
+        await promptEvent.userChoice;
+      } catch (_) {}
+      hide();
     });
-
-    document.body.appendChild(box);
-    banner = box;
-    requestAnimationFrame(() => box.classList.add('show'));
-  }
+  };
 
   if ('serviceWorker' in navigator) {
-    window.addEventListener('load', async () => {
-      try {
-        const registration = await navigator.serviceWorker.register('/sw.js', {
-          scope: '/',
-          updateViaCache: 'none'
-        });
-        registration.update().catch(() => {});
-      } catch (error) {
-        console.warn('AKG GLOBAL service worker registration failed:', error);
-      }
-    });
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js', {scope:'/', updateViaCache:'none'}).catch(() => {});
+    }, {once:true});
   }
 
-  // Chromium-based browsers dispatch this only when the current site is
-  // genuinely installable and is not already running as an installed app.
   window.addEventListener('beforeinstallprompt', (event) => {
     event.preventDefault();
     deferredPrompt = event;
-
-    if (pageLoaded) {
-      showNativeInstallBanner();
-    }
-  });
-
-  window.addEventListener('load', () => {
-    pageLoaded = true;
-
-    if (isStandalone()) {
-      deferredPrompt = null;
-      removeBanner();
-      return;
-    }
-
-    showNativeInstallBanner();
+    show('native');
   });
 
   window.addEventListener('appinstalled', () => {
     deferredPrompt = null;
-    dismissedForThisPage = true;
-    removeBanner();
+    hide();
+    try { localStorage.removeItem(DISMISS_KEY); } catch (_) {}
   });
 
-  const standaloneQuery = window.matchMedia('(display-mode: standalone)');
-  if (typeof standaloneQuery.addEventListener === 'function') {
-    standaloneQuery.addEventListener('change', (event) => {
-      if (event.matches) {
-        deferredPrompt = null;
-        dismissedForThisPage = true;
-        removeBanner();
-      }
-    });
+  if (isIOS() && isSafari() && !standalone()) {
+    window.addEventListener('load', () => setTimeout(() => show('ios'), 700), {once:true});
   }
 })();
