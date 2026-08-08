@@ -1579,6 +1579,216 @@ html { scroll-behavior: auto !important; }
 }
 </style>
 
+<style id="mobile-native-header-and-marquee-legibility-v3">
+/*
+ * Mobile readability pass (all locales):
+ * - top navigation is moved outside the scaled 1440px canvas and rendered at native phone size
+ * - product marquee cards and their action buttons are enlarged inside the scaled canvas
+ * - no additional continuous animation is introduced
+ */
+@media (max-width: 900px){
+  html{scroll-padding-top:94px!important;}
+  #desktop-fit-canvas > nav{visibility:hidden!important;}
+
+  /* Native-size sticky header; this nav is moved outside #desktop-fit-canvas by the script below. */
+  body > nav.mobile-native-nav{
+    position:sticky!important;
+    top:0!important;
+    z-index:2147483000!important;
+    width:100%!important;
+    max-width:none!important;
+    box-sizing:border-box!important;
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    grid-template-rows:auto auto!important;
+    align-items:center!important;
+    gap:6px 10px!important;
+    padding:8px 10px 7px!important;
+    margin:0!important;
+    background:rgba(4,12,27,.985)!important;
+    border-bottom:1px solid rgba(78,190,255,.28)!important;
+    box-shadow:0 8px 20px rgba(0,0,0,.28)!important;
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
+    transform:none!important;
+    isolation:isolate!important;
+  }
+  body > nav.mobile-native-nav .logo{
+    display:flex!important;
+    align-items:center!important;
+    min-width:0!important;
+  }
+  body > nav.mobile-native-nav .logo img{
+    display:block!important;
+    width:min(205px,54vw)!important;
+    height:34px!important;
+    max-width:100%!important;
+    object-fit:contain!important;
+    object-position:left center!important;
+    padding:0!important;
+    margin:0!important;
+    filter:drop-shadow(0 0 5px rgba(56,189,248,.38))!important;
+  }
+  body > nav.mobile-native-nav .lang-dropdown-wrapper{
+    position:relative!important;
+    display:block!important;
+    justify-self:end!important;
+    z-index:2147483200!important;
+  }
+  body > nav.mobile-native-nav .lang-dropdown-btn{
+    width:auto!important;
+    min-width:108px!important;
+    max-width:43vw!important;
+    min-height:36px!important;
+    padding:6px 10px!important;
+    gap:7px!important;
+    border-radius:999px!important;
+    box-sizing:border-box!important;
+    background:#15243b!important;
+  }
+  body > nav.mobile-native-nav .lang-selected-info{
+    gap:7px!important;
+    min-width:0!important;
+    font-size:12px!important;
+    line-height:1!important;
+    font-weight:800!important;
+    white-space:nowrap!important;
+  }
+  body > nav.mobile-native-nav .lang-selected-info span{
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+    white-space:nowrap!important;
+  }
+  body > nav.mobile-native-nav .lang-flag-img{
+    flex:0 0 auto!important;
+    width:23px!important;
+    height:16px!important;
+  }
+  body > nav.mobile-native-nav .lang-arrow{font-size:10px!important;}
+  body > nav.mobile-native-nav .lang-dropdown-menu{
+    left:auto!important;
+    right:0!important;
+    top:calc(100% + 7px)!important;
+    z-index:2147483600!important;
+    width:min(270px,88vw)!important;
+    max-height:64vh!important;
+    overflow:auto!important;
+    padding:7px!important;
+    border-radius:16px!important;
+    background:#071224!important;
+  }
+  body > nav.mobile-native-nav .lang-option{
+    min-height:39px!important;
+    gap:9px!important;
+    padding:7px 10px!important;
+    font-size:13px!important;
+    line-height:1.25!important;
+  }
+
+  /* Readable second-row navigation without squeezing labels. */
+  body > nav.mobile-native-nav .nav-links{
+    grid-column:1 / -1!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    gap:5px!important;
+    width:100%!important;
+    min-width:0!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    padding:1px 0 0!important;
+    margin:0!important;
+    scrollbar-width:none!important;
+    -webkit-overflow-scrolling:touch!important;
+    overscroll-behavior-x:contain!important;
+  }
+  body > nav.mobile-native-nav .nav-links::-webkit-scrollbar{display:none!important;}
+  body > nav.mobile-native-nav .nav-links a{
+    flex:0 0 auto!important;
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    min-height:29px!important;
+    padding:5px 9px!important;
+    border:1px solid rgba(108,193,255,.16)!important;
+    border-radius:999px!important;
+    background:rgba(13,36,69,.72)!important;
+    color:#cfe5f8!important;
+    font-size:12px!important;
+    line-height:1!important;
+    font-weight:800!important;
+    white-space:nowrap!important;
+  }
+
+  /* Enlarged visual cards in the product/technology/global-trends marquee. */
+  #visual-products .gv-center{margin-bottom:42px!important;}
+  #visual-products .gv-title{
+    font-size:96px!important;
+    line-height:1.03!important;
+    letter-spacing:-.035em!important;
+  }
+  #visual-products .gv-image-marquee{
+    padding-top:22px!important;
+    padding-bottom:54px!important;
+  }
+  #visual-products .gv-image-group{
+    gap:30px!important;
+    padding-right:30px!important;
+  }
+  #visual-products .gv-marquee-card{
+    width:660px!important;
+    padding:14px!important;
+    border-radius:28px!important;
+  }
+  #visual-products .gv-marquee-card img{border-radius:20px!important;}
+
+  /* Larger, easier-to-read CTA labels while keeping both buttons on one balanced row. */
+  #visual-products .gv-product-quick-actions{
+    gap:28px!important;
+    margin-top:12px!important;
+  }
+  #visual-products .gv-icon-cta{
+    min-width:330px!important;
+    min-height:88px!important;
+    padding:20px 34px!important;
+    gap:18px!important;
+    border-radius:999px!important;
+    font-size:42px!important;
+    line-height:1.1!important;
+    font-weight:950!important;
+    white-space:nowrap!important;
+  }
+  #visual-products .gv-icon-cta-symbol{font-size:48px!important;}
+
+  /* Slightly improve the smallest labels in the two-step cards without changing their geometry. */
+  #visual-steps .gv-step-action p{font-size:27px!important;line-height:1.5!important;}
+  #visual-steps .gv-mini-action{min-height:72px!important;font-size:27px!important;line-height:1.15!important;}
+}
+
+@media (max-width: 370px){
+  body > nav.mobile-native-nav{padding-left:8px!important;padding-right:8px!important;gap:5px 7px!important;}
+  body > nav.mobile-native-nav .logo img{width:min(180px,51vw)!important;height:31px!important;}
+  body > nav.mobile-native-nav .lang-dropdown-btn{min-width:102px!important;padding-left:8px!important;padding-right:8px!important;}
+  body > nav.mobile-native-nav .lang-selected-info{font-size:11px!important;}
+  body > nav.mobile-native-nav .nav-links a{font-size:11.5px!important;padding-left:8px!important;padding-right:8px!important;}
+}
+</style>
+<script id="mobile-native-header-relocation-v1">
+(function(){
+  function makeHeaderNative(){
+    var shell=document.getElementById('desktop-fit-shell');
+    var canvas=document.getElementById('desktop-fit-canvas');
+    if(!shell||!canvas) return;
+    var nav=canvas.querySelector('nav');
+    if(!nav || nav.classList.contains('mobile-native-nav')) return;
+    nav.classList.add('mobile-native-nav');
+    shell.parentNode.insertBefore(nav,shell);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',makeHeaderNative,{once:true});
+  else makeHeaderNative();
+})();
+</script>
+
 </head>
 <body class="lang-zh-TW">
 <div id="desktop-fit-shell"><div id="desktop-fit-canvas">
